@@ -16,19 +16,19 @@ export const SERVICES = [
     id: "01",
     title: "Custom Design",
     description: "Our world-class architects translate your vision into breathtaking 3D designs and precise blueprints. We ensure every square foot reflects your personal style and functional needs.",
-    image: "https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000"
   },
   {
     id: "02",
     title: "Premium Construction",
     description: "Using only top-tier materials and advanced engineering techniques, we build structures that stand the test of time. Quality is our foundation, and excellence is our standard.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1000"
   },
   {
     id: "03",
     title: "Worker Management",
     description: "We hand-select and manage a team of expert masons, electricians, and plumbers. Our rigorous quality control ensures every detail of your home is crafted to perfection.",
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=1000"
   },
   {
     id: "04",
