@@ -1769,3 +1769,40 @@
 .tool-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
 .tool-card h4 { font-size: 1.2rem; margin-bottom: 10px; color: #D4AF37; }
 .tool-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+/* Calculator & Improved Worker Styles */
+.calculator-card { background: #0a0a0a; border: 1px solid var(--border); border-radius: 30px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.calc-header { margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+.calc-header h2 { font-family: 'Playfair Display', serif; color: #D4AF37; font-size: 2rem; }
+.calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+.input-group { margin-bottom: 25px; }
+.input-group label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 10px; }
+.input-group input { width: 100%; background: #1a1a1a; border: 1px solid var(--border); padding: 15px; border-radius: 10px; color: white; font-size: 1.2rem; }
+.calc-pkg-selector { display: flex; gap: 10px; }
+.calc-pkg-selector button { flex: 1; background: #1a1a1a; border: 1px solid var(--border); color: white; padding: 10px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+.calc-pkg-selector button.active { background: #D4AF37; border-color: #D4AF37; color: #000; font-weight: 700; }
+.total-display { background: #1a1a1a; padding: 30px; border-radius: 20px; text-align: center; margin-bottom: 30px; border: 1px solid #D4AF37; }
+.total-display span { font-size: 0.9rem; color: var(--text-muted); }
+.total-display h3 { font-size: 2.5rem; color: #D4AF37; margin-top: 10px; }
+.breakdown-grid { display: grid; gap: 15px; }
+.breakdown-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+
+/* Worker UI Improvements */
+.worker-card { height: 100%; display: flex; flex-direction: column; background: #111; border-radius: 20px; overflow: hidden; position: relative; border: 1px solid var(--border); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+.worker-card:hover { transform: translateY(-10px); border-color: #D4AF37; box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1); }
+.worker-image-wrapper { height: 300px; overflow: hidden; }
+.worker-img { transition: 0.5s ease; }
+.worker-card:hover .worker-img { transform: scale(1.1); }
+.worker-info { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+.worker-role { background: rgba(212, 175, 55, 0.1); color: #D4AF37; padding: 5px 15px; border-radius: 50px; font-size: 0.7rem; display: inline-block; width: fit-content; margin-bottom: 15px; }
+.worker-meta { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.worker-meta span { display: flex; flex-direction: column; font-size: 0.75rem; }
+.worker-meta strong { font-size: 0.9rem; color: #D4AF37; margin-top: 2px; }
+
+/* Filter & Tab Styles */
+.category-filters { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.filter-tab { background: #1a1a1a; border: 1px solid var(--border); color: white; padding: 10px 25px; border-radius: 50px; cursor: pointer; transition: 0.3s; font-size: 0.85rem; letter-spacing: 1px; }
+.filter-tab.active { background: #D4AF37; border-color: #D4AF37; color: #000; font-weight: 700; }
+.filter-tab:hover { border-color: #D4AF37; }
+
+.verified-badge { position: absolute; top: 15px; left: 15px; background: #4caf50; color: white; padding: 4px 12px; border-radius: 5px; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; z-index: 10; }

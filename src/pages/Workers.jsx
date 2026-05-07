@@ -8,6 +8,13 @@ import { WORKERS } from '../constants/data';
 const Workers = () => {
   const navigate = useNavigate();
   const [hiredWorkers, setHiredWorkers] = useState([]);
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const categories = ['All', 'Design', 'Masonry', 'Electrical', 'Plumbing', 'Engineering'];
+
+  const filteredWorkers = activeCategory === 'All' 
+    ? WORKERS 
+    : WORKERS.filter(w => w.category === activeCategory);
 
   const toggleHireWorker = (worker) => {
     if (hiredWorkers.find(w => w.id === worker.id)) {
@@ -35,34 +42,60 @@ const Workers = () => {
               animate={{ opacity: 1, y: 0 }}
               className="section-title"
             >
-              Hire Your Expert Team
+              Expert Team Marketplace
             </motion.h1>
-            <p className="hero-subtitle">Select the best professionals to bring your design to life.</p>
+            <p className="hero-subtitle">Hand-picked professionals for your construction needs.</p>
           </div>
         </div>
       </section>
 
       <section className="section-container">
+        {/* Category Filter */}
+        <div className="filter-container text-center" style={{marginBottom: '50px'}}>
+          <div className="category-filters">
+            {categories.map(cat => (
+              <button 
+                key={cat}
+                className={`filter-tab ${activeCategory === cat ? 'active' : ''}`}
+                onClick={() => setActiveCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <div className="workers-grid">
-          {WORKERS.map((worker, index) => (
-            <ScrollReveal key={worker.id} delay={index * 0.1}>
+          {filteredWorkers.map((worker, index) => (
+            <ScrollReveal key={worker.id} delay={index * 0.05}>
               <div className={`worker-card ${hiredWorkers.find(w => w.id === worker.id) ? 'hired' : ''}`}>
                 <div className="worker-image-wrapper">
                   <img src={worker.image} alt={worker.name} className="worker-img" />
+                  {worker.verified && <div className="verified-badge">VERIFIED PRO</div>}
                   <div className="worker-rating">⭐ {worker.rating}</div>
                 </div>
                 <div className="worker-info">
                   <span className="worker-role">{worker.role}</span>
                   <h3>{worker.name}</h3>
+                  <p className="worker-specialty">{worker.specialty}</p>
+                  
                   <div className="worker-meta">
-                    <span><strong>Exp:</strong> {worker.experience}</span>
-                    <span><strong>Specialty:</strong> {worker.specialty}</span>
+                    <span>
+                      <small>EXPERIENCE</small>
+                      <strong>{worker.experience}</strong>
+                    </span>
+                    <span>
+                      <small>REVIEWS</small>
+                      <strong>{(Math.random() * 50 + 20).toFixed(0)}+</strong>
+                    </span>
                   </div>
+
                   <button 
                     className={`btn-${hiredWorkers.find(w => w.id === worker.id) ? 'success' : 'primary'} full-width`}
+                    style={{marginTop: '25px'}}
                     onClick={() => toggleHireWorker(worker)}
                   >
-                    {hiredWorkers.find(w => w.id === worker.id) ? 'Selected ✓' : 'Hire Professional'}
+                    {hiredWorkers.find(w => w.id === worker.id) ? 'Professional Assigned ✓' : 'Assign to Project'}
                   </button>
                 </div>
               </div>

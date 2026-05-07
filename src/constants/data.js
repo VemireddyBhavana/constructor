@@ -105,8 +105,10 @@ export const WORKERS = [
     id: 1,
     name: "Rajesh Kumar",
     role: "Master Mason",
+    category: "Masonry",
     rating: 4.9,
     experience: "12 Years",
+    verified: true,
     image: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=300",
     specialty: "Foundation & Structure"
   },
@@ -114,8 +116,10 @@ export const WORKERS = [
     id: 2,
     name: "Amit Singh",
     role: "Senior Electrician",
+    category: "Electrical",
     rating: 4.8,
     experience: "8 Years",
+    verified: true,
     image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=300",
     specialty: "Smart Home Wiring"
   },
@@ -123,8 +127,10 @@ export const WORKERS = [
     id: 3,
     name: "Vikram Malhotra",
     role: "Lead Architect",
+    category: "Design",
     rating: 5.0,
     experience: "15 Years",
+    verified: true,
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=300",
     specialty: "Sustainable Design"
   },
@@ -132,9 +138,33 @@ export const WORKERS = [
     id: 4,
     name: "Suresh Prabhu",
     role: "Plumbing Specialist",
+    category: "Plumbing",
     rating: 4.7,
     experience: "10 Years",
+    verified: true,
     image: "https://images.unsplash.com/photo-1521110602882-b4d5b469c82d?auto=format&fit=crop&q=80&w=300",
     specialty: "Industrial Plumbing"
+  },
+  {
+    id: 5,
+    name: "Neha Sharma",
+    role: "Interior Designer",
+    category: "Design",
+    rating: 4.9,
+    experience: "7 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300",
+    specialty: "Modern Minimalism"
+  },
+  {
+    id: 6,
+    name: "Prakash Raj",
+    role: "Structural Engineer",
+    category: "Engineering",
+    rating: 4.8,
+    experience: "20 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1556157382-97dee2dcb34e?auto=format&fit=crop&q=80&w=300",
+    specialty: "Earthquake Resistant"
   }
 ];
