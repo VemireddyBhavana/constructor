@@ -10,9 +10,9 @@ function App() {
   return (
     <div className="app-wrapper">
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/" element={<Navigate to="/home" replace />} />
       </Routes>
 
       {/* Shared Contact Section */}
