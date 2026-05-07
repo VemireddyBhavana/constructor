@@ -5,7 +5,7 @@ html {
 }
 
 :root {
-  /* Light Theme tokens */
+  /* Permanent Luxury Light Theme tokens */
   --primary: #1a1a1a;
   --primary-hover: #333333;
   --text-main: #1a1a1a;
@@ -15,7 +15,7 @@ html {
   --border: #e8e6e1;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   --accent: #D4AF37;
-  --navbar-bg: rgba(255, 255, 255, 0.85);
+  --navbar-bg: rgba(255, 255, 255, 0.9);
   
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Poppins', sans-serif;
@@ -24,20 +24,8 @@ html {
   line-height: 1.6;
 }
 
-[data-theme='dark'] {
-  --primary: #f0f0f0;
-  --primary-hover: #ffffff;
-  --text-main: #f0f0f0;
-  --text-muted: #a0a0a0;
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #111111;
-  --border: #222222;
-  --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-  --navbar-bg: rgba(10, 10, 10, 0.85);
-}
-
 * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
 body {
@@ -45,6 +33,7 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-main);
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
 #root {
@@ -99,5 +88,5 @@ p {
 .btn-primary:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(60, 168, 161, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
