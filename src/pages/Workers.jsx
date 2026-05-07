@@ -8,13 +8,23 @@ import { WORKERS } from '../constants/data';
 const Workers = () => {
   const navigate = useNavigate();
   const [hiredWorkers, setHiredWorkers] = useState([]);
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [filter, setFilter] = useState('ALL');
+  const [search, setSearch] = useState('');
 
-  const categories = ['All', 'Design', 'Masonry', 'Electrical', 'Plumbing', 'Engineering'];
+  const categories = ['ALL', 'DESIGN', 'MASONRY', 'ELECTRICAL', 'PLUMBING', 'ENGINEERING'];
 
-  const filteredWorkers = activeCategory === 'All' 
-    ? WORKERS 
-    : WORKERS.filter(w => w.category === activeCategory);
+  const filteredWorkers = WORKERS.filter(worker => {
+    const matchesFilter = filter === 'ALL' || worker.category.toUpperCase() === filter;
+    const q = search.toLowerCase().trim();
+    const matchesSearch = !q || [
+      worker.name,
+      worker.role,
+      worker.specialty,
+      worker.category
+    ].some(field => field.toLowerCase().includes(q));
+
+    return matchesFilter && matchesSearch;
+  });
 
   const toggleHireWorker = (worker) => {
     if (hiredWorkers.find(w => w.id === worker.id)) {
@@ -34,73 +44,84 @@ const Workers = () => {
     <div className="workers-page">
       <Navbar />
       
-      <section className="page-hero small">
+      <header className="hero-section small" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2000)` }}>
         <div className="hero-overlay">
           <div className="hero-content">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="section-title"
+              transition={{ duration: 0.8 }}
             >
-              Expert Team Marketplace
-            </motion.h1>
-            <p className="hero-subtitle">Hand-picked professionals for your construction needs.</p>
+              <span className="hero-subtitle">Marketplace</span>
+              <h1 className="hero-title">Hire Your Expert Construction Team</h1>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </header>
 
-      <section className="section-container">
-        {/* Category Filter */}
-        <div className="filter-container text-center" style={{marginBottom: '50px'}}>
-          <div className="category-filters">
+      <div className="section-container">
+        <div className="properties-controls">
+          <div className="filter-group">
             {categories.map(cat => (
               <button 
-                key={cat}
-                className={`filter-tab ${activeCategory === cat ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat)}
+                key={cat} 
+                className={`filter-btn ${filter === cat ? 'active' : ''}`}
+                onClick={() => setFilter(cat)}
               >
                 {cat}
               </button>
             ))}
           </div>
+          <div className="search-bar">
+            <input 
+              type="text" 
+              placeholder="Search by name, role or specialty..." 
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
         </div>
 
         <div className="workers-grid">
-          {filteredWorkers.map((worker, index) => (
-            <ScrollReveal key={worker.id} delay={index * 0.05}>
-              <div className={`worker-card ${hiredWorkers.find(w => w.id === worker.id) ? 'hired' : ''}`}>
-                <div className="worker-image-wrapper">
-                  <img src={worker.image} alt={worker.name} className="worker-img" />
-                  {worker.verified && <div className="verified-badge">VERIFIED PRO</div>}
-                  <div className="worker-rating">⭐ {worker.rating}</div>
-                </div>
-                <div className="worker-info">
-                  <span className="worker-role">{worker.role}</span>
-                  <h3>{worker.name}</h3>
-                  <p className="worker-specialty">{worker.specialty}</p>
-                  
-                  <div className="worker-meta">
-                    <span>
-                      <small>EXPERIENCE</small>
-                      <strong>{worker.experience}</strong>
-                    </span>
-                    <span>
-                      <small>REVIEWS</small>
-                      <strong>{(Math.random() * 50 + 20).toFixed(0)}+</strong>
-                    </span>
+          {filteredWorkers.length > 0 ? (
+            filteredWorkers.map((worker, index) => (
+              <ScrollReveal key={worker.id} delay={index * 0.05}>
+                <div className={`worker-card ${hiredWorkers.find(w => w.id === worker.id) ? 'hired' : ''}`}>
+                  <div className="worker-image-wrapper">
+                    <img src={worker.image} alt={worker.name} className="worker-img" />
+                    {worker.verified && <div className="verified-badge">VERIFIED PRO</div>}
+                    <div className="worker-rating">⭐ {worker.rating}</div>
                   </div>
+                  <div className="worker-info">
+                    <span className="worker-role">{worker.role}</span>
+                    <h3>{worker.name}</h3>
+                    <p className="worker-specialty">{worker.specialty}</p>
+                    
+                    <div className="worker-meta">
+                      <span>
+                        <small>EXPERIENCE</small>
+                        <strong>{worker.experience}</strong>
+                      </span>
+                      <span>
+                        <small>REVIEWS</small>
+                        <strong>{(Math.random() * 50 + 20).toFixed(0)}+</strong>
+                      </span>
+                    </div>
 
-                  <button 
-                    className={`btn-${hiredWorkers.find(w => w.id === worker.id) ? 'success' : 'primary'} full-width`}
-                    style={{marginTop: '25px'}}
-                    onClick={() => toggleHireWorker(worker)}
-                  >
-                    {hiredWorkers.find(w => w.id === worker.id) ? 'Professional Assigned ✓' : 'Assign to Project'}
-                  </button>
+                    <button 
+                      className={`btn-${hiredWorkers.find(w => w.id === worker.id) ? 'success' : 'primary'} full-width`}
+                      style={{marginTop: '25px'}}
+                      onClick={() => toggleHireWorker(worker)}
+                    >
+                      {hiredWorkers.find(w => w.id === worker.id) ? 'Professional Assigned ✓' : 'Assign to Project'}
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            ))
+          ) : (
+            <div className="no-results">No professionals found matching your search.</div>
+          )}
         </div>
 
         <AnimatePresence>
@@ -118,7 +139,7 @@ const Workers = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </section>
+      </div>
     </div>
   );
 };
