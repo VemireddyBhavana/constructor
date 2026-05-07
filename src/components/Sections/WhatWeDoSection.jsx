@@ -13,6 +13,9 @@ const WhatWeDoSection = () => (
     <div className="services-grid">
       {SERVICES.map((service) => (
         <div key={service.id} className="service-card">
+          <div className="service-img-container">
+            <img src={service.image} alt={service.title} />
+          </div>
           <span className="service-num">{service.id}</span>
           <h3>{service.title}</h3>
           <p>{service.description}</p>

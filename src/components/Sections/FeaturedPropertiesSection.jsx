@@ -1,4 +1,5 @@
 import React from 'react';
+import PropertyCard from '../Common/PropertyCard';
 import { PROPERTIES } from '../../constants/data';
 
 const FeaturedPropertiesSection = () => (
@@ -11,18 +12,8 @@ const FeaturedPropertiesSection = () => (
     <div className="teal-line"></div>
 
     <div className="properties-grid">
-      {PROPERTIES.map((property) => (
-        <div key={property.id} className="property-card">
-          <div className="property-img-container">
-            <img src={property.image} alt={property.title} />
-          </div>
-          <div className="property-info">
-            <span className="property-category">{property.category}</span>
-            <h3>{property.title}</h3>
-            <p>{property.description}</p>
-            <div className="property-price">{property.price}</div>
-          </div>
-        </div>
+      {PROPERTIES.slice(0, 3).map((property) => (
+        <PropertyCard key={property.id} property={property} />
       ))}
     </div>
   </section>

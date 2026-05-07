@@ -1,7 +1,7 @@
 export const IMAGES = {
   heroHome: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000",
   heroAbout: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000",
-  heroServices: "https://images.unsplash.com/photo-1600607687940-4e5a994239b3?auto=format&fit=crop&q=80&w=2000",
+  heroServices: "https://cdn.home-designing.com/wp-content/uploads/2018/12/luxury-modern-kitchen.jpg",
   contact: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000",
   passion: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000",
   aboutIntro: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000",
@@ -19,19 +19,19 @@ export const SERVICES = [
     id: "02",
     title: "Property Rentals",
     description: "Finding the perfect rental property can be a challenge. Real Estate makes it easy. Choose from our extensive selection of rental properties, whether you're looking for a cozy apartment or a spacious house. Let us help you find your ideal rental.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=80&w=1000"
   },
   {
     id: "03",
     title: "Property Management",
     description: "Finding the perfect property to buy is a significant decision. Real Estate understands this and offers a comprehensive list of properties for sale. Rely on our expertise and personalized service to discover your dream property and make a sound investment.",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=1000"
   },
   {
     id: "04",
     title: "Lucrative Investments",
     description: "In search of a rental property? Real Estate has you covered. Our vast portfolio of properties for rent caters to all your needs and preferences. With our assistance, you can find the perfect rental space in no time. Let's get started.",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1000"
   },
 ];
 
@@ -43,6 +43,9 @@ export const PROPERTIES = [
     title: "Modern Stylish Apartment",
     description: "Discover the epitome of contemporary living in our sleek and chic modern stylish apartments.",
     price: "$150,000",
+    beds: 2,
+    baths: 1,
+    sqft: "1,200",
   },
   {
     id: 2,
@@ -51,6 +54,9 @@ export const PROPERTIES = [
     title: "Contemporary Apartments",
     description: "Experience the perfect blend of sophistication and urban living in our cutting-edge contemporary apartments.",
     price: "$150,000",
+    beds: 3,
+    baths: 2,
+    sqft: "1,800",
   },
   {
     id: 3,
@@ -59,20 +65,63 @@ export const PROPERTIES = [
     title: "Suburban Single-Family Homes",
     description: "Embrace the idyllic charm and tranquility of suburban living in our spacious and welcoming single-family homes.",
     price: "$150,000",
+    beds: 4,
+    baths: 3,
+    sqft: "2,500",
+  },
+  {
+    id: 4,
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000",
+    category: "APARTMENT - QUEENS",
+    title: "Luxury Estates",
+    description: "Experience opulence and sophistication with our exclusive collection of luxury estate properties.",
+    price: "$150,000",
+    beds: 5,
+    baths: 4,
+    sqft: "4,200",
+  },
+  {
+    id: 5,
+    image: "https://images.unsplash.com/photo-1600607687940-4e5a994239b3?auto=format&fit=crop&q=80&w=1000",
+    category: "APARTMENT - QUEENS",
+    title: "Townhouses",
+    description: "Enjoy modern living and convenience with our stylish and well-designed townhouse residences.",
+    price: "$150,000",
+    beds: 3,
+    baths: 3,
+    sqft: "2,100",
+  },
+  {
+    id: 6,
+    image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&q=80&w=1000",
+    category: "APARTMENT - QUEENS",
+    title: "Vacation Homes",
+    description: "Find your ideal getaway with our range of vacation homes, perfect for relaxation and creating lasting memories.",
+    price: "$150,000",
+    beds: 4,
+    baths: 2,
+    sqft: "1,800",
   },
 ];
+
+export const CONTACT_INFO = {
+  address: "123 Real Estate Ave, Suite 500, New York, NY 10001",
+  email: "contact@realestate.com",
+  phone: "+1 (212) 555-0123",
+  hours: "Mon - Fri: 9:00 AM - 6:00 PM",
+};
 
 export const TESTIMONIALS = [
   {
     id: 1,
     author: "JAMES OLIVER",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id convallis neque. Nam scelerisque placerat orci. Maecenas at pulvinar dui.",
+    text: "Working with this team was a game-changer. They found me the perfect home within a week and handled all the paperwork seamlessly. Highly recommended!",
     stars: 5,
   },
   {
     id: 2,
-    author: "JAMES OLIVER",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id convallis neque. Nam scelerisque placerat orci. Maecenas at pulvinar dui.",
+    author: "SOPHIA MARTINEZ",
+    text: "The personalized service I received was exceptional. They really took the time to understand what I was looking for and delivered beyond my expectations.",
     stars: 5,
   },
 ];
