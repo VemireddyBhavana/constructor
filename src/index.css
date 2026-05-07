@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --primary: #3ca8a1;
   --primary-hover: #2e8d87;
