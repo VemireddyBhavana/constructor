@@ -258,6 +258,17 @@ export const PROPERTIES = [
     baths: 2,
     sqft: "1,950",
   },
+  {
+    id: 29,
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1000",
+    category: "APARTMENT",
+    title: "Panoramic Skyline Suite",
+    description: "Experience the ultimate city lifestyle with a private balcony and premium concierge services.",
+    price: "$150,000",
+    beds: 2,
+    baths: 2,
+    sqft: "1,400",
+  },
 
   // VILLAS
   {
