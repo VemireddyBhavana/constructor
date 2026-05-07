@@ -68,6 +68,29 @@ const ConstructionServices = () => {
         <div className="comparison-notice">
           <p>* Prices are subject to site conditions and location. Custom modifications available upon request.</p>
         </div>
+
+        <div className="project-tools">
+          <ScrollReveal direction="up">
+            <h2 className="text-center">Advanced Construction Tools</h2>
+            <div className="tools-grid">
+              <div className="tool-card">
+                <span className="tool-icon">🕶️</span>
+                <h4>3D Virtual Walkthrough</h4>
+                <p>Visualize your home before a single brick is laid with our immersive VR designs.</p>
+              </div>
+              <div className="tool-card">
+                <span className="tool-icon">🧮</span>
+                <h4>Material Cost Calculator</h4>
+                <p>Real-time market price integration for precise budgeting and resource planning.</p>
+              </div>
+              <div className="tool-card">
+                <span className="tool-icon">📹</span>
+                <h4>Live Site Monitoring</h4>
+                <p>Track your project in real-time with 24/7 site camera access from your dashboard.</p>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
       </section>
     </div>
   );

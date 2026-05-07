@@ -1734,3 +1734,38 @@
 .floor-plan-container { background: white; padding: 30px; border-radius: 20px; margin: 30px 0; border: 1px solid var(--border); display: flex; justify-content: center; }
 .floor-plan-img { max-width: 100%; height: auto; border-radius: 10px; }
 .floor-plan-note { font-size: 0.9rem; color: var(--text-muted); font-style: italic; text-align: center; }
+
+/* Mobile Menu Styles */
+.hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 2000; }
+.hamburger span { width: 30px; height: 2px; background: white; transition: all 0.3s ease; }
+.hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+@media (max-width: 1024px) {
+  .hamburger { display: flex; }
+  .nav-links { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background: #000; flex-direction: column; justify-content: center; align-items: center; transition: 0.5s ease; z-index: 1500; }
+  .nav-links.mobile-active { right: 0; }
+  .navbar.scrolled .hamburger span { background: var(--text-main); }
+  .navbar.menu-open .hamburger span { background: white !important; }
+  .navbar { padding: 20px 40px !important; }
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.5rem !important; }
+  .section-title { font-size: 2rem !important; }
+  .navbar { padding: 15px 25px !important; }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .welcome-banner { flex-direction: column; text-align: center; gap: 20px; }
+}
+
+/* Fix layout shifts and add new tool styles */
+.service-card { height: 100%; display: flex; flex-direction: column; }
+.service-card p { flex-grow: 1; }
+
+.project-tools { margin-top: 80px; padding: 60px; background: #0a0a0a; border-radius: 30px; border: 1px solid var(--border); }
+.tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 40px; }
+.tool-card { text-align: center; padding: 20px; }
+.tool-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+.tool-card h4 { font-size: 1.2rem; margin-bottom: 10px; color: #D4AF37; }
+.tool-card p { font-size: 0.9rem; color: var(--text-muted); }

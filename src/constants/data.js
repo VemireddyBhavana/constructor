@@ -14,27 +14,27 @@ export const IMAGES = {
 export const SERVICES = [
   {
     id: "01",
-    title: "Property Sales",
-    description: "Looking to buy or sell a property? Look no further. Real Estate offers a wide range of properties for sale, matching you with your dream home or investment. Trust our experienced team to guide you through the entire process.",
-    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1000"
+    title: "Custom Design",
+    description: "Our world-class architects translate your vision into breathtaking 3D designs and precise blueprints. We ensure every square foot reflects your personal style and functional needs.",
+    image: "https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1000"
   },
   {
     id: "02",
-    title: "Property Rentals",
-    description: "Finding the perfect rental property can be a challenge. Real Estate makes it easy. Choose from our extensive selection of rental properties, whether you're looking for a cozy apartment or a spacious house. Let us help you find your ideal rental.",
-    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=80&w=1000"
+    title: "Premium Construction",
+    description: "Using only top-tier materials and advanced engineering techniques, we build structures that stand the test of time. Quality is our foundation, and excellence is our standard.",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1000"
   },
   {
     id: "03",
-    title: "Property Management",
-    description: "Finding the perfect property to buy is a significant decision. Real Estate understands this and offers a comprehensive list of properties for sale. Rely on our expertise and personalized service to discover your dream property and make a sound investment.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=1000"
+    title: "Worker Management",
+    description: "We hand-select and manage a team of expert masons, electricians, and plumbers. Our rigorous quality control ensures every detail of your home is crafted to perfection.",
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1000"
   },
   {
     id: "04",
-    title: "Lucrative Investments",
-    description: "In search of a rental property? Real Estate has you covered. Our vast portfolio of properties for rent caters to all your needs and preferences. With our assistance, you can find the perfect rental space in no time. Let's get started.",
-    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1000"
+    title: "Smart Home Integration",
+    description: "Future-proof your living space with integrated smart home technology. From automated lighting to advanced security systems, we build homes that are as intelligent as they are beautiful.",
+    image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=1000"
   },
 ];
 

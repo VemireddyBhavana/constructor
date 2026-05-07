@@ -182,7 +182,7 @@ const PropertyDetail = () => {
                         style={{ marginTop: '20px' }}
                         onClick={goToPayment}
                       >
-                        Proceed to Payment
+                        Start Construction
                       </button>
                     </motion.div>
                   )}
@@ -195,8 +195,8 @@ const PropertyDetail = () => {
                       exit={{ opacity: 0, x: -20 }}
                       className="payment-container"
                     >
-                      <h3>Secure Booking</h3>
-                      <p>Scan the QR code to pay the ₹5,000 reservation fee for your private tour on May {selectedDate}, 2026 at {selectedTime}.</p>
+                      <h3>Secure Design Reservation</h3>
+                      <p>Scan the QR code to pay the ₹5,000 reservation fee to secure this design and initiate construction setup.</p>
                       
                       <div className="qr-wrapper">
                         <img src="/payment_qr_code_1778173496267.png" alt="Payment QR Code" className="payment-qr" />
@@ -220,7 +220,7 @@ const PropertyDetail = () => {
                         className="btn-primary full-width" 
                         onClick={handlePaymentComplete}
                       >
-                        I have completed the payment
+                        Confirm Reservation & Start
                       </button>
                       <button className="btn-secondary full-width" style={{ marginTop: '10px' }} onClick={() => setBookingStep('select')}>
                         Back

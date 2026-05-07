@@ -4,6 +4,7 @@ import Logo from '../Common/Logo';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -14,21 +15,28 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isHome = location.pathname === '/home' || location.pathname === '/';
-  const isAbout = location.pathname === '/about';
-  const isServices = location.pathname === '/services';
-  const isProperties = location.pathname.startsWith('/properties') || location.pathname.startsWith('/property');
-  const isContact = location.pathname === '/contact';
+  const isActive = (path) => {
+    if (path === '/home' && (location.pathname === '/' || location.pathname === '/home')) return true;
+    return location.pathname.startsWith(path);
+  };
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
       <Logo />
-      <ul className="nav-links">
-        <li><Link to="/home" className={isHome ? 'active' : ''}>Home</Link></li>
-        <li><Link to="/about" className={isAbout ? 'active' : ''}>About</Link></li>
-        <li><Link to="/services" className={isServices ? 'active' : ''}>Services</Link></li>
-        <li><Link to="/properties" className={isProperties ? 'active' : ''}>Properties</Link></li>
-        <li><Link to="/contact" className={isContact ? 'active' : ''}>Contact</Link></li>
+      
+      <div className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul className={`nav-links ${isMenuOpen ? 'mobile-active' : ''}`}>
+        <li><Link to="/home" className={isActive('/home') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Home</Link></li>
+        <li><Link to="/properties" className={isActive('/properties') || location.pathname.startsWith('/property') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Designs</Link></li>
+        <li><Link to="/workers" className={isActive('/workers') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Workers</Link></li>
+        <li><Link to="/dashboard" className={isActive('/dashboard') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Dashboard</Link></li>
+        <li><Link to="/services" className={isActive('/services') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Services</Link></li>
+        <li><Link to="/contact" className={isActive('/contact') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
       </ul>
     </nav>
   );
