@@ -101,30 +101,9 @@ export const CONSTRUCTION_PACKAGES = [
 ];
 
 export const WORKERS = [
+  // DESIGN (3)
   {
     id: 1,
-    name: "Rajesh Kumar",
-    role: "Master Mason",
-    category: "Masonry",
-    rating: 4.9,
-    experience: "12 Years",
-    verified: true,
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600",
-    specialty: "Precision structural foundations and load-bearing brickwork."
-  },
-  {
-    id: 2,
-    name: "Amit Singh",
-    role: "Senior Electrician",
-    category: "Electrical",
-    rating: 4.8,
-    experience: "8 Years",
-    verified: true,
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=600",
-    specialty: "High-voltage systems and smart home automation integration."
-  },
-  {
-    id: 3,
     name: "Vikram Malhotra",
     role: "Lead Architect",
     category: "Design",
@@ -135,18 +114,7 @@ export const WORKERS = [
     specialty: "Sustainable luxury residential designs and urban planning."
   },
   {
-    id: 4,
-    name: "Suresh Prabhu",
-    role: "Plumbing Specialist",
-    category: "Plumbing",
-    rating: 4.7,
-    experience: "10 Years",
-    verified: true,
-    image: "https://images.unsplash.com/photo-1521110602882-b4d5b469c82d?auto=format&fit=crop&q=80&w=600",
-    specialty: "Advanced hydraulic systems and water treatment solutions."
-  },
-  {
-    id: 5,
+    id: 2,
     name: "Neha Sharma",
     role: "Interior Designer",
     category: "Design",
@@ -157,7 +125,125 @@ export const WORKERS = [
     specialty: "Curated luxury interiors and bespoke furniture selection."
   },
   {
+    id: 3,
+    name: "Aryan Kapoor",
+    role: "3D Visualizer",
+    category: "Design",
+    rating: 4.8,
+    experience: "5 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
+    specialty: "Photorealistic 3D rendering and virtual walkthroughs."
+  },
+
+  // MASONRY (3)
+  {
+    id: 4,
+    name: "Rajesh Kumar",
+    role: "Master Mason",
+    category: "Masonry",
+    rating: 4.9,
+    experience: "12 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600",
+    specialty: "Precision structural foundations and load-bearing brickwork."
+  },
+  {
+    id: 5,
+    name: "Gopal Das",
+    role: "Stone Specialist",
+    category: "Masonry",
+    rating: 4.7,
+    experience: "14 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&q=80&w=600",
+    specialty: "Natural stone cladding and decorative marble installation."
+  },
+  {
     id: 6,
+    name: "Ram Singh",
+    role: "Concrete Expert",
+    category: "Masonry",
+    rating: 4.6,
+    experience: "10 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1506803682981-6e718a9dd3ee?auto=format&fit=crop&q=80&w=600",
+    specialty: "High-strength RCC works and complex column casting."
+  },
+
+  // ELECTRICAL (3)
+  {
+    id: 7,
+    name: "Amit Singh",
+    role: "Senior Electrician",
+    category: "Electrical",
+    rating: 4.8,
+    experience: "8 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=600",
+    specialty: "High-voltage systems and smart home automation integration."
+  },
+  {
+    id: 8,
+    name: "Rahul Varma",
+    role: "Lighting Designer",
+    category: "Electrical",
+    rating: 4.9,
+    experience: "6 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600",
+    specialty: "Ambient lighting control and custom LED installations."
+  },
+  {
+    id: 9,
+    name: "Karan Patel",
+    role: "Solar Engineer",
+    category: "Electrical",
+    rating: 4.7,
+    experience: "9 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
+    specialty: "Rooftop solar grid setup and backup power systems."
+  },
+
+  // PLUMBING (3)
+  {
+    id: 10,
+    name: "Suresh Prabhu",
+    role: "Plumbing Specialist",
+    category: "Plumbing",
+    rating: 4.7,
+    experience: "10 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1521110602882-b4d5b469c82d?auto=format&fit=crop&q=80&w=600",
+    specialty: "Advanced hydraulic systems and water treatment solutions."
+  },
+  {
+    id: 11,
+    name: "Mohit Bansal",
+    role: "Sanitary Engineer",
+    category: "Plumbing",
+    rating: 4.8,
+    experience: "11 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?auto=format&fit=crop&q=80&w=600",
+    specialty: "Luxury bathroom fittings and concealed drainage setup."
+  },
+  {
+    id: 12,
+    name: "Dilip Kumar",
+    role: "Pipe Consultant",
+    category: "Plumbing",
+    rating: 4.6,
+    experience: "13 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=600",
+    specialty: "Underground network planning and fire hydrant systems."
+  },
+
+  // ENGINEERING (3)
+  {
+    id: 13,
     name: "Prakash Raj",
     role: "Structural Engineer",
     category: "Engineering",
@@ -166,5 +252,27 @@ export const WORKERS = [
     verified: true,
     image: "https://images.unsplash.com/photo-1556157382-97dee2dcb34e?auto=format&fit=crop&q=80&w=600",
     specialty: "Seismic-resistant structures and deep-foundation engineering."
+  },
+  {
+    id: 14,
+    name: "Anita Iyer",
+    role: "Project Manager",
+    category: "Engineering",
+    rating: 4.9,
+    experience: "12 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600",
+    specialty: "Site coordination, safety audits, and timeline management."
+  },
+  {
+    id: 15,
+    name: "Arjun Reddy",
+    role: "Site Surveyor",
+    category: "Engineering",
+    rating: 4.7,
+    experience: "8 Years",
+    verified: true,
+    image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=600",
+    specialty: "Topographical surveying and GPS site marking."
   }
 ];
