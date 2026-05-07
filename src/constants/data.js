@@ -72,3 +72,66 @@ export const TESTIMONIALS = [
     stars: 5,
   },
 ];
+
+export const CONSTRUCTION_PACKAGES = [
+  {
+    id: "basic",
+    name: "Basic Package",
+    price: "₹1,800/sq.ft",
+    tagline: "Quality essentials for budget-conscious homeowners.",
+    features: ["Standard Brickwork", "Grade 43 Cement", "TMT Steel Fe500", "Vitrified Tiles (2x2)", "Standard Electricals"]
+  },
+  {
+    id: "standard",
+    name: "Standard Package",
+    price: "₹2,200/sq.ft",
+    tagline: "Our most popular choice for premium residential homes.",
+    features: ["Fly Ash Bricks", "Grade 53 Cement", "TMT Steel Fe550", "Double Charged Tiles", "Branded CP Fittings", "Modular Switches"]
+  },
+  {
+    id: "luxury",
+    name: "Luxury Package",
+    price: "₹3,500/sq.ft",
+    tagline: "Ultra-luxury materials and concierge-level service.",
+    features: ["Wire-cut Bricks", "Acc/Ultratech Cement", "Corrosion Resistant Steel", "Italian Marble Flooring", "Smart Home Automation", "Designer Bathrooms"]
+  }
+];
+
+export const WORKERS = [
+  {
+    id: 1,
+    name: "Rajesh Kumar",
+    role: "Master Mason",
+    rating: 4.9,
+    experience: "12 Years",
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=300",
+    specialty: "Foundation & Structure"
+  },
+  {
+    id: 2,
+    name: "Amit Singh",
+    role: "Senior Electrician",
+    rating: 4.8,
+    experience: "8 Years",
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=300",
+    specialty: "Smart Home Wiring"
+  },
+  {
+    id: 3,
+    name: "Vikram Malhotra",
+    role: "Lead Architect",
+    rating: 5.0,
+    experience: "15 Years",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=300",
+    specialty: "Sustainable Design"
+  },
+  {
+    id: 4,
+    name: "Suresh Prabhu",
+    role: "Plumbing Specialist",
+    rating: 4.7,
+    experience: "10 Years",
+    image: "https://images.unsplash.com/photo-1521110602882-b4d5b469c82d?auto=format&fit=crop&q=80&w=300",
+    specialty: "Industrial Plumbing"
+  }
+];

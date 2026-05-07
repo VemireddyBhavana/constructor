@@ -22,6 +22,7 @@ const PropertyDetail = () => {
   };
 
   const handlePaymentComplete = () => {
+    localStorage.setItem('selectedDesign', JSON.stringify(property));
     setBookingStep('success');
   };
 
@@ -226,8 +227,8 @@ const PropertyDetail = () => {
                     >
                       <div className="success-icon">✓</div>
                       <h3>Payment Successful!</h3>
-                      <p>Your private viewing has been confirmed for May {selectedDate}, 2026 at {selectedTime}. A receipt and digital pass have been sent to your registered email.</p>
-                      <button className="btn-primary full-width" onClick={() => navigate('/properties')}>Browse More Estates</button>
+                      <p>Your design reservation is confirmed for May {selectedDate}, 2026. A digital receipt has been sent to your email.</p>
+                      <button className="btn-primary full-width" onClick={() => navigate('/construction-setup')}>Start Construction Setup</button>
                     </motion.div>
                   )}
                 </AnimatePresence>

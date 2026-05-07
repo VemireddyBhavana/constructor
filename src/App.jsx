@@ -14,6 +14,10 @@ import './App.css'
 
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 
+import ConstructionServices from './pages/ConstructionServices'
+import Workers from './pages/Workers'
+import Dashboard from './pages/Dashboard'
+
 function App() {
   const location = useLocation();
   const { scrollYProgress } = useScroll();
@@ -39,6 +43,9 @@ function App() {
           <Route path="/properties/:category" element={<Properties />} />
           <Route path="/properties/villa/:subCategory" element={<Properties />} />
           <Route path="/property/:id" element={<PropertyDetail />} />
+          <Route path="/construction-setup" element={<ConstructionServices />} />
+          <Route path="/workers" element={<Workers />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </AnimatePresence>
