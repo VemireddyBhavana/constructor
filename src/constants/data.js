@@ -16,25 +16,25 @@ export const SERVICES = [
     id: "01",
     title: "Custom Design",
     description: "Our world-class architects translate your vision into breathtaking 3D designs and precise blueprints. We ensure every square foot reflects your personal style and functional needs.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000"
+    image: "/assets/workers/design-1.png"
   },
   {
     id: "02",
     title: "Premium Construction",
     description: "Using only top-tier materials and advanced engineering techniques, we build structures that stand the test of time. Quality is our foundation, and excellence is our standard.",
-    image: "https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1000"
+    image: "/assets/workers/mason-1.png"
   },
   {
     id: "03",
     title: "Worker Management",
     description: "We hand-select and manage a team of expert masons, electricians, and plumbers. Our rigorous quality control ensures every detail of your home is crafted to perfection.",
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=1000"
+    image: "/assets/workers/plumbing-1.png"
   },
   {
     id: "04",
     title: "Smart Home Integration",
     description: "Future-proof your living space with integrated smart home technology. From automated lighting to advanced security systems, we build homes that are as intelligent as they are beautiful.",
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=1000"
+    image: "/assets/workers/electric-1.png"
   },
 ];
 
