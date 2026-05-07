@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Logo from '../Common/Logo';
 
 const Footer = () => {
+  const [showLiveFeed, setShowLiveFeed] = useState(false);
+
   return (
     <footer className="footer-section section-container">
       <div className="footer-grid">
@@ -37,13 +40,46 @@ const Footer = () => {
             <a href="#"><i className="fa-brands fa-x-twitter"></i></a>
             <a href="#"><i className="fa-brands fa-instagram"></i></a>
             <a href="#"><i className="fa-brands fa-youtube"></i></a>
-            <a href="#"><i className="fa-brands fa-facebook-f"></i></a>
+            <button 
+              className="footer-camera-btn" 
+              onClick={() => setShowLiveFeed(true)}
+              title="Live Site Monitoring"
+              style={{ background: 'none', border: 'none', color: '#999', cursor: 'pointer', fontSize: '1.2rem', padding: '0 10px' }}
+            >
+              <i className="fa-solid fa-camera"></i>
+            </button>
           </div>
           <button className="back-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             ↑
           </button>
         </div>
       </div>
+
+      {/* Global Live Feed Modal */}
+      <AnimatePresence>
+        {showLiveFeed && (
+          <motion.div 
+            className="live-feed-modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.9)', zIndex: 5000, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          >
+            <div className="modal-content" style={{ background: '#111', borderRadius: '20px', width: '90%', maxWidth: '800px', padding: '20px', position: 'relative' }}>
+              <div className="modal-header" style={{ display: 'flex', justifyContent: 'space-between', color: '#fff', marginBottom: '15px' }}>
+                <h3><span style={{ color: 'red' }}>●</span> LIVE SITE CAMERA</h3>
+                <button onClick={() => setShowLiveFeed(false)} style={{ background: 'none', border: 'none', color: '#fff', cursor: 'pointer', fontSize: '1.2rem' }}>✕</button>
+              </div>
+              <div className="camera-view" style={{ position: 'relative', borderRadius: '10px', overflow: 'hidden' }}>
+                <img src="/assets/workers/mason-1.png" alt="Live Feed" style={{ width: '100%', filter: 'brightness(0.7) contrast(1.2)' }} />
+                <div className="cam-overlay" style={{ position: 'absolute', top: '10px', left: '10px', color: '#0f0', fontFamily: 'monospace' }}>
+                  REC {new Date().toLocaleTimeString()}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </footer>
   );
 };

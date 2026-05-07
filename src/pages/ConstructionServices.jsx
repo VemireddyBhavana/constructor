@@ -165,7 +165,7 @@ const ConstructionServices = () => {
                 <p>Real-time market price integration for precise budgeting and resource planning.</p>
               </div>
               <div className="tool-card" onClick={() => setShowLiveFeed(true)} style={{cursor: 'pointer'}}>
-                <span className="tool-icon"><i className="fa-solid fa-video"></i></span>
+                <span className="tool-icon"><i className="fa-solid fa-camera"></i></span>
                 <h4>Live Site Monitoring</h4>
                 <p>Track your project in real-time with 24/7 site camera access from your dashboard.</p>
               </div>
