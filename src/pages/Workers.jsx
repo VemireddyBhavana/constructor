@@ -19,7 +19,8 @@ const Workers = () => {
 
   const handleStartProject = () => {
     localStorage.setItem('hiredWorkers', JSON.stringify(hiredWorkers));
-    navigate('/dashboard');
+    alert('Project Initiated Successfully! Your expert team has been assigned. Our builder will contact you shortly.');
+    navigate('/home');
   };
 
   return (
@@ -79,7 +80,7 @@ const Workers = () => {
             >
               <div className="hiring-bar-content">
                 <span>{hiredWorkers.length} Professional{hiredWorkers.length > 1 ? 's' : ''} Selected</span>
-                <button className="btn-primary" onClick={handleStartProject}>Proceed to Dashboard</button>
+                <button className="btn-primary" onClick={handleStartProject}>Finalize Project Hiring</button>
               </div>
             </motion.div>
           )}
