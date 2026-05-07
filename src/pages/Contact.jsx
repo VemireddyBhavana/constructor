@@ -50,12 +50,15 @@ const Contact = () => {
           <ScrollReveal direction="right">
             <div className="reach-out-card">
               <span className="contact-tag">CONTACT US</span>
-              <h3>Reach Out To Us</h3>
+              <h3>Send us a Message</h3>
               <div className="teal-line"></div>
-              {/* This acts as a placeholder for the form or card seen in screenshots */}
-              <div className="card-placeholder-content">
-                {/* Empty space as seen in screenshot */}
-              </div>
+              <form className="contact-form-minimal">
+                <input type="text" placeholder="Full Name" required />
+                <input type="email" placeholder="Email Address" required />
+                <input type="text" placeholder="Subject" required />
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" className="btn-primary full-width">SEND MESSAGE</button>
+              </form>
             </div>
           </ScrollReveal>
         </div>

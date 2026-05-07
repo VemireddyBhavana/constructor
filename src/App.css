@@ -695,6 +695,27 @@
   margin: 10px 0;
 }
 
+.contact-form-minimal {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-form-minimal input, .contact-form-minimal textarea {
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+.btn-primary.full-width {
+  width: 100%;
+  margin-top: 10px;
+}
+
 .map-section {
   width: 100%;
   height: 500px;
