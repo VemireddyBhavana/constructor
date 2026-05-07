@@ -21,18 +21,6 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
 
-      {/* Shared Contact Section */}
-      <div className="main-content">
-        <section className="contact-section" style={{ backgroundImage: `url(${IMAGES.contact})` }}>
-          <div className="contact-overlay">
-            <div className="contact-card">
-              <span className="contact-tag">CONTACT US</span>
-              <h2>Schedule an Appointment</h2>
-              <div className="teal-line"></div>
-            </div>
-          </div>
-        </section>
-      </div>
 
       <Footer />
     </div>
