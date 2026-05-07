@@ -364,6 +364,7 @@
   font-weight: 700;
   letter-spacing: -2px;
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  color: white !important;
 }
 
 @media (max-width: 900px) {
