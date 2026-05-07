@@ -444,6 +444,59 @@
   }
 }
 
+/* Service Detail Sections */
+.service-detail-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.service-detail-section.reversed .service-detail-grid {
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.service-detail-section.reversed .service-detail-img {
+  order: 2;
+}
+
+.service-detail-section.reversed .service-detail-content {
+  order: 1;
+}
+
+.service-detail-img img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.service-detail-content {
+  text-align: left;
+}
+
+.service-detail-content .service-num {
+  font-size: 1rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .service-detail-grid, .service-detail-section.reversed .service-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .service-detail-section.reversed .service-detail-img {
+    order: 1;
+  }
+  
+  .service-detail-section.reversed .service-detail-content {
+    order: 2;
+  }
+}
+
 /* Footer Section */
 .footer-section {
   padding-bottom: 40px;

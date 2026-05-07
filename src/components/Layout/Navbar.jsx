@@ -6,6 +6,7 @@ const Navbar = () => {
   const location = useLocation();
   const isHome = location.pathname === '/home' || location.pathname === '/';
   const isAbout = location.pathname === '/about';
+  const isServices = location.pathname === '/services';
 
   return (
     <nav className="navbar">
@@ -13,7 +14,7 @@ const Navbar = () => {
       <ul className="nav-links">
         <li><Link to="/home" className={isHome ? 'active' : ''}>Home</Link></li>
         <li><Link to="/about" className={isAbout ? 'active' : ''}>About</Link></li>
-        <li><a href="#">Services</a></li>
+        <li><Link to="/services" className={isServices ? 'active' : ''}>Services</Link></li>
         <li><a href="#">Properties</a></li>
         <li><a href="#">Contact</a></li>
       </ul>

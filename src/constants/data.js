@@ -1,6 +1,7 @@
 export const IMAGES = {
   heroHome: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000",
   heroAbout: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000",
+  heroServices: "https://images.unsplash.com/photo-1600607687940-4e5a994239b3?auto=format&fit=crop&q=80&w=2000",
   contact: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000",
   passion: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000",
   aboutIntro: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000",
@@ -11,22 +12,26 @@ export const SERVICES = [
   {
     id: "01",
     title: "Property Sales",
-    description: "Find your dream home with Real Estate - our expert team will guide you through the process and ensure a smooth transaction.",
+    description: "Looking to buy or sell a property? Look no further. Real Estate offers a wide range of properties for sale, matching you with your dream home or investment. Trust our experienced team to guide you through the entire process.",
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1000"
   },
   {
     id: "02",
     title: "Property Rentals",
-    description: "Find your dream rental property with Real Estate, offering a variety of options to suit your needs and preferences.",
+    description: "Finding the perfect rental property can be a challenge. Real Estate makes it easy. Choose from our extensive selection of rental properties, whether you're looking for a cozy apartment or a spacious house. Let us help you find your ideal rental.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000"
   },
   {
     id: "03",
     title: "Property Management",
-    description: "Trust Real Estate to handle the day-to-day management of your property, maximizing its value and minimizing your stress.",
+    description: "Finding the perfect property to buy is a significant decision. Real Estate understands this and offers a comprehensive list of properties for sale. Rely on our expertise and personalized service to discover your dream property and make a sound investment.",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1000"
   },
   {
     id: "04",
     title: "Lucrative Investments",
-    description: "Real Estate presents lucrative investment opportunities in the real estate market, providing high returns on investments.",
+    description: "In search of a rental property? Real Estate has you covered. Our vast portfolio of properties for rent caters to all your needs and preferences. With our assistance, you can find the perfect rental space in no time. Let's get started.",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000"
   },
 ];
 
