@@ -16,14 +16,39 @@ const Properties = () => {
   const filteredProperties = PROPERTIES.filter(property => {
     const matchesFilter = filter === 'ALL' || property.category === filter;
     const matchesSubFilter = subFilter === 'ALL' || property.subCategory === subFilter;
-    const matchesSearch = property.title.toLowerCase().includes(search.toLowerCase()) || 
-                          property.category.toLowerCase().includes(search.toLowerCase());
+
+    // Search across ALL fields when search is active
+    const q = search.toLowerCase().trim();
+    const matchesSearch = !q || [
+      property.title,
+      property.description,
+      property.category,
+      property.subCategory || '',
+      property.price,
+      String(property.beds) + ' bed',
+      String(property.beds) + ' beds',
+      String(property.baths) + ' bath',
+      String(property.baths) + ' baths',
+      property.sqft + ' sqft',
+      property.sqft,
+    ].some(field => field.toLowerCase().includes(q));
+
     return matchesFilter && matchesSubFilter && matchesSearch;
   });
 
   const handleFilterChange = (newFilter) => {
     setFilter(newFilter);
     setSubFilter('ALL');
+  };
+
+  const handleSearch = (e) => {
+    const val = e.target.value;
+    setSearch(val);
+    // When searching, reset category filters so no results are hidden
+    if (val.trim() !== '') {
+      setFilter('ALL');
+      setSubFilter('ALL');
+    }
   };
 
   return (
@@ -60,9 +85,9 @@ const Properties = () => {
           <div className="search-bar">
             <input 
               type="text" 
-              placeholder="Search by title or location..." 
+              placeholder="Search by name, type, beds, price..." 
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={handleSearch}
             />
           </div>
         </div>
