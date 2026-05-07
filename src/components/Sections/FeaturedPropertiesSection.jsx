@@ -12,7 +12,7 @@ const FeaturedPropertiesSection = () => (
     <div className="teal-line"></div>
 
     <div className="properties-grid">
-      {PROPERTIES.slice(0, 3).map((property) => (
+      {PROPERTIES.slice(0, 6).map((property) => (
         <PropertyCard key={property.id} property={property} />
       ))}
     </div>

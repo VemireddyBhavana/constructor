@@ -211,11 +211,12 @@
 /* Properties Grid */
 .properties-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   margin-top: 50px;
   max-width: 1200px;
   margin-inline: auto;
+  justify-content: center;
 }
 
 .property-card {
@@ -224,11 +225,15 @@
   overflow: hidden;
   box-shadow: var(--shadow);
   text-align: left;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .property-card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .property-img-container {

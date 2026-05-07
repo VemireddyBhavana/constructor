@@ -6,10 +6,10 @@ const PropertyCard = ({ property }) => {
       <div className="property-img-container">
         <img src={property.image} alt={property.title} />
       </div>
-      <div className="property-info">
+      <div className="property-info" style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         <span className="property-category">{property.category}</span>
         <h3>{property.title}</h3>
-        <p>{property.description}</p>
+        <p style={{ flexGrow: 1 }}>{property.description}</p>
         <div className="property-specs">
           <span>🛏️ {property.beds} Beds</span>
           <span>🚿 {property.baths} Baths</span>
