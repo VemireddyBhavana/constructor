@@ -20,12 +20,6 @@ const Navbar = () => {
         <li><Link to="/properties" className={isProperties ? 'active' : ''}>Properties</Link></li>
         <li><Link to="/contact" className={isContact ? 'active' : ''}>Contact</Link></li>
       </ul>
-      <div className="nav-socials">
-        <a href="#">🐦</a>
-        <a href="#">📌</a>
-        <a href="#">▶️</a>
-        <a href="#" className="search-icon">🔍</a>
-      </div>
     </nav>
   );
 };
