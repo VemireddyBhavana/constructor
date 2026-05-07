@@ -66,22 +66,17 @@ const Footer = () => {
             style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.9)', zIndex: 5000, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
           >
             <div className="modal-content" style={{ background: '#111', borderRadius: '20px', width: '90%', maxWidth: '800px', padding: '20px', position: 'relative' }}>
-              <div className="modal-header" style={{ display: 'flex', justifyContent: 'space-between', color: '#fff', marginBottom: '15px' }}>
-                <h3><span style={{ color: 'red' }}>●</span> LIVE SITE CAMERA</h3>
+              <div className="modal-header" style={{ display: 'flex', justifyContent: 'space-between', color: '#fff', marginBottom: '20px' }}>
+                <h3><i className="fa-solid fa-cloud-arrow-up" style={{ color: '#D4AF37', marginRight: '10px' }}></i> PROJECT PHOTO UPLOAD</h3>
                 <button onClick={() => setShowLiveFeed(false)} style={{ background: 'none', border: 'none', color: '#fff', cursor: 'pointer', fontSize: '1.2rem' }}>✕</button>
               </div>
-              <div className="camera-view" style={{ position: 'relative', borderRadius: '10px', overflow: 'hidden' }}>
-                <img src="/assets/workers/mason-1.png" alt="Live Feed" style={{ width: '100%', filter: 'brightness(0.7) contrast(1.2)' }} />
-                <div className="cam-overlay" style={{ position: 'absolute', top: '10px', left: '10px', color: '#0f0', fontFamily: 'monospace' }}>
-                  REC {new Date().toLocaleTimeString()}
-                </div>
-              </div>
-              <div className="upload-section" style={{ marginTop: '20px', textAlign: 'center' }}>
-                <p style={{ color: '#aaa', fontSize: '0.9rem', marginBottom: '10px' }}>Upload progress photos or documents to your project</p>
-                <label className="btn-primary" style={{ display: 'inline-block', cursor: 'pointer', padding: '10px 20px' }}>
-                  <i className="fa-solid fa-cloud-arrow-up" style={{ marginRight: '8px' }}></i>
-                  Upload Project Photo
-                  <input type="file" style={{ display: 'none' }} onChange={(e) => alert("Photo Uploaded Successfully! Our engineers will review it shortly.")} />
+              <div className="upload-section" style={{ padding: '40px 20px', border: '2px dashed #333', borderRadius: '15px', textAlign: 'center', background: '#1a1a1a' }}>
+                <i className="fa-solid fa-camera-retro" style={{ fontSize: '3rem', color: '#333', marginBottom: '20px', display: 'block' }}></i>
+                <p style={{ color: '#aaa', fontSize: '1rem', marginBottom: '25px' }}>Select project photos or site documents to upload for review.</p>
+                <label className="btn-primary" style={{ display: 'inline-block', cursor: 'pointer', padding: '12px 30px' }}>
+                  <i className="fa-solid fa-plus" style={{ marginRight: '10px' }}></i>
+                  Select Files to Upload
+                  <input type="file" multiple style={{ display: 'none' }} onChange={(e) => alert("Files selected and queued for upload!")} />
                 </label>
               </div>
             </div>

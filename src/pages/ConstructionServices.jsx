@@ -184,23 +184,16 @@ const ConstructionServices = () => {
             >
               <div className="modal-content">
                 <div className="modal-header">
-                  <h3><i className="fa-solid fa-circle-dot text-danger"></i> LIVE SITE CAMERA - CAM 04</h3>
+                  <h3><i className="fa-solid fa-cloud-arrow-up" style={{ color: '#D4AF37', marginRight: '10px' }}></i> SITE DOCUMENT UPLOAD</h3>
                   <button onClick={() => setShowLiveFeed(false)}>✕</button>
                 </div>
-                <div className="camera-display">
-                  <img src="https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1200" alt="Live Feed" />
-                  <div className="camera-overlay">
-                    <div className="timestamp">{new Date().toLocaleString()}</div>
-                    <div className="rec-indicator">● REC</div>
-                    <div className="camera-label">SITE ALPHA - BLOCK B</div>
-                  </div>
-                </div>
-                <div className="modal-upload-zone" style={{ marginTop: '20px', padding: '20px', border: '1px dashed #444', borderRadius: '10px', textAlign: 'center' }}>
-                  <p style={{ color: '#888', marginBottom: '15px' }}>Found a site issue? Upload a photo for instant engineer review.</p>
-                  <label className="btn-primary" style={{ cursor: 'pointer' }}>
+                <div className="modal-upload-zone" style={{ padding: '40px 20px', border: '2px dashed #333', borderRadius: '15px', textAlign: 'center', background: '#0a0a0a' }}>
+                  <i className="fa-solid fa-file-invoice" style={{ fontSize: '3rem', color: '#222', marginBottom: '20px', display: 'block' }}></i>
+                  <p style={{ color: '#888', marginBottom: '20px', fontSize: '1rem' }}>Found a site issue? Upload a photo or technical document for instant review.</p>
+                  <label className="btn-primary" style={{ cursor: 'pointer', display: 'inline-block', padding: '12px 35px' }}>
                     <i className="fa-solid fa-camera-retro" style={{ marginRight: '10px' }}></i>
-                    Upload Site Photo
-                    <input type="file" style={{ display: 'none' }} onChange={() => alert("Photo Uploaded! Our site engineers have been notified.")} />
+                    Upload New Site Photo
+                    <input type="file" style={{ display: 'none' }} onChange={() => alert("File Uploaded! Site engineers notified.")} />
                   </label>
                 </div>
                 <p className="modal-footer-text">Project Phase: Foundation | Temperature: 32°C | Humidity: 65%</p>
