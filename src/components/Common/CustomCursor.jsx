@@ -7,18 +7,16 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const mouseMove = (e) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
-      });
+      setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
     const handleHover = (e) => {
-      if (e.target.closest('button, a, .filter-btn, .sub-filter-btn, .property-card')) {
-        setIsHovered(true);
-      } else {
-        setIsHovered(false);
-      }
+      const target = e.target;
+      const isClickable = 
+        window.getComputedStyle(target).cursor === 'pointer' || 
+        target.closest('button, a, .property-card, .filter-btn, .sub-filter-btn');
+      
+      setIsHovered(!!isClickable);
     };
 
     window.addEventListener("mousemove", mouseMove);
