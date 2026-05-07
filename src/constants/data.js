@@ -512,6 +512,18 @@ export const PROPERTIES = [
     baths: 1,
     sqft: "1,000",
   },
+  {
+    id: 62,
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1000",
+    category: "VILLA",
+    subCategory: "1BHK",
+    title: "Panoramic Garden Studio",
+    description: "Exceptional views and private garden access in this 21st premium 1BHK villa.",
+    price: "$150,000",
+    beds: 1,
+    baths: 1,
+    sqft: "1,050",
+  },
 
   // 2BHK VILLAS
   {
