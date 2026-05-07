@@ -109,8 +109,8 @@ export const WORKERS = [
     rating: 4.9,
     experience: "12 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=300",
-    specialty: "Foundation & Structure"
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600",
+    specialty: "Precision structural foundations and load-bearing brickwork."
   },
   {
     id: 2,
@@ -120,8 +120,8 @@ export const WORKERS = [
     rating: 4.8,
     experience: "8 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=300",
-    specialty: "Smart Home Wiring"
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=600",
+    specialty: "High-voltage systems and smart home automation integration."
   },
   {
     id: 3,
@@ -131,8 +131,8 @@ export const WORKERS = [
     rating: 5.0,
     experience: "15 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=300",
-    specialty: "Sustainable Design"
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600",
+    specialty: "Sustainable luxury residential designs and urban planning."
   },
   {
     id: 4,
@@ -142,8 +142,8 @@ export const WORKERS = [
     rating: 4.7,
     experience: "10 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1521110602882-b4d5b469c82d?auto=format&fit=crop&q=80&w=300",
-    specialty: "Industrial Plumbing"
+    image: "https://images.unsplash.com/photo-1521110602882-b4d5b469c82d?auto=format&fit=crop&q=80&w=600",
+    specialty: "Advanced hydraulic systems and water treatment solutions."
   },
   {
     id: 5,
@@ -153,8 +153,8 @@ export const WORKERS = [
     rating: 4.9,
     experience: "7 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300",
-    specialty: "Modern Minimalism"
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
+    specialty: "Curated luxury interiors and bespoke furniture selection."
   },
   {
     id: 6,
@@ -164,7 +164,7 @@ export const WORKERS = [
     rating: 4.8,
     experience: "20 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1556157382-97dee2dcb34e?auto=format&fit=crop&q=80&w=300",
-    specialty: "Earthquake Resistant"
+    image: "https://images.unsplash.com/photo-1556157382-97dee2dcb34e?auto=format&fit=crop&q=80&w=600",
+    specialty: "Seismic-resistant structures and deep-foundation engineering."
   }
 ];

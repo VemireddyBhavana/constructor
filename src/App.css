@@ -1685,15 +1685,7 @@
 .package-features li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-main); }
 .check-icon { color: #4caf50; font-weight: bold; }
 
-.workers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-.worker-card { background: var(--bg-primary); border-radius: 15px; overflow: hidden; border: 1px solid var(--border); transition: all 0.3s ease; }
-.worker-card.hired { border-color: #4caf50; box-shadow: 0 10px 20px rgba(76, 175, 80, 0.1); }
 .worker-image-wrapper { position: relative; height: 250px; }
-.worker-img { width: 100%; height: 100%; object-fit: cover; }
-.worker-rating { position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 5px; font-size: 0.8rem; }
-.worker-info { padding: 20px; }
-.worker-role { color: #D4AF37; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px; }
-.worker-meta { display: flex; flex-direction: column; gap: 5px; margin: 15px 0 20px 0; font-size: 0.85rem; color: var(--text-muted); }
 .hiring-bar { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #000; color: white; padding: 15px 30px; border-radius: 50px; z-index: 1000; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
 .hiring-bar-content { display: flex; align-items: center; gap: 30px; }
 
@@ -1788,21 +1780,36 @@
 .breakdown-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
 
 /* Worker UI Improvements */
-.worker-card { height: 100%; display: flex; flex-direction: column; background: #111; border-radius: 20px; overflow: hidden; position: relative; border: 1px solid var(--border); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-.worker-card:hover { transform: translateY(-10px); border-color: #D4AF37; box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1); }
 .worker-image-wrapper { height: 300px; overflow: hidden; }
-.worker-img { transition: 0.5s ease; }
-.worker-card:hover .worker-img { transform: scale(1.1); }
-.worker-info { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
-.worker-role { background: rgba(212, 175, 55, 0.1); color: #D4AF37; padding: 5px 15px; border-radius: 50px; font-size: 0.7rem; display: inline-block; width: fit-content; margin-bottom: 15px; }
-.worker-meta { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.worker-meta span { display: flex; flex-direction: column; font-size: 0.75rem; }
-.worker-meta strong { font-size: 0.9rem; color: #D4AF37; margin-top: 2px; }
 
 /* Filter & Tab Styles */
-.category-filters { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-.filter-tab { background: #1a1a1a; border: 1px solid var(--border); color: white; padding: 10px 25px; border-radius: 50px; cursor: pointer; transition: 0.3s; font-size: 0.85rem; letter-spacing: 1px; }
-.filter-tab.active { background: #D4AF37; border-color: #D4AF37; color: #000; font-weight: 700; }
-.filter-tab:hover { border-color: #D4AF37; }
 
-.verified-badge { position: absolute; top: 15px; left: 15px; background: #4caf50; color: white; padding: 4px 12px; border-radius: 5px; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; z-index: 10; }
+
+/* Final Unified Worker Styles */
+.worker-specialty { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+.worker-image-wrapper { height: 300px; width: 100%; overflow: hidden; position: relative; }
+
+/* Cleaned & Centered Worker Marketplace Styles */
+.workers-page { background: #050505; min-height: 100vh; }
+.category-filters { display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; margin-bottom: 60px; }
+.filter-tab { background: #111; border: 1px solid #333; color: #999; padding: 12px 28px; border-radius: 50px; cursor: pointer; transition: 0.3s all ease; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; }
+.filter-tab:hover { border-color: #D4AF37; color: #D4AF37; }
+.filter-tab.active { background: #D4AF37; border-color: #D4AF37; color: #000; }
+
+.workers-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1400px; margin: 0 auto; padding: 0 20px 100px 20px; }
+.worker-card { width: 350px; background: #111; border: 1px solid #222; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
+.worker-card:hover { transform: translateY(-15px); border-color: #D4AF37; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+.worker-image-wrapper { height: 320px; width: 100%; overflow: hidden; position: relative; background: #1a1a1a; }
+.worker-img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
+.worker-card:hover .worker-img { transform: scale(1.1); }
+.worker-rating { position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); color: #D4AF37; padding: 6px 12px; border-radius: 12px; font-size: 0.85rem; font-weight: 700; border: 1px solid rgba(212, 175, 55, 0.3); }
+.verified-badge { position: absolute; top: 20px; left: 20px; background: #4caf50; color: white; padding: 6px 12px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+
+.worker-info { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; text-align: left; }
+.worker-role { color: #D4AF37; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+.worker-info h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #ffffff !important; margin-bottom: 8px; font-weight: 700; }
+.worker-specialty { color: #888; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.4; }
+.worker-meta { margin-top: auto; padding-top: 25px; border-top: 1px solid #222; display: flex; justify-content: space-between; align-items: center; }
+.worker-meta span { display: flex; flex-direction: column; gap: 4px; }
+.worker-meta small { color: #666; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.worker-meta strong { color: #D4AF37; font-size: 1rem; }
