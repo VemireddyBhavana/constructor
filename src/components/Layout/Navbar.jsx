@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../Common/Logo';
+import ThemeToggle from '../Common/ThemeToggle';
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = React.useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
@@ -17,19 +18,22 @@ const Navbar = () => {
   const isHome = location.pathname === '/home' || location.pathname === '/';
   const isAbout = location.pathname === '/about';
   const isServices = location.pathname === '/services';
-  const isProperties = location.pathname === '/properties';
+  const isProperties = location.pathname.startsWith('/properties') || location.pathname.startsWith('/property');
   const isContact = location.pathname === '/contact';
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <Logo className="light" />
-      <ul className="nav-links">
-        <li><Link to="/home" className={isHome ? 'active' : ''}>Home</Link></li>
-        <li><Link to="/about" className={isAbout ? 'active' : ''}>About</Link></li>
-        <li><Link to="/services" className={isServices ? 'active' : ''}>Services</Link></li>
-        <li><Link to="/properties" className={isProperties ? 'active' : ''}>Properties</Link></li>
-        <li><Link to="/contact" className={isContact ? 'active' : ''}>Contact</Link></li>
-      </ul>
+      <Logo />
+      <div className="nav-right">
+        <ul className="nav-links">
+          <li><Link to="/home" className={isHome ? 'active' : ''}>Home</Link></li>
+          <li><Link to="/about" className={isAbout ? 'active' : ''}>About</Link></li>
+          <li><Link to="/services" className={isServices ? 'active' : ''}>Services</Link></li>
+          <li><Link to="/properties" className={isProperties ? 'active' : ''}>Properties</Link></li>
+          <li><Link to="/contact" className={isContact ? 'active' : ''}>Contact</Link></li>
+        </ul>
+        <ThemeToggle />
+      </div>
     </nav>
   );
 };

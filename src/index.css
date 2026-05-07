@@ -5,37 +5,43 @@ html {
 }
 
 :root {
-  --primary: #3ca8a1;
-  --primary-hover: #2e8d87;
+  /* Light Theme tokens */
+  --primary: #1a1a1a;
+  --primary-hover: #333333;
   --text-main: #1a1a1a;
-  --text-muted: #555555;
-  --text-accent: #3ca8a1;
-  --bg-cream: #fbfaf7;
-  --bg-white: #ffffff;
+  --text-muted: #666666;
+  --bg-primary: #ffffff;
+  --bg-secondary: #fbfaf7;
   --border: #e8e6e1;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --accent: #D4AF37;
   
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Poppins', sans-serif;
 
   font-family: var(--font-body);
   line-height: 1.6;
-  font-weight: 400;
+}
 
-  color: var(--text-main);
-  background-color: var(--bg-cream);
+[data-theme='dark'] {
+  --primary: #f0f0f0;
+  --primary-hover: #ffffff;
+  --text-main: #f0f0f0;
+  --text-muted: #a0a0a0;
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --border: #222222;
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
   min-height: 100vh;
 }
 
