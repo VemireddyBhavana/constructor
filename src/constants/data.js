@@ -110,7 +110,7 @@ export const WORKERS = [
     rating: 5.0,
     experience: "15 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/design-1.png",
     specialty: "Sustainable luxury residential designs and urban planning."
   },
   {
@@ -121,7 +121,7 @@ export const WORKERS = [
     rating: 4.9,
     experience: "7 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/design-2.png",
     specialty: "Curated luxury interiors and bespoke furniture selection."
   },
   {
@@ -132,7 +132,7 @@ export const WORKERS = [
     rating: 4.8,
     experience: "5 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/design-3.png",
     specialty: "Photorealistic 3D rendering and virtual walkthroughs."
   },
 
@@ -145,7 +145,7 @@ export const WORKERS = [
     rating: 4.9,
     experience: "12 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/mason-1.png",
     specialty: "Precision structural foundations and load-bearing brickwork."
   },
   {
@@ -156,7 +156,7 @@ export const WORKERS = [
     rating: 4.7,
     experience: "14 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/mason-2.png",
     specialty: "Natural stone cladding and decorative marble installation."
   },
   {
@@ -167,7 +167,7 @@ export const WORKERS = [
     rating: 4.6,
     experience: "10 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1506803682981-6e718a9dd3ee?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/mason-3.png",
     specialty: "High-strength RCC works and complex column casting."
   },
 
@@ -180,7 +180,7 @@ export const WORKERS = [
     rating: 4.8,
     experience: "8 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/electric-1.png",
     specialty: "High-voltage systems and smart home automation integration."
   },
   {
@@ -191,7 +191,7 @@ export const WORKERS = [
     rating: 4.9,
     experience: "6 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/electric-2.png",
     specialty: "Ambient lighting control and custom LED installations."
   },
   {
@@ -202,7 +202,7 @@ export const WORKERS = [
     rating: 4.7,
     experience: "9 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/electric-3.png",
     specialty: "Rooftop solar grid setup and backup power systems."
   },
 
@@ -215,7 +215,7 @@ export const WORKERS = [
     rating: 4.7,
     experience: "10 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1521110602882-b4d5b469c82d?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/plumbing-1.png",
     specialty: "Advanced hydraulic systems and water treatment solutions."
   },
   {
@@ -226,7 +226,7 @@ export const WORKERS = [
     rating: 4.8,
     experience: "11 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/plumbing-2.png",
     specialty: "Luxury bathroom fittings and concealed drainage setup."
   },
   {
@@ -237,7 +237,7 @@ export const WORKERS = [
     rating: 4.6,
     experience: "13 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/plumbing-1.png",
     specialty: "Underground network planning and fire hydrant systems."
   },
 
@@ -250,7 +250,7 @@ export const WORKERS = [
     rating: 4.8,
     experience: "20 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1556157382-97dee2dcb34e?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/engineer-1.png",
     specialty: "Seismic-resistant structures and deep-foundation engineering."
   },
   {
@@ -261,7 +261,7 @@ export const WORKERS = [
     rating: 4.9,
     experience: "12 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/engineer-2.png",
     specialty: "Site coordination, safety audits, and timeline management."
   },
   {
@@ -272,7 +272,7 @@ export const WORKERS = [
     rating: 4.7,
     experience: "8 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/workers/engineer-1.png",
     specialty: "Topographical surveying and GPS site marking."
   }
 ];
