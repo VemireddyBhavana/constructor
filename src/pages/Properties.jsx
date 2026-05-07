@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Layout/Navbar';
 import PropertyCard from '../components/Common/PropertyCard';
 import ScrollReveal from '../components/Common/ScrollReveal';
 import { IMAGES, PROPERTIES } from '../constants/data';
 
 const Properties = () => {
+  const { category, subCategory } = useParams();
+  const navigate = useNavigate();
+  
   const [filter, setFilter] = useState('ALL');
   const [subFilter, setSubFilter] = useState('ALL');
   const [search, setSearch] = useState('');
@@ -13,11 +17,29 @@ const Properties = () => {
   const categories = ['ALL', 'APARTMENT', 'VILLA', 'PENTHOUSE', 'HOUSE'];
   const villaSubCategories = ['ALL', '1BHK', '2BHK', '3BHK', '4BHK', 'FLATS'];
 
+  // Sync state with URL parameters
+  useEffect(() => {
+    if (category) {
+      const upperCat = category.toUpperCase();
+      if (categories.includes(upperCat)) {
+        setFilter(upperCat);
+      }
+    }
+    
+    if (subCategory) {
+      const upperSub = subCategory.toUpperCase();
+      if (villaSubCategories.includes(upperSub)) {
+        setSubFilter(upperSub);
+      }
+    } else {
+      setSubFilter('ALL');
+    }
+  }, [category, subCategory]);
+
   const filteredProperties = PROPERTIES.filter(property => {
     const matchesFilter = filter === 'ALL' || property.category === filter;
     const matchesSubFilter = subFilter === 'ALL' || property.subCategory === subFilter;
 
-    // Search across ALL fields when search is active
     const q = search.toLowerCase().trim();
     const matchesSearch = !q || [
       property.title,
@@ -37,17 +59,27 @@ const Properties = () => {
   });
 
   const handleFilterChange = (newFilter) => {
-    setFilter(newFilter);
-    setSubFilter('ALL');
+    setSearch(''); // Clear search when changing category
+    if (newFilter === 'ALL') {
+      navigate('/properties/all');
+    } else {
+      navigate(`/properties/${newFilter.toLowerCase()}`);
+    }
+  };
+
+  const handleSubFilterChange = (newSub) => {
+    if (newSub === 'ALL') {
+      navigate('/properties/villa');
+    } else {
+      navigate(`/properties/villa/${newSub.toLowerCase()}`);
+    }
   };
 
   const handleSearch = (e) => {
     const val = e.target.value;
     setSearch(val);
-    // When searching, reset category filters so no results are hidden
-    if (val.trim() !== '') {
-      setFilter('ALL');
-      setSubFilter('ALL');
+    if (val.trim() !== '' && filter !== 'ALL') {
+      navigate('/properties/all');
     }
   };
 
@@ -102,7 +134,7 @@ const Properties = () => {
               <button 
                 key={sub} 
                 className={`sub-filter-btn ${subFilter === sub ? 'active' : ''}`}
-                onClick={() => setSubFilter(sub)}
+                onClick={() => handleSubFilterChange(sub)}
               >
                 {sub}
               </button>

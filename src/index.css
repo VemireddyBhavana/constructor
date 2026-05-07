@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
 html {
   scroll-behavior: smooth;
 }
@@ -13,8 +15,8 @@ html {
   --border: #e8e6e1;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   
-  --font-heading: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Poppins', sans-serif;
 
   font-family: var(--font-body);
   line-height: 1.6;
@@ -53,9 +55,9 @@ p {
 }
 
 .section-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 80px 20px;
+  padding: 120px 40px;
 }
 
 .text-center {
@@ -63,11 +65,11 @@ p {
 }
 
 .teal-line {
-  width: 50px;
-  height: 2px;
-  background-color: var(--primary);
-  margin: 20px auto;
-  opacity: 0.5;
+  width: 60px;
+  height: 3px;
+  background-color: #D4AF37;
+  margin: 25px auto;
+  opacity: 0.8;
 }
 
 .btn-primary {

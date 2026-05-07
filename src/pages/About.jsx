@@ -20,8 +20,8 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <span className="hero-subtitle">About</span>
-              <h1 className="hero-title">Discover Our Story and Expertise</h1>
+              <span className="hero-subtitle">Our Heritage</span>
+              <h1 className="hero-title">Defining Luxury Through Generations of Excellence</h1>
             </motion.div>
           </div>
         </div>

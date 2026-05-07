@@ -3,14 +3,20 @@ import { Link } from 'react-router-dom';
 
 const Logo = ({ className }) => (
   <Link to="/" className={`nav-logo ${className}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="logo-icon-svg">
-      <path d="M3 21h18" />
-      <path d="M5 21V7l8-4v18" />
-      <path d="M13 21V11l5-3v13" />
-      <rect x="7" y="10" width="2" height="2" />
-      <rect x="7" y="14" width="2" height="2" />
-    </svg>
-    <span>Real<b>Estate</b></span>
+    <div className="logo-container">
+      <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="logo-icon-svg">
+        {/* Luxury Geometric Villa Icon */}
+        <path d="M50 20L15 45V80H40V60H60V80H85V45L50 20Z" stroke="currentColor" strokeWidth="4" strokeLinejoin="round"/>
+        <path d="M15 45L50 20L85 45" stroke="#D4AF37" strokeWidth="4" strokeLinecap="round"/>
+        <path d="M50 20V10M50 10H60" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round"/>
+        <rect x="25" y="50" width="10" height="10" stroke="currentColor" strokeWidth="2"/>
+        <rect x="65" y="50" width="10" height="10" stroke="currentColor" strokeWidth="2"/>
+      </svg>
+      <div className="logo-text">
+        <span className="brand-skyview">SKYVIEW</span>
+        <span className="brand-estates">ESTATES</span>
+      </div>
+    </div>
   </Link>
 );
 

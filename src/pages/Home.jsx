@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Layout/Navbar';
 import WhatWeDoSection from '../components/Sections/WhatWeDoSection';
 import FeaturedPropertiesSection from '../components/Sections/FeaturedPropertiesSection';
@@ -21,9 +22,11 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <span className="hero-subtitle">Discover Your Dream Home with Us</span>
-              <h1 className="hero-title">Find the Perfect Property for Your Lifestyle</h1>
-              <button className="btn-primary">Start Searching</button>
+              <span className="hero-subtitle">The Pinnacle of Luxury Living</span>
+              <h1 className="hero-title">Exceptional Homes for the Discerning Few</h1>
+              <Link to="/properties/all">
+                <button className="btn-primary">Explore Estates</button>
+              </Link>
             </motion.div>
           </div>
         </div>

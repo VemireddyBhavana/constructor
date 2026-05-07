@@ -1,10 +1,17 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Layout/Navbar';
 import ScrollReveal from '../components/Common/ScrollReveal';
 import { IMAGES, CONTACT_INFO } from '../constants/data';
 
 const Contact = () => {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
   return (
     <>
       <header className="hero-section small" style={{ backgroundImage: `url(${IMAGES.contact})` }}>
@@ -16,8 +23,8 @@ const Contact = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <span className="hero-subtitle">Contact Us</span>
-              <h1 className="hero-title">We're Just a Phone Call or Message Away</h1>
+              <span className="hero-subtitle">Get in Touch</span>
+              <h1 className="hero-title">Begin Your Journey to Exceptional Living</h1>
             </motion.div>
           </div>
         </div>
@@ -49,16 +56,39 @@ const Contact = () => {
 
           <ScrollReveal direction="right">
             <div className="reach-out-card">
-              <span className="contact-tag">CONTACT US</span>
-              <h3>Send us a Message</h3>
-              <div className="teal-line"></div>
-              <form className="contact-form-minimal">
-                <input type="text" placeholder="Full Name" required />
-                <input type="email" placeholder="Email Address" required />
-                <input type="text" placeholder="Subject" required />
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" className="btn-primary full-width">SEND MESSAGE</button>
-              </form>
+              <AnimatePresence mode="wait">
+                {!submitted ? (
+                  <motion.div
+                    key="contact-form"
+                    initial={{ opacity: 1 }}
+                    exit={{ opacity: 0, x: 20 }}
+                  >
+                    <span className="contact-tag">CONTACT US</span>
+                    <h3>Send us a Message</h3>
+                    <div className="teal-line"></div>
+                    <form className="contact-form-minimal" onSubmit={handleSubmit}>
+                      <input type="text" placeholder="Full Name" required />
+                      <input type="email" placeholder="Email Address" required />
+                      <input type="text" placeholder="Subject" required />
+                      <textarea placeholder="Your Message" rows="5" required></textarea>
+                      <button type="submit" className="btn-primary full-width">SEND MESSAGE</button>
+                    </form>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="success-message"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="booking-success"
+                    style={{ padding: '20px 0' }}
+                  >
+                    <div className="success-icon" style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>✓</div>
+                    <h3>Message Sent</h3>
+                    <p>Thank you for reaching out to Skyview Estates. One of our luxury advisors will contact you shortly.</p>
+                    <button className="btn-primary" onClick={() => setSubmitted(false)}>Send Another Message</button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </ScrollReveal>
         </div>

@@ -3,7 +3,17 @@ import { Link, useLocation } from 'react-router-dom';
 import Logo from '../Common/Logo';
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = React.useState(false);
   const location = useLocation();
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const isHome = location.pathname === '/home' || location.pathname === '/';
   const isAbout = location.pathname === '/about';
   const isServices = location.pathname === '/services';
@@ -11,7 +21,7 @@ const Navbar = () => {
   const isContact = location.pathname === '/contact';
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <Logo className="light" />
       <ul className="nav-links">
         <li><Link to="/home" className={isHome ? 'active' : ''}>Home</Link></li>

@@ -10,7 +10,7 @@ const Footer = () => {
         </div>
         <div className="footer-col">
           <h3>About Us</h3>
-          <p>At Real Estate, we pride ourselves on being a trusted and reputable name in the real estate industry with years of experience.</p>
+          <p>At Skyview Estates, we pride ourselves on being a trusted and reputable name in the luxury real estate industry with years of experience.</p>
         </div>
         <div className="footer-col">
           <h3>Contact Info</h3>
@@ -31,7 +31,7 @@ const Footer = () => {
       </div>
       
       <div className="footer-bottom">
-        <p>Copyright © 2026 Real Estate Company</p>
+        <p>Copyright © 2026 Skyview Estates Company</p>
         <div className="footer-bottom-right">
           <div className="footer-socials">
             <a href="#">🐦</a>
