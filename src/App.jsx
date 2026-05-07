@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Footer from './components/Layout/Footer'
@@ -7,21 +7,12 @@ import { IMAGES } from './constants/data'
 import './App.css'
 
 function App() {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (location.pathname === '/') {
-      navigate('/home');
-    }
-  }, [location.pathname, navigate]);
-
   return (
     <div className="app-wrapper">
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Navigate to="/home" replace />} />
       </Routes>
 
       {/* Shared Contact Section */}

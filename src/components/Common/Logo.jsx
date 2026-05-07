@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Logo = ({ className }) => (
-  <div className={`nav-logo ${className}`}>
+  <Link to="/home" className={`nav-logo ${className}`} style={{ textDecoration: 'none', color: 'inherit' }}>
     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="logo-icon-svg">
       <path d="M3 21h18" />
       <path d="M5 21V7l8-4v18" />
@@ -10,7 +11,7 @@ const Logo = ({ className }) => (
       <rect x="7" y="14" width="2" height="2" />
     </svg>
     <span>Real<b>Estate</b></span>
-  </div>
+  </Link>
 );
 
 export default Logo;
