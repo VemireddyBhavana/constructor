@@ -15,6 +15,7 @@ html {
   --border: #e8e6e1;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   --accent: #D4AF37;
+  --navbar-bg: rgba(255, 255, 255, 0.85);
   
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Poppins', sans-serif;
@@ -32,6 +33,7 @@ html {
   --bg-secondary: #111111;
   --border: #222222;
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  --navbar-bg: rgba(10, 10, 10, 0.85);
 }
 
 * {
@@ -54,6 +56,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-weight: 600;
   margin: 0;
+  color: var(--text-main);
 }
 
 p {
