@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../Common/Logo';
 
 const Footer = () => {
   const [showLiveFeed, setShowLiveFeed] = useState(false);
+  const [footerSearch, setFooterSearch] = useState('');
+  const navigate = useNavigate();
+
+  const handleFooterSearch = (e) => {
+    e.preventDefault();
+    if (footerSearch.trim()) {
+      navigate(`/properties/all?q=${encodeURIComponent(footerSearch.trim())}`);
+      setFooterSearch('');
+    }
+  };
 
   return (
     <footer className="footer-section section-container">
@@ -26,10 +37,15 @@ const Footer = () => {
         <div className="footer-col">
           <h3>Property Search</h3>
           <p>Explore our diverse portfolio of real estate opportunities.</p>
-          <div className="footer-search">
-            <input type="text" placeholder="Search Properties" />
-            <button className="footer-search-btn">🔍</button>
-          </div>
+          <form className="footer-search" onSubmit={handleFooterSearch}>
+            <input 
+              type="text" 
+              placeholder="Search Properties" 
+              value={footerSearch}
+              onChange={(e) => setFooterSearch(e.target.value)}
+            />
+            <button type="submit" className="footer-search-btn">🔍</button>
+          </form>
         </div>
       </div>
       

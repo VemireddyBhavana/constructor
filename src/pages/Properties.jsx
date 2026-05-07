@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import Navbar from '../components/Layout/Navbar';
 import PropertyCard from '../components/Common/PropertyCard';
 import ScrollReveal from '../components/Common/ScrollReveal';
@@ -9,6 +9,7 @@ import { IMAGES, PROPERTIES } from '../constants/data';
 const Properties = () => {
   const { category, subCategory } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   
   const [filter, setFilter] = useState('ALL');
   const [subFilter, setSubFilter] = useState('ALL');
@@ -17,8 +18,15 @@ const Properties = () => {
   const categories = ['ALL', 'APARTMENT', 'VILLA', 'PENTHOUSE', 'HOUSE'];
   const villaSubCategories = ['ALL', '1BHK', '2BHK', '3BHK', '4BHK', 'FLATS'];
 
-  // Sync state with URL parameters
+  // Sync state with URL parameters and query strings
   useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const query = params.get('q');
+    if (query) {
+      setSearch(query);
+      setFilter('ALL');
+    }
+
     if (category) {
       const upperCat = category.toUpperCase();
       if (categories.includes(upperCat)) {
