@@ -110,7 +110,7 @@ export const WORKERS = [
     rating: 5.0,
     experience: "15 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600",
     specialty: "Sustainable luxury residential designs and urban planning."
   },
   {
@@ -132,7 +132,7 @@ export const WORKERS = [
     rating: 4.8,
     experience: "5 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
     specialty: "Photorealistic 3D rendering and virtual walkthroughs."
   },
 
@@ -156,7 +156,7 @@ export const WORKERS = [
     rating: 4.7,
     experience: "14 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
     specialty: "Natural stone cladding and decorative marble installation."
   },
   {
@@ -202,7 +202,7 @@ export const WORKERS = [
     rating: 4.7,
     experience: "9 Years",
     verified: true,
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600",
     specialty: "Rooftop solar grid setup and backup power systems."
   },
 

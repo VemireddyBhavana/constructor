@@ -89,7 +89,6 @@ const Workers = () => {
                 <div className={`worker-card ${hiredWorkers.find(w => w.id === worker.id) ? 'hired' : ''}`}>
                   <div className="worker-image-wrapper">
                     <img src={worker.image} alt={worker.name} className="worker-img" />
-                    {worker.verified && <div className="verified-badge">VERIFIED PRO</div>}
                     <div className="worker-rating">⭐ {worker.rating}</div>
                   </div>
                   <div className="worker-info">
