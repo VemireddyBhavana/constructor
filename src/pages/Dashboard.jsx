@@ -96,6 +96,20 @@ const Dashboard = () => {
                       <p>Material delivery: 500 bags of Grade 53 cement received at site.</p>
                     </div>
                   </div>
+                  <div className="update-item">
+                    <div className="update-img" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=300)'}}></div>
+                    <div className="update-text">
+                      <span className="update-time">3 days ago</span>
+                      <p>Excavation for the main villa block completed successfully.</p>
+                    </div>
+                  </div>
+                  <div className="update-item">
+                    <div className="update-img" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1531834351333-e52f7881f341?auto=format&fit=crop&q=80&w=300)'}}></div>
+                    <div className="update-text">
+                      <span className="update-time">Last week</span>
+                      <p>Site layout marking completed by Lead Architect and Surveyor.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
@@ -113,10 +127,16 @@ const Dashboard = () => {
                   </div>
                 )}
                 {selectedPackage && (
-                  <div className="summary-item">
-                    <span className="label">Construction Package</span>
-                    <span className="value">{selectedPackage.name}</span>
-                  </div>
+                  <>
+                    <div className="summary-item">
+                      <span className="label">Construction Package</span>
+                      <span className="value">{selectedPackage.name}</span>
+                    </div>
+                    <div className="summary-item">
+                      <span className="label">Project Lead</span>
+                      <span className="value">{selectedPackage.projectLead}</span>
+                    </div>
+                  </>
                 )}
                 <div className="summary-item">
                   <span className="label">Est. Completion</span>

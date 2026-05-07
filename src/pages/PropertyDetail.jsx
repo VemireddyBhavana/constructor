@@ -108,6 +108,16 @@ const PropertyDetail = () => {
                   <div className="feature-tag">Secure Parking</div>
                 </div>
               </div>
+
+              <ScrollReveal direction="up" delay={0.4}>
+                <div className="detail-floor-plan">
+                  <h2>Architectural Floor Plan</h2>
+                  <div className="floor-plan-container">
+                    <img src="/architectural_floor_plan.png" alt="House Floor Plan" className="floor-plan-img" />
+                  </div>
+                  <p className="floor-plan-note">This technical drawing represents the standard layout for this design. Custom modifications are possible during the construction setup phase.</p>
+                </div>
+              </ScrollReveal>
             </ScrollReveal>
           </div>
 

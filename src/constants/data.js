@@ -78,6 +78,7 @@ export const CONSTRUCTION_PACKAGES = [
     id: "basic",
     name: "Basic Package",
     price: "₹1,800/sq.ft",
+    projectLead: "Arjun Mehta (Senior Builder)",
     tagline: "Quality essentials for budget-conscious homeowners.",
     features: ["Standard Brickwork", "Grade 43 Cement", "TMT Steel Fe500", "Vitrified Tiles (2x2)", "Standard Electricals"]
   },
@@ -85,6 +86,7 @@ export const CONSTRUCTION_PACKAGES = [
     id: "standard",
     name: "Standard Package",
     price: "₹2,200/sq.ft",
+    projectLead: "Karan Johar (Expert Builder)",
     tagline: "Our most popular choice for premium residential homes.",
     features: ["Fly Ash Bricks", "Grade 53 Cement", "TMT Steel Fe550", "Double Charged Tiles", "Branded CP Fittings", "Modular Switches"]
   },
@@ -92,6 +94,7 @@ export const CONSTRUCTION_PACKAGES = [
     id: "luxury",
     name: "Luxury Package",
     price: "₹3,500/sq.ft",
+    projectLead: "Sanjay Singhania (Master Builder)",
     tagline: "Ultra-luxury materials and concierge-level service.",
     features: ["Wire-cut Bricks", "Acc/Ultratech Cement", "Corrosion Resistant Steel", "Italian Marble Flooring", "Smart Home Automation", "Designer Bathrooms"]
   }
