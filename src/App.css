@@ -1813,3 +1813,24 @@
 .worker-meta span { display: flex; flex-direction: column; gap: 4px; }
 .worker-meta small { color: #666; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 .worker-meta strong { color: #D4AF37; font-size: 1rem; }
+
+/* Live Feed Modal Styles */
+.live-feed-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.live-feed-modal .modal-content { background: #111; border: 1px solid #333; border-radius: 20px; width: 100%; max-width: 900px; padding: 30px; position: relative; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.modal-header h3 { font-size: 1rem; color: #fff; letter-spacing: 1px; }
+.modal-header button { background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+.camera-display { position: relative; width: 100%; border-radius: 10px; overflow: hidden; border: 2px solid #222; }
+.camera-display img { width: 100%; height: auto; display: block; filter: contrast(1.1) brightness(0.9); }
+.camera-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; }
+.timestamp { font-family: monospace; color: #0f0; font-size: 0.9rem; text-shadow: 1px 1px 2px #000; }
+.rec-indicator { color: #f00; font-weight: 700; font-size: 0.8rem; animation: blink 1s infinite; }
+.camera-label { background: rgba(0,0,0,0.5); padding: 5px 10px; color: #fff; font-size: 0.7rem; align-self: flex-start; border-radius: 4px; }
+.modal-footer-text { margin-top: 20px; font-size: 0.8rem; color: #666; text-align: center; }
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+
+.text-danger { color: #f00; }
+
+/* Footer Icon Fixes */
+.footer-socials a { font-size: 1.2rem; transition: 0.3s; color: #999; }
+.footer-socials a:hover { color: #D4AF37; transform: translateY(-3px); }

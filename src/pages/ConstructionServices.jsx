@@ -9,6 +9,7 @@ const ConstructionServices = () => {
   const navigate = useNavigate();
   const [sqft, setSqft] = useState(1500);
   const [selectedPkgForCalc, setSelectedPkgForCalc] = useState(CONSTRUCTION_PACKAGES[1]);
+  const [showLiveFeed, setShowLiveFeed] = useState(false);
 
   const handleSelectPackage = (pkg) => {
     localStorage.setItem('selectedPackage', JSON.stringify(pkg));
@@ -153,24 +154,52 @@ const ConstructionServices = () => {
           <ScrollReveal direction="up">
             <h2 className="text-center">Advanced Construction Tools</h2>
             <div className="tools-grid">
-              <div className="tool-card">
-                <span className="tool-icon">🕶️</span>
+              <div className="tool-card" onClick={() => alert("Initializing 3D Virtual Environment...")} style={{cursor: 'pointer'}}>
+                <span className="tool-icon"><i className="fa-solid fa-vr-cardboard"></i></span>
                 <h4>3D Virtual Walkthrough</h4>
                 <p>Visualize your home before a single brick is laid with our immersive VR designs.</p>
               </div>
               <div className="tool-card">
-                <span className="tool-icon">🧮</span>
+                <span className="tool-icon"><i className="fa-solid fa-calculator"></i></span>
                 <h4>Material Cost Calculator</h4>
                 <p>Real-time market price integration for precise budgeting and resource planning.</p>
               </div>
-              <div className="tool-card">
-                <span className="tool-icon">📹</span>
+              <div className="tool-card" onClick={() => setShowLiveFeed(true)} style={{cursor: 'pointer'}}>
+                <span className="tool-icon"><i className="fa-solid fa-video"></i></span>
                 <h4>Live Site Monitoring</h4>
                 <p>Track your project in real-time with 24/7 site camera access from your dashboard.</p>
               </div>
             </div>
           </ScrollReveal>
         </div>
+
+        {/* Live Feed Simulation Modal */}
+        <AnimatePresence>
+          {showLiveFeed && (
+            <motion.div 
+              className="live-feed-modal"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h3><i className="fa-solid fa-circle-dot text-danger"></i> LIVE SITE CAMERA - CAM 04</h3>
+                  <button onClick={() => setShowLiveFeed(false)}>✕</button>
+                </div>
+                <div className="camera-display">
+                  <img src="https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1200" alt="Live Feed" />
+                  <div className="camera-overlay">
+                    <div className="timestamp">{new Date().toLocaleString()}</div>
+                    <div className="rec-indicator">● REC</div>
+                    <div className="camera-label">SITE ALPHA - BLOCK B</div>
+                  </div>
+                </div>
+                <p className="modal-footer-text">Project Phase: Foundation | Temperature: 32°C | Humidity: 65%</p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
     </div>
   );

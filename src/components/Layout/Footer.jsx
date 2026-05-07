@@ -34,10 +34,10 @@ const Footer = () => {
         <p>Copyright © 2026 Skyview Estates Company</p>
         <div className="footer-bottom-right">
           <div className="footer-socials">
-            <a href="#">🐦</a>
-            <a href="#">📌</a>
-            <a href="#">▶️</a>
-            <a href="#">📷</a>
+            <a href="#"><i className="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i className="fa-brands fa-instagram"></i></a>
+            <a href="#"><i className="fa-brands fa-youtube"></i></a>
+            <a href="#"><i className="fa-brands fa-facebook-f"></i></a>
           </div>
           <button className="back-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             ↑
