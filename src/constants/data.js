@@ -835,6 +835,7 @@ export const PROPERTIES = [
   { id: 146, image: "https://images.unsplash.com/photo-1556912177-c54030775a3d?auto=format&fit=crop&q=80&w=1000", category: "PENTHOUSE", title: "Platinum Sky Suite", description: "Platinum-grade finishes and world-class views.", price: "$150,000", beds: 3, baths: 3, sqft: "4,250" },
   { id: 147, image: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&q=80&w=1000", category: "PENTHOUSE", title: "Architectural Penthouse", description: "An award-winning design at the summit of the city.", price: "$150,000", beds: 4, baths: 4, sqft: "5,200" },
   { id: 148, image: "https://images.unsplash.com/photo-1556020685-ae41abfc9365?auto=format&fit=crop&q=80&w=1000", category: "PENTHOUSE", title: "Elite Penthouse Residency", description: "The pinnacle of luxury high-rise living.", price: "$150,000", beds: 5, baths: 5, sqft: "6,800" },
+  { id: 149, image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1000", category: "PENTHOUSE", title: "Diamond Sky Penthouse", description: "The rarest and most exclusive penthouse in the city.", price: "$150,000", beds: 5, baths: 5, sqft: "7,200" },
 
   // HOUSES
   {
