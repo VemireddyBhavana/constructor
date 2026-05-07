@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { TESTIMONIALS } from '../../constants/data';
 
 const TestimonialsSection = () => (
@@ -8,7 +9,9 @@ const TestimonialsSection = () => (
       <h2>The Voices of Luxury & Satisfaction.</h2>
       <div className="teal-line left"></div>
       <p>Our reputation is built on the trust of individuals who seek nothing but the best. Hear from those who have successfully found their sanctuary through the expertise of Skyview Estates.</p>
-      <button className="btn-primary">Client Stories</button>
+      <Link to="/properties/all">
+        <button className="btn-primary">Explore Estates</button>
+      </Link>
     </div>
     <div className="testimonials-right">
       {TESTIMONIALS.map((testimonial) => (

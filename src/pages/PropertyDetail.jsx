@@ -9,15 +9,20 @@ const PropertyDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const property = PROPERTIES.find(p => p.id === parseInt(id));
-  const [isBooked, setIsBooked] = useState(false);
+  const [bookingStep, setBookingStep] = useState('select'); // 'select', 'payment', 'success'
+  const [selectedDate, setSelectedDate] = useState(15);
+  const [selectedTime, setSelectedTime] = useState('10:00 AM');
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  const handleBooking = () => {
-    setIsBooked(true);
-    // In a real app, this would send data to a server
+  const goToPayment = () => {
+    setBookingStep('payment');
+  };
+
+  const handlePaymentComplete = () => {
+    setBookingStep('success');
   };
 
   if (!property) {
@@ -110,11 +115,12 @@ const PropertyDetail = () => {
             <ScrollReveal direction="left">
               <div className="enquiry-card">
                 <AnimatePresence mode="wait">
-                  {!isBooked ? (
+                  {bookingStep === 'select' && (
                     <motion.div
                       key="booking-form"
-                      initial={{ opacity: 1 }}
-                      exit={{ opacity: 0, y: -20 }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0, x: -20 }}
                     >
                       <h3>Schedule a Private Tour</h3>
                       <p>Select your preferred date and time for an exclusive viewing of this estate.</p>
@@ -129,32 +135,89 @@ const PropertyDetail = () => {
                         </div>
                         <div className="calendar-grid">
                           <div className="day-name">S</div><div className="day-name">M</div><div className="day-name">T</div><div className="day-name">W</div><div className="day-name">T</div><div className="day-name">F</div><div className="day-name">S</div>
-                          {[...Array(31)].map((_, i) => (
-                            <div key={i} className={`calendar-day ${i + 1 === 15 ? 'selected' : ''} ${i + 1 < 10 ? 'disabled' : ''}`}>
-                              {i + 1}
-                            </div>
-                          ))}
+                          {[...Array(31)].map((_, i) => {
+                            const day = i + 1;
+                            const isPast = day < 10;
+                            return (
+                              <div 
+                                key={i} 
+                                className={`calendar-day ${selectedDate === day ? 'selected' : ''} ${isPast ? 'disabled' : ''}`}
+                                onClick={() => !isPast && setSelectedDate(day)}
+                              >
+                                {day}
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
 
                       <div className="time-slots">
                         <span className="slot-title">Available Time Slots</span>
                         <div className="slots-grid">
-                          <button className="slot-btn active">10:00 AM</button>
-                          <button className="slot-btn">02:00 PM</button>
-                          <button className="slot-btn">05:00 PM</button>
+                          {['10:00 AM', '02:00 PM', '05:00 PM'].map(time => (
+                            <button 
+                              key={time}
+                              className={`slot-btn ${selectedTime === time ? 'active' : ''}`}
+                              onClick={() => setSelectedTime(time)}
+                            >
+                              {time}
+                            </button>
+                          ))}
                         </div>
                       </div>
 
                       <button 
                         className="btn-primary full-width" 
                         style={{ marginTop: '20px' }}
-                        onClick={handleBooking}
+                        onClick={goToPayment}
                       >
-                        Confirm Viewing
+                        Proceed to Payment
                       </button>
                     </motion.div>
-                  ) : (
+                  )}
+
+                  {bookingStep === 'payment' && (
+                    <motion.div
+                      key="payment-step"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      className="payment-container"
+                    >
+                      <h3>Secure Booking</h3>
+                      <p>Scan the QR code to pay the ₹5,000 reservation fee for your private tour on May {selectedDate}, 2026 at {selectedTime}.</p>
+                      
+                      <div className="qr-wrapper">
+                        <img src="/payment_qr_code_1778173496267.png" alt="Payment QR Code" className="payment-qr" />
+                        <div className="qr-overlay">
+                          <span>PAYMENT SECURE</span>
+                        </div>
+                      </div>
+
+                      <div className="payment-info-small">
+                        <div className="info-row">
+                          <span>Amount:</span>
+                          <strong>₹5,000</strong>
+                        </div>
+                        <div className="info-row">
+                          <span>Property:</span>
+                          <strong>{property.title}</strong>
+                        </div>
+                      </div>
+
+                      <button 
+                        className="btn-primary full-width" 
+                        onClick={handlePaymentComplete}
+                      >
+                        I have completed the payment
+                      </button>
+                      <button className="btn-secondary full-width" style={{ marginTop: '10px' }} onClick={() => setBookingStep('select')}>
+                        Back
+                      </button>
+                    </motion.div>
+                  )}
+
+                  {bookingStep === 'success' && (
                     <motion.div
                       key="success-message"
                       initial={{ opacity: 0, scale: 0.9 }}
@@ -162,9 +225,9 @@ const PropertyDetail = () => {
                       className="booking-success"
                     >
                       <div className="success-icon">✓</div>
-                      <h3>Request Received</h3>
-                      <p>Your private viewing has been scheduled. A Skyview Advisory member will contact you shortly to confirm details.</p>
-                      <button className="btn-primary full-width" onClick={() => setIsBooked(false)}>Book another slot</button>
+                      <h3>Payment Successful!</h3>
+                      <p>Your private viewing has been confirmed for May {selectedDate}, 2026 at {selectedTime}. A receipt and digital pass have been sent to your registered email.</p>
+                      <button className="btn-primary full-width" onClick={() => navigate('/properties')}>Browse More Estates</button>
                     </motion.div>
                   )}
                 </AnimatePresence>

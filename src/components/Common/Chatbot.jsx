@@ -19,12 +19,74 @@ const Chatbot = () => {
 
   const getBotResponse = (input) => {
     const text = input.toLowerCase();
-    if (text.includes("villa")) return "We have an exclusive collection of villas starting from $2.5M. Many feature private pools and panoramic views. Would you like to see the 'Villa' category?";
-    if (text.includes("price") || text.includes("cost")) return "Our properties range from $500k for luxury apartments to over $10M for signature estates. I can provide specific pricing for any ID you're interested in.";
-    if (text.includes("book") || text.includes("tour") || text.includes("viewing")) return "I can certainly help you schedule a private tour. You can use the 'Schedule a Tour' calendar on any property page, or I can take your details here.";
-    if (text.includes("location") || text.includes("where")) return "Skyview Estates represents prime properties in the most sought-after coastal and metropolitan areas. Our current featured estates are in the Skyview District.";
-    if (text.includes("hello") || text.includes("hi")) return "Greetings. How can I assist your property search today?";
-    return "That's an interesting inquiry. As a Skyview Assistant, I recommend speaking with one of our human advisors for a bespoke consultation. Shall I notify them for you?";
+    
+    // 1. Greetings & Small Talk
+    if (text.includes("hello") || text.includes("hi") || text.includes("hey")) {
+      return "Greetings from Skyview Estates. I am your AI assistant, dedicated to finding your perfect luxury sanctuary. How may I assist your search today?";
+    }
+    if (text.includes("how are you")) {
+      return "I am functioning perfectly and ready to help you find your dream home! How are you doing today?";
+    }
+    if (text.includes("thank")) {
+      return "You're most welcome. It is my pleasure to assist you. Do you have any other questions about our properties?";
+    }
+
+    // 2. Pricing & Currency (Rupees)
+    if (text.includes("price") || text.includes("cost") || text.includes("budget") || text.includes("how much") || text.includes("crore") || text.includes("lakh")) {
+      return "Our collection starts from ₹1.25 Cr for luxury apartments and goes up to ₹25 Cr+ for exclusive mansions. We cater specifically to high-net-worth individuals looking for premium value. What is your preferred budget range?";
+    }
+
+    // 3. Property Types (Specifics)
+    if (text.includes("villa")) {
+      return "Our villas (1BHK to 4BHK) are architectural masterpieces starting at ₹1.25 Cr. They feature private pools, home automation, and Italian marble flooring. Would you like to see our latest Villa listings?";
+    }
+    if (text.includes("apartment") || text.includes("flat") || text.includes("studio")) {
+      return "We offer ultra-luxury apartments in prime business districts, starting at ₹1.25 Cr. These include concierge services, 24/7 security, and world-class gyms. Shall I guide you to the Apartment section?";
+    }
+    if (text.includes("penthouse")) {
+      return "Our signature Penthouses are the crown jewels of the skyline, offering private elevators, sky-decks, and 360° views. They start at ₹1.25 Cr. Are you looking for a specific floor level?";
+    }
+    if (text.includes("house") || text.includes("bungalow")) {
+      return "We have a select range of independent luxury bungalows and houses with private gardens and extensive driveway space, starting from ₹1.25 Cr.";
+    }
+
+    // 4. Booking, Tours & Visiting
+    if (text.includes("book") || text.includes("tour") || text.includes("viewing") || text.includes("visit") || text.includes("see the property")) {
+      return "I can certainly arrange an exclusive private tour for you. You can select your preferred time on the property detail page, or simply leave your number and our advisor will call you within 15 minutes.";
+    }
+
+    // 5. Investment & ROI
+    if (text.includes("investment") || text.includes("roi") || text.includes("returns") || text.includes("profit") || text.includes("appreciation")) {
+      return "Skyview properties have shown an average capital appreciation of 12-15% annually in recent years. Our locations are hand-picked for their high ROI potential. Would you like our investment whitepaper?";
+    }
+
+    // 6. EMI, Loans & Financing
+    if (text.includes("emi") || text.includes("loan") || text.includes("finance") || text.includes("bank") || text.includes("mortgage")) {
+      return "We are partnered with major premium banks to offer exclusive home loan rates starting at 8.4% for our clients. We can also assist with all the legal and financial paperwork.";
+    }
+
+    // 7. Amenities & Features
+    if (text.includes("pool") || text.includes("gym") || text.includes("club") || text.includes("parking") || text.includes("security")) {
+      return "All our estates come with 'Gold Standard' amenities: Temperature-controlled pools, professional-grade gyms, 5-tier security systems, and ample EV-ready parking spaces.";
+    }
+
+    // 8. Possession & Maintenance
+    if (text.includes("possession") || text.includes("ready") || text.includes("when") || text.includes("maintenance")) {
+      return "We have both Ready-to-Move-in estates and premium under-construction projects. Maintenance is handled by our in-house luxury facility management team to ensure top-tier standards.";
+    }
+
+    // 9. Location & Reach
+    if (text.includes("location") || text.includes("where") || text.includes("address") || text.includes("city")) {
+      return "Our main office is at 13 Fifth Avenue, but our properties are spread across the most elite pins in the country. Our digital map on the Contact page shows all exact locations.";
+    }
+
+    // 10. Contacting Human
+    if (text.includes("human") || text.includes("person") || text.includes("call") || text.includes("phone") || text.includes("agent") || text.includes("talk to")) {
+      return "You can reach our lead advisor directly at +91 555-1234-678. Alternatively, tell me your number and I will have them call you immediately.";
+    }
+
+    // Fallback for everything else
+    return "That's a very specific and important question. To give you the most accurate data, I'd like to connect you with one of our Senior Portfolio Managers. Would you prefer a call or an email?";
   };
 
   const handleSendMessage = (e) => {
