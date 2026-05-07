@@ -66,10 +66,17 @@ const Contact = () => {
 
       {/* Map Section */}
       <section className="map-section">
-        <div className="map-container" style={{ backgroundImage: `url(${IMAGES.heroContactBedroom})` }}>
-          {/* Using heroContactBedroom as a placeholder for the map background if needed, 
-              but the screenshot shows a real map. I'll use a standard map style or image. */}
-          <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=2000" alt="Map Location" className="full-map-img" />
+        <div className="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.181822262438!2d-73.9950791!3d40.73514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259963e6e8c89%3A0x6b306e907d81a9f1!2s13%205th%20Ave%2C%20New%20York%2C%20NY%2010003%2C%20USA!5e0!3m2!1sen!2sin!4v1715070000000!5m2!1sen!2sin"
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen="" 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Google Map"
+          ></iframe>
         </div>
       </section>
     </>
