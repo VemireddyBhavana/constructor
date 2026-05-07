@@ -76,6 +76,14 @@ const Footer = () => {
                   REC {new Date().toLocaleTimeString()}
                 </div>
               </div>
+              <div className="upload-section" style={{ marginTop: '20px', textAlign: 'center' }}>
+                <p style={{ color: '#aaa', fontSize: '0.9rem', marginBottom: '10px' }}>Upload progress photos or documents to your project</p>
+                <label className="btn-primary" style={{ display: 'inline-block', cursor: 'pointer', padding: '10px 20px' }}>
+                  <i className="fa-solid fa-cloud-arrow-up" style={{ marginRight: '8px' }}></i>
+                  Upload Project Photo
+                  <input type="file" style={{ display: 'none' }} onChange={(e) => alert("Photo Uploaded Successfully! Our engineers will review it shortly.")} />
+                </label>
+              </div>
             </div>
           </motion.div>
         )}

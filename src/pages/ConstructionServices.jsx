@@ -195,6 +195,14 @@ const ConstructionServices = () => {
                     <div className="camera-label">SITE ALPHA - BLOCK B</div>
                   </div>
                 </div>
+                <div className="modal-upload-zone" style={{ marginTop: '20px', padding: '20px', border: '1px dashed #444', borderRadius: '10px', textAlign: 'center' }}>
+                  <p style={{ color: '#888', marginBottom: '15px' }}>Found a site issue? Upload a photo for instant engineer review.</p>
+                  <label className="btn-primary" style={{ cursor: 'pointer' }}>
+                    <i className="fa-solid fa-camera-retro" style={{ marginRight: '10px' }}></i>
+                    Upload Site Photo
+                    <input type="file" style={{ display: 'none' }} onChange={() => alert("Photo Uploaded! Our site engineers have been notified.")} />
+                  </label>
+                </div>
                 <p className="modal-footer-text">Project Phase: Foundation | Temperature: 32°C | Humidity: 65%</p>
               </div>
             </motion.div>
