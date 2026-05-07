@@ -2,10 +2,11 @@ export const IMAGES = {
   heroHome: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000",
   heroAbout: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000",
   heroServices: "https://cdn.home-designing.com/wp-content/uploads/2018/12/luxury-modern-kitchen.jpg",
-  contact: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000",
+  contact: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=2000",
   passion: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1000",
   aboutIntro: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000",
   ourStory: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&q=80&w=1000",
+  heroContactBedroom: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1000",
 };
 
 export const SERVICES = [
@@ -105,9 +106,9 @@ export const PROPERTIES = [
 ];
 
 export const CONTACT_INFO = {
-  address: "123 Real Estate Ave, Suite 500, New York, NY 10001",
-  email: "contact@realestate.com",
-  phone: "+1 (212) 555-0123",
+  address: "13 Fifth Avenue, New York, NY 101660",
+  email: "contact@info.com",
+  phone: "555-1234-678",
   hours: "Mon - Fri: 9:00 AM - 6:00 PM",
 };
 

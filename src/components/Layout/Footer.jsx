@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
         <div className="footer-col">
           <h3>Property Search</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur elit. Donec faucibus, quam sed.</p>
+          <p>Explore our diverse portfolio of real estate opportunities.</p>
           <div className="footer-search">
             <input type="text" placeholder="Search Properties" />
             <button className="footer-search-btn">🔍</button>
