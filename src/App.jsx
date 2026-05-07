@@ -3,9 +3,8 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Footer from './components/Layout/Footer'
+import { IMAGES } from './constants/data'
 import './App.css'
-
-const contactBg = "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000"
 
 function App() {
   const location = useLocation();
@@ -27,7 +26,7 @@ function App() {
 
       {/* Shared Contact Section */}
       <div className="main-content">
-        <section className="contact-section" style={{ backgroundImage: `url(${contactBg})` }}>
+        <section className="contact-section" style={{ backgroundImage: `url(${IMAGES.contact})` }}>
           <div className="contact-overlay">
             <div className="contact-card">
               <span className="contact-tag">CONTACT US</span>
