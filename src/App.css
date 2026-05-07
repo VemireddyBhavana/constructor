@@ -740,9 +740,38 @@
   filter: grayscale(0.2);
 }
 
-/* Footer Section */
-.footer-section {
-  padding-bottom: 40px;
+/* Sub-Filter Bar */
+.sub-filter-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.sub-filter-btn {
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sub-filter-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.sub-filter-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
 }
 
 .footer-grid {

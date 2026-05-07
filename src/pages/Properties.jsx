@@ -7,16 +7,24 @@ import { IMAGES, PROPERTIES } from '../constants/data';
 
 const Properties = () => {
   const [filter, setFilter] = useState('ALL');
+  const [subFilter, setSubFilter] = useState('ALL');
   const [search, setSearch] = useState('');
 
   const categories = ['ALL', 'APARTMENT', 'VILLA', 'PENTHOUSE', 'HOUSE'];
+  const villaSubCategories = ['ALL', '1BHK', '2BHK', '3BHK', '4BHK', 'FLATS'];
 
   const filteredProperties = PROPERTIES.filter(property => {
-    const matchesFilter = filter === 'ALL' || property.category.includes(filter);
+    const matchesFilter = filter === 'ALL' || property.category === filter;
+    const matchesSubFilter = subFilter === 'ALL' || property.subCategory === subFilter;
     const matchesSearch = property.title.toLowerCase().includes(search.toLowerCase()) || 
                           property.category.toLowerCase().includes(search.toLowerCase());
-    return matchesFilter && matchesSearch;
+    return matchesFilter && matchesSubFilter && matchesSearch;
   });
+
+  const handleFilterChange = (newFilter) => {
+    setFilter(newFilter);
+    setSubFilter('ALL');
+  };
 
   return (
     <>
@@ -43,7 +51,7 @@ const Properties = () => {
               <button 
                 key={cat} 
                 className={`filter-btn ${filter === cat ? 'active' : ''}`}
-                onClick={() => setFilter(cat)}
+                onClick={() => handleFilterChange(cat)}
               >
                 {cat}
               </button>
@@ -58,6 +66,24 @@ const Properties = () => {
             />
           </div>
         </div>
+
+        {filter === 'VILLA' && (
+          <motion.div 
+            className="sub-filter-group"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            {villaSubCategories.map(sub => (
+              <button 
+                key={sub} 
+                className={`sub-filter-btn ${subFilter === sub ? 'active' : ''}`}
+                onClick={() => setSubFilter(sub)}
+              >
+                {sub}
+              </button>
+            ))}
+          </motion.div>
+        )}
 
         <div className="properties-grid">
           {filteredProperties.length > 0 ? (
