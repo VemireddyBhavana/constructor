@@ -123,7 +123,7 @@ const DreamHomeQuiz = ({ onClose }) => {
             right: '30px', 
             background: 'none', 
             border: 'none', 
-            color: 'white', 
+            color: 'var(--text-main)', 
             fontSize: '1.5rem', 
             cursor: 'pointer',
             zIndex: 10
@@ -145,7 +145,7 @@ const DreamHomeQuiz = ({ onClose }) => {
                 <span style={{ color: '#D4AF37', fontWeight: '600', letterSpacing: '2px', fontSize: '0.8rem', textTransform: 'uppercase' }}>
                   Question {step + 1} of {steps.length}
                 </span>
-                <h2 style={{ fontSize: '2.5rem', margin: '20px 0 40px', fontFamily: 'Playfair Display, serif' }}>
+                <h2 style={{ fontSize: '2.5rem', margin: '20px 0 40px', fontFamily: 'Playfair Display, serif', color: 'var(--text-main)' }}>
                   {steps[step].question}
                 </h2>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
@@ -158,8 +158,8 @@ const DreamHomeQuiz = ({ onClose }) => {
                         padding: '20px 30px', 
                         borderRadius: '15px', 
                         border: '1px solid var(--border)', 
-                        background: 'var(--bg-secondary)', 
-                        color: 'white',
+                        background: 'var(--bg-primary)', 
+                        color: 'var(--text-main)',
                         textAlign: 'left',
                         fontSize: '1.1rem',
                         cursor: 'pointer',
@@ -178,12 +178,12 @@ const DreamHomeQuiz = ({ onClose }) => {
                 animate={{ opacity: 1 }}
                 style={{ textAlign: 'center' }}
               >
-                <h2 style={{ fontSize: '3rem', marginBottom: '10px', fontFamily: 'Playfair Display, serif' }}>Your Dream Matches</h2>
+                <h2 style={{ fontSize: '3rem', marginBottom: '10px', fontFamily: 'Playfair Display, serif', color: 'var(--text-main)' }}>Your Dream Matches</h2>
                 <p style={{ color: 'var(--text-muted)', marginBottom: '40px' }}>Based on your preferences, we've curated these exceptional estates for you.</p>
                 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', textAlign: 'left' }}>
+                <div className="quiz-results-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', textAlign: 'left' }}>
                   {results.map(p => (
-                    <div key={p.id} style={{ scale: '0.9' }}>
+                    <div key={p.id} style={{ scale: '0.9' }} className="quiz-result-card">
                       <PropertyCard property={p} />
                     </div>
                   ))}
@@ -191,7 +191,7 @@ const DreamHomeQuiz = ({ onClose }) => {
 
                 <button 
                   className="btn-hero" 
-                  style={{ marginTop: '40px' }}
+                  style={{ marginTop: '40px', background: 'var(--primary)', color: 'white' }}
                   onClick={onClose}
                 >
                   Explore All Estates

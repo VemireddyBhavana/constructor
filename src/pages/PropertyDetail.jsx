@@ -10,6 +10,7 @@ const PropertyDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const property = PROPERTIES.find(p => p.id === parseInt(id));
+  
   const [bookingStep, setBookingStep] = useState('select'); // 'select', 'payment', 'success'
   const [selectedDate, setSelectedDate] = useState(15);
   const [selectedTime, setSelectedTime] = useState('10:00 AM');
@@ -18,49 +19,48 @@ const PropertyDetail = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  const goToPayment = () => {
-    setBookingStep('payment');
-  };
+  if (!property) {
+    return (
+      <div className="no-results" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+        <Navbar />
+        <h2>Property not found</h2>
+        <button className="btn-primary" onClick={() => navigate('/properties')} style={{ marginTop: '20px' }}>
+          Back to Listings
+        </button>
+      </div>
+    );
+  }
 
+  const goToPayment = () => setBookingStep('payment');
+  
   const handlePaymentComplete = () => {
     localStorage.setItem('selectedDesign', JSON.stringify(property));
     setBookingStep('success');
   };
 
-  if (!property) {
-    return (
-      <div className="no-results" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-        <h2>Property not found</h2>
-        <button className="btn-primary" onClick={() => navigate('/properties')}>Back to Listings</button>
-      </div>
-    );
-  }
-
   return (
     <div className="property-detail-page">
-      <Navbar />
-      
-      {/* Cinematic Hero Image */}
-      <section className="detail-hero">
-        <div className="detail-hero-img" style={{ backgroundImage: `url(${property.image})` }}>
-          <div className="detail-hero-overlay"></div>
-        </div>
+      <header className="detail-hero">
+        <div className="detail-hero-img" style={{ backgroundImage: `url(${property.image})` }}></div>
+        <div className="detail-hero-overlay"></div>
+        <Navbar />
         <div className="detail-hero-content">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="property-category">{property.category} {property.subCategory ? `• ${property.subCategory}` : ''}</span>
+            <span className="property-category">
+              {property.category} {property.subCategory ? `• ${property.subCategory}` : ''}
+            </span>
             <h1 className="detail-title">{property.title}</h1>
             <div className="detail-price-tag">{property.price}</div>
           </motion.div>
         </div>
-      </section>
+      </header>
 
       <div className="section-container">
         <div className="detail-main-grid">
-          {/* Left Column: Info */}
           <div className="detail-info-col">
             <ScrollReveal direction="up">
               <div className="detail-specs-grid">
@@ -73,8 +73,8 @@ const PropertyDetail = () => {
                   <span className="spec-value">{property.baths}</span>
                 </div>
                 <div className="spec-item">
-                  <span className="spec-label">Living Area</span>
-                  <span className="spec-value">{property.sqft} sqft</span>
+                  <span className="spec-label">Square Ft</span>
+                  <span className="spec-value">{property.sqft}</span>
                 </div>
                 <div className="spec-item">
                   <span className="spec-label">Property ID</span>
@@ -85,28 +85,25 @@ const PropertyDetail = () => {
 
             <ScrollReveal direction="up" delay={0.2}>
               <div className="detail-description">
-                <h2>About this Property</h2>
-                <div className="teal-line left"></div>
+                <h2>Description</h2>
+                <div className="teal-line left" style={{ margin: '20px 0' }}></div>
                 <p>{property.description}</p>
                 <p>
-                  Experience the pinnacle of luxury living in this exceptional estate. 
-                  Every detail has been meticulously curated to offer an unparalleled lifestyle of comfort and elegance. 
-                  From the floor-to-ceiling windows offering breathtaking views to the custom-designed interiors, 
-                  this property represents the finest in modern architecture and premium craftsmanship.
+                  Experience the epitome of luxury living in this architectural masterpiece. 
+                  Every detail has been meticulously crafted to offer unparalleled comfort and sophistication. 
+                  From the sprawling living areas to the gourmet kitchen and private outdoor sanctuary, 
+                  this home is designed for the most discerning homeowners.
                 </p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.3}>
               <div className="detail-features">
-                <h2>Key Amenities</h2>
+                <h2>Premium Features</h2>
                 <div className="features-list">
-                  <div className="feature-tag">Smart Home System</div>
-                  <div className="feature-tag">Private Balcony</div>
-                  <div className="feature-tag">Concierge Service</div>
-                  <div className="feature-tag">Premium Finishes</div>
-                  <div className="feature-tag">Panoramic Views</div>
-                  <div className="feature-tag">Secure Parking</div>
+                  {['Private Pool', 'Home Automation', 'Wine Cellar', 'Sky Deck', 'Spa Bathroom', 'Gourmet Kitchen', 'Concierge Service'].map(feature => (
+                    <span key={feature} className="feature-tag">{feature}</span>
+                  ))}
                 </div>
               </div>
             </ScrollReveal>
@@ -115,19 +112,19 @@ const PropertyDetail = () => {
               <EMICalculator propertyPrice={property.price} />
             </ScrollReveal>
 
-            <ScrollReveal direction="up" delay={0.4}>
-                <div className="detail-floor-plan">
-                  <h2>Architectural Floor Plan</h2>
-                  <div className="floor-plan-container">
-                    <img src="/architectural_floor_plan.png" alt="House Floor Plan" className="floor-plan-img" />
-                  </div>
-                  <p className="floor-plan-note">This technical drawing represents the standard layout for this design. Custom modifications are possible during the construction setup phase.</p>
+            <ScrollReveal direction="up" delay={0.5}>
+              <div className="detail-floor-plan" style={{ marginTop: '40px' }}>
+                <h2>Architectural Floor Plan</h2>
+                <div className="floor-plan-container" style={{ margin: '20px 0', background: '#f5f5f5', padding: '20px', borderRadius: '15px' }}>
+                  <img src="/architectural_floor_plan.png" alt="House Floor Plan" style={{ width: '100%', height: 'auto' }} />
                 </div>
-              </ScrollReveal>
+                <p style={{ fontSize: '0.9rem', fontStyle: 'italic' }}>
+                  * This floor plan represents the standard layout. Custom modifications are possible during construction.
+                </p>
+              </div>
             </ScrollReveal>
           </div>
 
-          {/* Right Column: Sidebar / Action */}
           <div className="detail-sidebar">
             <ScrollReveal direction="left">
               <div className="enquiry-card">
@@ -140,26 +137,26 @@ const PropertyDetail = () => {
                       exit={{ opacity: 0, x: -20 }}
                     >
                       <h3>Schedule a Private Tour</h3>
-                      <p>Select your preferred date and time for an exclusive viewing of this estate.</p>
+                      <p>Select your preferred date and time for an exclusive viewing.</p>
                       
                       <div className="booking-calendar">
-                        <div className="calendar-header">
-                          <span>May 2026</span>
-                          <div className="calendar-nav">
-                            <button>←</button>
-                            <button>→</button>
-                          </div>
-                        </div>
-                        <div className="calendar-grid">
-                          <div className="day-name">S</div><div className="day-name">M</div><div className="day-name">T</div><div className="day-name">W</div><div className="day-name">T</div><div className="day-name">F</div><div className="day-name">S</div>
+                        <div className="calendar-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '5px', marginTop: '20px' }}>
                           {[...Array(31)].map((_, i) => {
                             const day = i + 1;
-                            const isPast = day < 10;
                             return (
                               <div 
                                 key={i} 
-                                className={`calendar-day ${selectedDate === day ? 'selected' : ''} ${isPast ? 'disabled' : ''}`}
-                                onClick={() => !isPast && setSelectedDate(day)}
+                                className={`calendar-day ${selectedDate === day ? 'selected' : ''}`}
+                                onClick={() => setSelectedDate(day)}
+                                style={{
+                                  padding: '10px',
+                                  textAlign: 'center',
+                                  cursor: 'pointer',
+                                  borderRadius: '5px',
+                                  background: selectedDate === day ? '#D4AF37' : 'transparent',
+                                  color: selectedDate === day ? 'white' : 'inherit',
+                                  border: '1px solid #eee'
+                                }}
                               >
                                 {day}
                               </div>
@@ -168,14 +165,22 @@ const PropertyDetail = () => {
                         </div>
                       </div>
 
-                      <div className="time-slots">
-                        <span className="slot-title">Available Time Slots</span>
-                        <div className="slots-grid">
+                      <div className="time-slots" style={{ marginTop: '20px' }}>
+                        <div style={{ display: 'flex', gap: '10px' }}>
                           {['10:00 AM', '02:00 PM', '05:00 PM'].map(time => (
                             <button 
                               key={time}
                               className={`slot-btn ${selectedTime === time ? 'active' : ''}`}
                               onClick={() => setSelectedTime(time)}
+                              style={{
+                                flex: 1,
+                                padding: '10px',
+                                borderRadius: '5px',
+                                border: '1px solid #D4AF37',
+                                background: selectedTime === time ? '#D4AF37' : 'white',
+                                color: selectedTime === time ? 'white' : '#D4AF37',
+                                cursor: 'pointer'
+                              }}
                             >
                               {time}
                             </button>
@@ -185,7 +190,7 @@ const PropertyDetail = () => {
 
                       <button 
                         className="btn-primary full-width" 
-                        style={{ marginTop: '20px' }}
+                        style={{ marginTop: '20px', width: '100%' }}
                         onClick={goToPayment}
                       >
                         Start Construction
@@ -198,38 +203,23 @@ const PropertyDetail = () => {
                       key="payment-step"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
                       className="payment-container"
                     >
                       <h3>Secure Design Reservation</h3>
-                      <p>Scan the QR code to pay the ₹5,000 reservation fee to secure this design and initiate construction setup.</p>
+                      <p>Scan the QR code to pay the ₹5,000 reservation fee.</p>
                       
-                      <div className="qr-wrapper">
-                        <img src="/payment_qr_code_1778173496267.png" alt="Payment QR Code" className="payment-qr" />
-                        <div className="qr-overlay">
-                          <span>PAYMENT SECURE</span>
-                        </div>
-                      </div>
-
-                      <div className="payment-info-small">
-                        <div className="info-row">
-                          <span>Amount:</span>
-                          <strong>₹5,000</strong>
-                        </div>
-                        <div className="info-row">
-                          <span>Property:</span>
-                          <strong>{property.title}</strong>
+                      <div className="qr-wrapper" style={{ textAlign: 'center', margin: '20px 0' }}>
+                        <div style={{ width: '200px', height: '200px', background: '#eee', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          QR CODE PLACEHOLDER
                         </div>
                       </div>
 
                       <button 
                         className="btn-primary full-width" 
+                        style={{ width: '100%' }}
                         onClick={handlePaymentComplete}
                       >
-                        Confirm Reservation & Start
-                      </button>
-                      <button className="btn-secondary full-width" style={{ marginTop: '10px' }} onClick={() => setBookingStep('select')}>
-                        Back
+                        Confirm Reservation
                       </button>
                     </motion.div>
                   )}
@@ -239,21 +229,23 @@ const PropertyDetail = () => {
                       key="success-message"
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      className="booking-success"
+                      style={{ textAlign: 'center' }}
                     >
-                      <div className="success-icon">✓</div>
+                      <div style={{ fontSize: '3rem', color: '#4caf50' }}>✓</div>
                       <h3>Payment Successful!</h3>
-                      <p>Your design reservation is confirmed for May {selectedDate}, 2026. A digital receipt has been sent to your email.</p>
-                      <button className="btn-primary full-width" onClick={() => navigate('/construction-setup')}>Start Construction Setup</button>
+                      <p>Your design reservation is confirmed for May {selectedDate}, 2026.</p>
+                      <button className="btn-primary" style={{ width: '100%' }} onClick={() => navigate('/construction-setup')}>
+                        Go to Construction Setup
+                      </button>
                     </motion.div>
                   )}
                 </AnimatePresence>
 
-                <div className="agent-info">
-                  <div className="agent-avatar">SE</div>
-                  <div className="agent-details">
-                    <span className="agent-name">Skyview Estates Advisory</span>
-                    <span className="agent-tag">Luxury Property Consultant</span>
+                <div className="agent-info" style={{ marginTop: '30px', display: 'flex', alignItems: 'center', gap: '15px', borderTop: '1px solid #eee', paddingTop: '20px' }}>
+                  <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: '#D4AF37', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>SE</div>
+                  <div>
+                    <div style={{ fontWeight: '600' }}>Skyview Estates Advisory</div>
+                    <div style={{ fontSize: '0.8rem', color: '#888' }}>Luxury Property Consultant</div>
                   </div>
                 </div>
               </div>

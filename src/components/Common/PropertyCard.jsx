@@ -30,8 +30,8 @@ const PropertyCard = ({ property }) => {
             toggleComparison(property);
           }}
           style={{
-            background: inComparison ? '#D4AF37' : 'rgba(255, 255, 255, 0.9)',
-            border: 'none',
+            background: inComparison ? '#D4AF37' : 'rgba(255, 255, 255, 0.95)',
+            border: '1px solid var(--border)',
             borderRadius: '50%',
             width: '40px',
             height: '40px',
@@ -39,10 +39,10 @@ const PropertyCard = ({ property }) => {
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
-            boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
             transition: 'all 0.3s ease',
             fontSize: '1rem',
-            color: inComparison ? 'white' : '#666'
+            color: inComparison ? 'white' : '#333'
           }}
           title={inComparison ? "Remove from Compare" : "Add to Compare"}
         >
@@ -56,8 +56,8 @@ const PropertyCard = ({ property }) => {
             toggleFavorite(property.id);
           }}
           style={{
-            background: 'rgba(255, 255, 255, 0.9)',
-            border: 'none',
+            background: 'rgba(255, 255, 255, 0.95)',
+            border: '1px solid var(--border)',
             borderRadius: '50%',
             width: '40px',
             height: '40px',
@@ -65,10 +65,10 @@ const PropertyCard = ({ property }) => {
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
-            boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
             transition: 'all 0.3s ease',
             fontSize: '1.2rem',
-            color: favorited ? '#ff4757' : '#ccc'
+            color: favorited ? '#ff4757' : '#999'
           }}
         >
           {favorited ? '❤️' : '🤍'}
