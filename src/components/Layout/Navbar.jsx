@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useFavorites } from '../../context/FavoritesContext';
 import Logo from '../Common/Logo';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { favorites } = useFavorites();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +36,30 @@ const Navbar = () => {
         <li><Link to="/home" className={isActive('/home') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Home</Link></li>
         <li><Link to="/about" className={isActive('/about') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>About</Link></li>
         <li><Link to="/properties" className={isActive('/properties') || location.pathname.startsWith('/property') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Designs</Link></li>
-        <li><Link to="/properties/favorites" className={isActive('/properties/favorites') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Favorites</Link></li>
+        <li>
+          <Link to="/properties/favorites" className={isActive('/properties/favorites') ? 'active' : ''} onClick={() => setIsMenuOpen(false)} style={{ position: 'relative' }}>
+            Favorites
+            {favorites.length > 0 && (
+              <span style={{
+                position: 'absolute',
+                top: '-8px',
+                right: '-15px',
+                background: '#D4AF37',
+                color: 'black',
+                borderRadius: '50%',
+                width: '18px',
+                height: '18px',
+                fontSize: '0.65rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 'bold'
+              }}>
+                {favorites.length}
+              </span>
+            )}
+          </Link>
+        </li>
         <li><Link to="/workers" className={isActive('/workers') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Workers</Link></li>
         <li><Link to="/services" className={isActive('/services') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Services</Link></li>
         <li><Link to="/contact" className={isActive('/contact') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Contact</Link></li>

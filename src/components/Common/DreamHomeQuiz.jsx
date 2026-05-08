@@ -67,21 +67,30 @@ const DreamHomeQuiz = ({ onClose }) => {
 
   const calculateResults = (finalAnswers) => {
     // Logic to filter properties based on answers
-    const filtered = PROPERTIES.filter(p => {
-      const pPrice = p.price.includes('Cr') ? parseFloat(p.price.replace('₹', '')) : 0.5;
+    let filtered = PROPERTIES.filter(p => {
+      // 1. Strict category matching
+      if (p.category !== finalAnswers.type) return false;
       
+      // 2. Budget matching
+      const pPrice = p.price.includes('Cr') ? parseFloat(p.price.replace('₹', '')) : 0.5;
       const budgetMatch = 
         (finalAnswers.budget === 'low' && pPrice < 1.5) ||
         (finalAnswers.budget === 'mid' && pPrice >= 1.5 && pPrice <= 5) ||
         (finalAnswers.budget === 'high' && pPrice > 5);
         
-      const typeMatch = p.category === finalAnswers.type;
+      // 3. Beds matching
       const bedsMatch = p.beds >= finalAnswers.beds;
       
-      return budgetMatch && typeMatch && bedsMatch;
-    }).slice(0, 3);
+      return budgetMatch && bedsMatch;
+    });
+
+    // Fallback if no exact matches found in that category/budget
+    if (filtered.length === 0) {
+      filtered = PROPERTIES.filter(p => p.category === finalAnswers.type).slice(0, 3);
+    }
     
-    setResults(filtered.length > 0 ? filtered : PROPERTIES.slice(0, 3));
+    // Final fallback
+    setResults(filtered.length > 0 ? filtered.slice(0, 3) : PROPERTIES.slice(0, 3));
   };
 
   return (
