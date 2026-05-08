@@ -6,10 +6,13 @@ import PropertyCard from '../components/Common/PropertyCard';
 import ScrollReveal from '../components/Common/ScrollReveal';
 import { IMAGES, PROPERTIES } from '../constants/data';
 
+import { useFavorites } from '../context/FavoritesContext';
+
 const Properties = () => {
   const { category, subCategory } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
+  const { favorites } = useFavorites();
   
   const [filter, setFilter] = useState('ALL');
   const [subFilter, setSubFilter] = useState('ALL');
@@ -29,7 +32,7 @@ const Properties = () => {
 
     if (category) {
       const upperCat = category.toUpperCase();
-      if (categories.includes(upperCat)) {
+      if (categories.includes(upperCat) || upperCat === 'FAVORITES') {
         setFilter(upperCat);
       }
     }
@@ -45,7 +48,11 @@ const Properties = () => {
   }, [category, subCategory]);
 
   const filteredProperties = PROPERTIES.filter(property => {
-    const matchesFilter = filter === 'ALL' || property.category === filter;
+    const isFavorited = favorites.includes(property.id);
+    const matchesFilter = filter === 'FAVORITES' 
+      ? isFavorited 
+      : (filter === 'ALL' || property.category === filter);
+    
     const matchesSubFilter = subFilter === 'ALL' || property.subCategory === subFilter;
 
     const q = search.toLowerCase().trim();
@@ -102,8 +109,12 @@ const Properties = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <span className="hero-subtitle">Listings</span>
-              <h1 className="hero-title">Looking to Buy, Sell, Rent, Invest or Manage?</h1>
+              <span className="hero-subtitle">{filter === 'FAVORITES' ? 'Your Wishlist' : 'Listings'}</span>
+              <h1 className="hero-title">
+                {filter === 'FAVORITES' 
+                  ? 'Your Curated Collection of Luxury Estates' 
+                  : 'Looking to Buy, Sell, Rent, Invest or Manage?'}
+              </h1>
             </motion.div>
           </div>
         </div>
@@ -111,17 +122,24 @@ const Properties = () => {
 
       <div className="section-container">
         <div className="properties-controls">
-          <div className="filter-group">
-            {categories.map(cat => (
+            <div className="filter-group">
+              {categories.map(cat => (
+                <button 
+                  key={cat} 
+                  className={`filter-btn ${filter === cat ? 'active' : ''}`}
+                  onClick={() => handleFilterChange(cat)}
+                >
+                  {cat}
+                </button>
+              ))}
               <button 
-                key={cat} 
-                className={`filter-btn ${filter === cat ? 'active' : ''}`}
-                onClick={() => handleFilterChange(cat)}
+                className={`filter-btn ${filter === 'FAVORITES' ? 'active' : ''}`}
+                onClick={() => handleFilterChange('FAVORITES')}
+                style={{ color: filter === 'FAVORITES' ? 'white' : '#ff4757', borderColor: filter === 'FAVORITES' ? '#ff4757' : 'inherit', background: filter === 'FAVORITES' ? '#ff4757' : 'inherit' }}
               >
-                {cat}
+                ❤️ FAVORITES
               </button>
-            ))}
-          </div>
+            </div>
           <div className="search-bar">
             <input 
               type="text" 

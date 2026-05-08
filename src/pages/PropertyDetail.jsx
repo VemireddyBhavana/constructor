@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Layout/Navbar';
 import { PROPERTIES } from '../constants/data';
 import ScrollReveal from '../components/Common/ScrollReveal';
+import EMICalculator from '../components/Common/EMICalculator';
 
 const PropertyDetail = () => {
   const { id } = useParams();
@@ -108,8 +109,13 @@ const PropertyDetail = () => {
                   <div className="feature-tag">Secure Parking</div>
                 </div>
               </div>
+            </ScrollReveal>
 
-              <ScrollReveal direction="up" delay={0.4}>
+            <ScrollReveal direction="up" delay={0.4}>
+              <EMICalculator propertyPrice={property.price} />
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" delay={0.4}>
                 <div className="detail-floor-plan">
                   <h2>Architectural Floor Plan</h2>
                   <div className="floor-plan-container">

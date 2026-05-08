@@ -1,0 +1,104 @@
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { useComparison } from '../../context/ComparisonContext';
+
+const ComparisonBar = () => {
+  const { comparisonList, removeFromComparison, clearComparison } = useComparison();
+  const navigate = useNavigate();
+
+  if (comparisonList.length === 0) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div 
+        className="comparison-bar"
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        exit={{ y: 100 }}
+        style={{ 
+          position: 'fixed', 
+          bottom: '30px', 
+          left: '50%', 
+          transform: 'translateX(-50%)', 
+          background: 'rgba(0,0,0,0.9)', 
+          backdropFilter: 'blur(10px)',
+          padding: '15px 30px', 
+          borderRadius: '100px', 
+          zIndex: 5000, 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: '20px',
+          border: '1px solid #D4AF37',
+          boxShadow: '0 10px 40px rgba(0,0,0,0.5)'
+        }}
+      >
+        <div style={{ display: 'flex', gap: '10px' }}>
+          {comparisonList.map(p => (
+            <div key={p.id} style={{ position: 'relative' }}>
+              <img 
+                src={p.image} 
+                alt={p.title} 
+                style={{ width: '45px', height: '45px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #D4AF37' }} 
+              />
+              <button 
+                onClick={() => removeFromComparison(p.id)}
+                style={{ 
+                  position: 'absolute', 
+                  top: '-5px', 
+                  right: '-5px', 
+                  background: 'red', 
+                  color: 'white', 
+                  border: 'none', 
+                  borderRadius: '50%', 
+                  width: '18px', 
+                  height: '18px', 
+                  fontSize: '10px', 
+                  cursor: 'pointer' 
+                }}
+              >
+                ✕
+              </button>
+            </div>
+          ))}
+          {comparisonList.length < 3 && (
+            <div style={{ 
+              width: '45px', 
+              height: '45px', 
+              borderRadius: '50%', 
+              border: '2px dashed #444', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              color: '#444', 
+              fontSize: '1.2rem' 
+            }}>
+              +
+            </div>
+          )}
+        </div>
+
+        <div style={{ width: '1px', height: '30px', background: '#333' }}></div>
+
+        <div style={{ display: 'flex', gap: '15px' }}>
+          <button 
+            className="btn-hero" 
+            style={{ padding: '10px 25px', fontSize: '0.8rem', background: '#D4AF37', color: 'black' }}
+            onClick={() => navigate('/compare')}
+            disabled={comparisonList.length < 2}
+          >
+            Compare {comparisonList.length} Properties
+          </button>
+          <button 
+            style={{ background: 'none', border: 'none', color: '#888', cursor: 'pointer', fontSize: '0.8rem' }}
+            onClick={clearComparison}
+          >
+            Clear All
+          </button>
+        </div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+export default ComparisonBar;

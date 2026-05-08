@@ -9,8 +9,11 @@ import PassionSection from '../components/Sections/PassionSection';
 import ScrollReveal from '../components/Common/ScrollReveal';
 import { IMAGES } from '../constants/data';
 
+import DreamHomeQuiz from '../components/Common/DreamHomeQuiz';
+
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showQuiz, setShowQuiz] = useState(false);
   const heroSlides = [
     {
       image: IMAGES.heroHome,
@@ -38,6 +41,10 @@ const Home = () => {
 
   return (
     <>
+      <AnimatePresence>
+        {showQuiz && <DreamHomeQuiz onClose={() => setShowQuiz(false)} />}
+      </AnimatePresence>
+
       {/* Hero Slider Section */}
       <header className="hero-section">
         <AnimatePresence mode="popLayout">
@@ -63,7 +70,7 @@ const Home = () => {
                 exit={{ opacity: 0, y: -40 }}
                 transition={{ 
                   duration: 0.8, 
-                  delay: 0.5, // Delay text to appear after image
+                  delay: 0.5, 
                   ease: "easeOut" 
                 }}
               >
@@ -80,10 +87,14 @@ const Home = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.0 }}
+                  style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}
                 >
                   <Link to="/properties/all">
                     <button className="btn-hero">Explore Estates</button>
                   </Link>
+                  <button className="btn-hero" style={{ background: '#D4AF37', color: 'black' }} onClick={() => setShowQuiz(true)}>
+                    Find My Match
+                  </button>
                 </motion.div>
               </motion.div>
             </AnimatePresence>
@@ -104,6 +115,19 @@ const Home = () => {
 
       <ScrollReveal>
         <WhatWeDoSection />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div className="ai-cta-section" style={{ padding: '80px 20px', background: '#0a0a0a', textAlign: 'center' }}>
+          <div className="section-container">
+            <span style={{ color: '#D4AF37', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '0.9rem', fontWeight: '600' }}>AI Powered Discovery</span>
+            <h2 style={{ fontSize: '3rem', margin: '20px 0', color: 'white' }}>Find Your Dream Home in Seconds</h2>
+            <p style={{ maxWidth: '700px', margin: '0 auto 40px', color: '#888', fontSize: '1.1rem' }}>
+              Our AI property matching engine analyzes your lifestyle preferences, budget, and architectural tastes to curate a selection of homes that feel like they were built just for you.
+            </p>
+            <button className="btn-hero" onClick={() => setShowQuiz(true)}>Start AI Matching Quiz</button>
+          </div>
+        </div>
       </ScrollReveal>
 
       <ScrollReveal>

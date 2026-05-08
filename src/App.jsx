@@ -9,6 +9,7 @@ import Contact from './pages/Contact'
 import Footer from './components/Layout/Footer'
 import CustomCursor from './components/Common/CustomCursor'
 import Chatbot from './components/Common/Chatbot'
+import ComparisonBar from './components/Common/ComparisonBar'
 import { IMAGES } from './constants/data'
 import './App.css'
 
@@ -16,6 +17,10 @@ import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 
 import ConstructionServices from './pages/ConstructionServices'
 import Workers from './pages/Workers'
+import ComparePage from './pages/ComparePage'
+
+import { FavoritesProvider } from './context/FavoritesContext'
+import { ComparisonProvider } from './context/ComparisonContext'
 
 function App() {
   const location = useLocation();
@@ -27,37 +32,43 @@ function App() {
   });
 
   return (
-    <div className="app-wrapper">
-      <CustomCursor />
-      <Chatbot />
-      <motion.div className="scroll-progress" style={{ scaleX }} />
-      
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={location.pathname}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-        >
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/properties" element={<Navigate to="/properties/all" replace />} />
-            <Route path="/properties/:category" element={<Properties />} />
-            <Route path="/properties/villa/:subCategory" element={<Properties />} />
-            <Route path="/property/:id" element={<PropertyDetail />} />
-            <Route path="/construction-setup" element={<ConstructionServices />} />
-            <Route path="/workers" element={<Workers />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </motion.div>
-      </AnimatePresence>
+    <FavoritesProvider>
+      <ComparisonProvider>
+        <div className="app-wrapper">
+          <CustomCursor />
+          <Chatbot />
+          <ComparisonBar />
+          <motion.div className="scroll-progress" style={{ scaleX }} />
+          
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={location.pathname}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/properties" element={<Navigate to="/properties/all" replace />} />
+                <Route path="/properties/:category" element={<Properties />} />
+                <Route path="/properties/villa/:subCategory" element={<Properties />} />
+                <Route path="/property/:id" element={<PropertyDetail />} />
+                <Route path="/compare" element={<ComparePage />} />
+                <Route path="/construction-setup" element={<ConstructionServices />} />
+                <Route path="/workers" element={<Workers />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </motion.div>
+          </AnimatePresence>
 
-      <Footer />
-    </div>
+          <Footer />
+        </div>
+      </ComparisonProvider>
+    </FavoritesProvider>
   )
 }
 
