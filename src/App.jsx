@@ -33,19 +33,27 @@ function App() {
       <motion.div className="scroll-progress" style={{ scaleX }} />
       
       <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/properties" element={<Navigate to="/properties/all" replace />} />
-          <Route path="/properties/:category" element={<Properties />} />
-          <Route path="/properties/villa/:subCategory" element={<Properties />} />
-          <Route path="/property/:id" element={<PropertyDetail />} />
-          <Route path="/construction-setup" element={<ConstructionServices />} />
-          <Route path="/workers" element={<Workers />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <motion.div
+          key={location.pathname}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+        >
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/properties" element={<Navigate to="/properties/all" replace />} />
+            <Route path="/properties/:category" element={<Properties />} />
+            <Route path="/properties/villa/:subCategory" element={<Properties />} />
+            <Route path="/property/:id" element={<PropertyDetail />} />
+            <Route path="/construction-setup" element={<ConstructionServices />} />
+            <Route path="/workers" element={<Workers />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </motion.div>
       </AnimatePresence>
 
       <Footer />

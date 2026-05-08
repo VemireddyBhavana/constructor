@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { SERVICES } from '../../constants/data';
 
 const WhatWeDoSection = () => (
@@ -12,14 +13,22 @@ const WhatWeDoSection = () => (
     
     <div className="services-grid">
       {SERVICES.map((service, index) => (
-        <div key={service.id} className="service-card">
+        <motion.div 
+          key={service.id} 
+          className="service-card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+        >
           <div className="service-img-container">
             <img src={service.image} alt={service.title} />
           </div>
           <span className="service-num">0{index + 1}</span>
           <h3>{service.title}</h3>
           <p>{service.description}</p>
-        </div>
+        </motion.div>
       ))}
     </div>
   </section>

@@ -23,8 +23,8 @@ const Footer = () => {
           <Logo />
         </div>
         <div className="footer-col">
-          <h3>About Us</h3>
-          <p>At Skyview Estates, we pride ourselves on being a trusted and reputable name in the luxury real estate industry with years of experience.</p>
+          <h3 onClick={() => navigate('/about')} style={{ cursor: 'pointer' }}>About Us</h3>
+          <p>At Skyview Estates, we pride ourselves on being a trusted and reputable name in the luxury real estate industry with years of experience. <span onClick={() => navigate('/about')} style={{ color: '#D4AF37', cursor: 'pointer', fontWeight: '600' }}>Read More →</span></p>
         </div>
         <div className="footer-col">
           <h3>Contact Info</h3>

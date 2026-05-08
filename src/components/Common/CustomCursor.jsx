@@ -43,7 +43,7 @@ const CustomCursor = () => {
           width: isHovered ? 60 : 32,
           height: isHovered ? 60 : 32,
         }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        transition={{ type: "spring", stiffness: 250, damping: 25 }}
       />
       <motion.div
         className="cursor-dot"
