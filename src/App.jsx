@@ -7,6 +7,7 @@ import Properties from './pages/Properties'
 import PropertyDetail from './pages/PropertyDetail'
 import Contact from './pages/Contact'
 import Footer from './components/Layout/Footer'
+import SplashCursor from './components/Common/SplashCursor'
 import Chatbot from './components/Common/Chatbot'
 import ComparisonBar from './components/Common/ComparisonBar'
 import { IMAGES } from './constants/data'
@@ -34,7 +35,7 @@ function App() {
     <FavoritesProvider>
       <ComparisonProvider>
         <div className="app-wrapper">
-
+          <SplashCursor />
           <Chatbot />
           <ComparisonBar />
           <motion.div className="scroll-progress" style={{ scaleX }} />
