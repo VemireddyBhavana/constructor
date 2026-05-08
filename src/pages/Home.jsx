@@ -40,14 +40,14 @@ const Home = () => {
     <>
       {/* Hero Slider Section */}
       <header className="hero-section">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="popLayout">
           <motion.div
-            key={currentSlide}
+            key={`bg-${currentSlide}`}
             className="hero-slide-bg"
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.5 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             style={{ backgroundImage: `url(${heroSlides[currentSlide].image})` }}
           />
         </AnimatePresence>
@@ -57,17 +57,34 @@ const Home = () => {
           <div className="hero-content">
             <AnimatePresence mode="wait">
               <motion.div
-                key={currentSlide}
-                initial={{ opacity: 0, y: 30 }}
+                key={`content-${currentSlide}`}
+                initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -30 }}
-                transition={{ duration: 0.8 }}
+                exit={{ opacity: 0, y: -40 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 0.5, // Delay text to appear after image
+                  ease: "easeOut" 
+                }}
               >
-                <span className="hero-subtitle">{heroSlides[currentSlide].subtitle}</span>
+                <motion.span 
+                  className="hero-subtitle"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.7 }}
+                >
+                  {heroSlides[currentSlide].subtitle}
+                </motion.span>
                 <h1 className="hero-title">{heroSlides[currentSlide].title}</h1>
-                <Link to="/properties/all">
-                  <button className="btn-hero">Explore Estates</button>
-                </Link>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.0 }}
+                >
+                  <Link to="/properties/all">
+                    <button className="btn-hero">Explore Estates</button>
+                  </Link>
+                </motion.div>
               </motion.div>
             </AnimatePresence>
           </div>
