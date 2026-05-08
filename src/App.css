@@ -159,36 +159,7 @@
   cursor: pointer;
 }
 
-@media (min-width: 900px) {
-  body, a, button, input, select, textarea, .property-card, .filter-btn, .sub-filter-btn {
-    cursor: none !important;
-  }
-}
 
-
-.cursor-outer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-}
-
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  background-color: #D4AF37;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 100000;
-}
 
 .scroll-progress {
   position: fixed;
