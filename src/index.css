@@ -8,14 +8,16 @@ html {
   /* Permanent Luxury Dark Theme tokens */
   --primary: #C8A96E;
   --primary-gradient: linear-gradient(135deg, #C8A96E 0%, #E2C999 100%);
-  --bg-dark: #05080A;
-  --bg-navy: #0B111B;
-  --bg-ui: rgba(21, 29, 44, 0.7);
-  --glass: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(200, 169, 110, 0.2);
-  --text-main: #FFFFFF;
-  --text-muted: rgba(255, 255, 255, 0.6);
-  --shadow-gold: 0 10px 40px rgba(200, 169, 110, 0.1);
+  --bg-primary: #FDFBF7;
+  --bg-secondary: #FFFFFF;
+  --bg-dark: #F5F2ED;
+  --glass: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(200, 169, 110, 0.3);
+  --text-main: #1A1A1A;
+  --text-muted: #666666;
+  --shadow-gold: 0 10px 40px rgba(200, 169, 110, 0.15);
+  --border: rgba(200, 169, 110, 0.2);
+  --navbar-bg: rgba(253, 251, 247, 0.95);
   
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;

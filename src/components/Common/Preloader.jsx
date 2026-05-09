@@ -56,7 +56,7 @@ const Preloader = () => {
           style={{
             position: 'fixed',
             inset: 0,
-            background: '#000',
+            background: 'var(--bg-primary)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',

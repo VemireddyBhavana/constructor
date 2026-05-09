@@ -366,11 +366,12 @@
   letter-spacing: 2px;
   transition: all 0.4s ease;
   cursor: pointer;
+  transform: translateY(-3px);
 }
 
 .btn-hero:hover {
   background: var(--primary);
-  color: #000;
+  color: #fff;
   box-shadow: 0 0 20px rgba(200, 169, 110, 0.3);
   transform: translateY(-3px);
 }
@@ -517,18 +518,16 @@
 }
 
 .property-card {
-  background: var(--glass);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-radius: 30px;
+  background: var(--bg-secondary);
+  border-radius: 25px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
   text-align: left;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   height: 100%;
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--border);
   color: var(--text-main);
 }
 
@@ -1276,12 +1275,11 @@
 
 /* Property Detail Page */
 .property-detail-page {
-  background-color: var(--bg-dark);
+  background-color: var(--bg-primary);
   color: var(--text-main);
   background-image: 
-    radial-gradient(circle at 10% 10%, rgba(200, 169, 110, 0.03) 0%, transparent 40%),
-    radial-gradient(circle at 90% 90%, rgba(11, 17, 27, 0.8) 0%, transparent 40%);
-  padding-bottom: 0; /* Remove extra padding causing gaps */
+    radial-gradient(circle at 10% 10%, rgba(200, 169, 110, 0.05) 0%, transparent 40%);
+  padding-bottom: 0;
 }
 
 .property-detail-page .section-title,
@@ -1365,9 +1363,9 @@
   margin-bottom: 60px;
   background: var(--bg-secondary);
   padding: 40px;
-  border-radius: 20px;
+  border-radius: 25px;
   border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .spec-item {
@@ -1427,13 +1425,11 @@
 }
 
 .enquiry-card {
-  background: rgba(21, 29, 44, 0.85);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
+  background: var(--bg-secondary);
   padding: 40px;
   border-radius: 35px;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 40px rgba(200, 169, 110, 0.05);
-  border: 1px solid var(--glass-border);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.08);
+  border: 1px solid var(--border);
   position: sticky;
   top: 120px;
   color: var(--text-main);
