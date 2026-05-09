@@ -5,6 +5,7 @@ import Navbar from '../components/Layout/Navbar';
 import { PROPERTIES } from '../constants/data';
 import ScrollReveal from '../components/Common/ScrollReveal';
 import EMICalculator from '../components/Common/EMICalculator';
+import Footer from '../components/Layout/Footer';
 
 const PropertyDetail = () => {
   const { id } = useParams();
@@ -257,6 +258,24 @@ const PropertyDetail = () => {
                   <div>
                     <div style={{ fontWeight: '600', color: 'var(--text-main)' }}>Skyview Estates Advisory</div>
                     <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Luxury Property Consultant</div>
+                  </div>
+                </div>
+
+                {/* Location Section */}
+                <div style={{ marginTop: '60px' }}>
+                  <h3 style={{ fontSize: '1.8rem', marginBottom: '15px', fontFamily: "'Playfair Display', serif" }}>Location & Neighborhood</h3>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '1rem', marginBottom: '25px', lineHeight: '1.8' }}>
+                    Located in the heart of the prestigious {property.location} district, this residence offers an unparalleled blend of exclusivity, security, and world-class connectivity.
+                  </p>
+                  <div style={{ height: '300px', borderRadius: '30px', overflow: 'hidden', border: '1px solid var(--glass-border)', position: 'relative' }}>
+                    <img 
+                      src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1200" 
+                      alt="Map Neighborhood" 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6, filter: 'contrast(1.2)' }}
+                    />
+                    <div style={{ position: 'absolute', bottom: '20px', left: '20px', background: 'rgba(0,0,0,0.6)', padding: '10px 20px', borderRadius: '10px', backdropFilter: 'blur(10px)' }}>
+                      <span style={{ color: 'var(--primary)', fontWeight: '700' }}>{property.location}</span>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -20,19 +20,19 @@ const Preloader = () => {
       img.src = image;
     });
 
-    // Timing: Increased to 10 seconds to allow for the full reveal sequence
+    // Timing: Reduced to 3.5 seconds for a snappy but cinematic entrance
     const timer = setTimeout(() => {
       setLoading(false);
       document.body.style.overflow = 'auto'; 
-    }, 10000);
+    }, 3500);
 
-    // First image stays until name is printed (around 4.5s), then cycle 2nd and 3rd
+    // Speed up sequence: Start name reveal at 0.5s, cycle images faster
     let imgInterval;
     const cycleTimeout = setTimeout(() => {
       imgInterval = setInterval(() => {
         setCurrentImg(prev => (prev + 1) % splashImages.length);
-      }, 2000); // Faster cycle for the remaining images
-    }, 4500);
+      }, 800); // Fast cycle
+    }, 2000);
 
     return () => {
       clearTimeout(timer);
@@ -164,74 +164,74 @@ const Preloader = () => {
             <div style={{ textAlign: 'center' }}>
               <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
                 {letters.map((letter, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ 
-                      delay: 2.5 + (i * 0.1), // Starts after 2.5 seconds
-                      duration: 0.8,
-                      ease: "easeOut"
-                    }}
-                    style={{
-                      color: letter === " " ? "transparent" : "#C8A96E",
-                      fontSize: 'clamp(2rem, 6vw, 3.8rem)',
-                      fontWeight: '300',
-                      fontFamily: "'Playfair Display', serif",
-                      letterSpacing: '0.1em',
-                      display: 'inline-block'
-                    }}
-                  >
-                    {letter === " " ? "\u00A0" : letter}
-                  </motion.span>
-                ))}
+                    <motion.span
+                      key={i}
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ 
+                        delay: 0.8 + (i * 0.05), // Starts faster
+                        duration: 0.6,
+                        ease: "easeOut"
+                      }}
+                      style={{
+                        color: letter === " " ? "transparent" : "#C8A96E",
+                        fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+                        fontWeight: '300',
+                        fontFamily: "'Playfair Display', serif",
+                        letterSpacing: '0.1em',
+                        display: 'inline-block'
+                      }}
+                    >
+                      {letter === " " ? "\u00A0" : letter}
+                    </motion.span>
+                  ))}
+                </div>
+  
+                <motion.div
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  animate={{ scaleX: 1, opacity: 1 }}
+                  transition={{ delay: 1.8, duration: 1 }} 
+                  style={{
+                    height: '1px',
+                    width: '200px',
+                    background: 'linear-gradient(to right, transparent, #C8A96E, transparent)',
+                    margin: '20px auto'
+                  }}
+                />
+  
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.6 }}
+                  transition={{ delay: 2.2, duration: 1 }}
+                  style={{
+                    color: '#fff',
+                    fontSize: '0.7rem',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.8em',
+                    margin: 0,
+                    paddingLeft: '0.8em'
+                  }}
+                >
+                  ESTATES
+                </motion.p>
               </div>
-
-              <motion.div
-                initial={{ scaleX: 0, opacity: 0 }}
-                animate={{ scaleX: 1, opacity: 1 }}
-                transition={{ delay: 4, duration: 2 }} // Starts after letters
-                style={{
-                  height: '1px',
-                  width: '250px',
-                  background: 'linear-gradient(to right, transparent, #C8A96E, transparent)',
-                  margin: '30px auto'
-                }}
-              />
-
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.5 }}
-                transition={{ delay: 5, duration: 2 }}
-                style={{
-                  color: '#fff',
-                  fontSize: '0.8rem',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1em',
-                  margin: 0,
-                  paddingLeft: '1em' // Balance the letter spacing
-                }}
-              >
-                ESTATES
-              </motion.p>
             </div>
-          </div>
-
-          {/* Progress Bar */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 7, ease: "easeInOut" }}
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              height: '3px',
-              background: 'linear-gradient(to right, #000, #C8A96E, #000)',
-              transformOrigin: 'left'
-            }}
-          />
+  
+            {/* Progress Bar */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 3.5, ease: "linear" }}
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: '3px',
+                background: 'linear-gradient(to right, #000, #C8A96E, #000)',
+                transformOrigin: 'left'
+              }}
+            />
         </motion.div>
       )}
     </AnimatePresence>
