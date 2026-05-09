@@ -28,6 +28,32 @@ const MortgageCalculatorPage = () => {
     }).format(amt);
   };
 
+  const handleDownload = () => {
+    let csv = "Month,EMI,Principal,Interest,Remaining Balance\n";
+    let balance = loanAmount;
+    const r = (interestRate / 12) / 100;
+    
+    for (let i = 1; i <= tenure * 12; i++) {
+      const interest = balance * r;
+      const principal = emi - interest;
+      balance = balance - principal;
+      csv += `${i},${emi},${Math.round(principal)},${Math.round(interest)},${Math.max(0, Math.round(balance))}\n`;
+      if (i > 12 && i % 12 === 0) {
+          // Just to keep CSV small if they want many years, but user asked for "repayment schedule"
+      }
+    }
+
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.setAttribute('hidden', '');
+    a.setAttribute('href', url);
+    a.setAttribute('download', `repayment_schedule_skyview.csv`);
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
   return (
     <div className="finance-page">
       <header className="hero-section small" style={{ backgroundImage: `url(${IMAGES.heroServices})` }}>
@@ -115,7 +141,11 @@ const MortgageCalculatorPage = () => {
                 <span style={{ fontSize: '1.5rem', fontWeight: '600' }}>{formatCurrency(totalPayment)}</span>
               </div>
 
-              <button className="btn-hero" style={{ width: '100%', marginTop: '40px', background: '#D4AF37', color: '#000' }}>
+              <button 
+                className="btn-hero" 
+                style={{ width: '100%', marginTop: '40px', background: '#D4AF37', color: '#000', cursor: 'pointer' }}
+                onClick={handleDownload}
+              >
                 Download Repayment Schedule
               </button>
             </div>
