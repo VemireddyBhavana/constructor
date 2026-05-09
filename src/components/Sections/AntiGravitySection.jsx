@@ -66,7 +66,7 @@ const AntiGravitySection = () => {
               animation: `agFloat ${house.duration} linear infinite`,
               animationDelay: house.delay,
               '--rotate': house.rotate
-            } as any}
+            }}
           >
             <div className="shimmer-overlay" />
             <img src={house.img} alt="Floating Home" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
