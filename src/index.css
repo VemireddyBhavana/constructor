@@ -10,12 +10,15 @@ html {
   --primary-hover: #b6985d;
   --text-main: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.6);
-  --bg-primary: #050810;
-  --bg-secondary: #0a0c14;
-  --border: rgba(200, 169, 110, 0.2);
-  --shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  --accent: #C8A96E;
-  --navbar-bg: rgba(5, 8, 16, 0.8);
+  --bg-primary: #0B111B;
+  --bg-secondary: #151D2C;
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --border: rgba(200, 169, 110, 0.15);
+  --border-light: rgba(200, 169, 110, 0.1);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --accent: #D4AF37;
+  --navbar-bg: rgba(11, 17, 27, 0.9);
   
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
