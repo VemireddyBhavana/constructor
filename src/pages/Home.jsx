@@ -122,8 +122,8 @@ const Home = () => {
 
       <ScrollReveal>
         <div className="ai-cta-section" style={{ 
-          padding: '120px 20px', 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/ai-bg.png')`,
+          padding: '140px 20px', 
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/assets/ai-bg-v2.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
