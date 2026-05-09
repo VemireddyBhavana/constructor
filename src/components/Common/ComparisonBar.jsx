@@ -33,9 +33,9 @@ const ComparisonBar = () => {
           boxShadow: '0 10px 40px rgba(0,0,0,0.5)'
         }}
       >
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex', gap: '10px', maxWidth: '400px', overflowX: 'auto', padding: '5px' }} className="hide-scrollbar">
           {comparisonList.map(p => (
-            <div key={p.id} style={{ position: 'relative' }}>
+            <div key={p.id} style={{ position: 'relative', flexShrink: 0 }}>
               <img 
                 src={p.image} 
                 alt={p.title} 
@@ -61,21 +61,6 @@ const ComparisonBar = () => {
               </button>
             </div>
           ))}
-          {comparisonList.length < 3 && (
-            <div style={{ 
-              width: '45px', 
-              height: '45px', 
-              borderRadius: '50%', 
-              border: '2px dashed #444', 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'center', 
-              color: '#444', 
-              fontSize: '1.2rem' 
-            }}>
-              +
-            </div>
-          )}
         </div>
 
         <div style={{ width: '1px', height: '30px', background: '#333' }}></div>
@@ -83,11 +68,18 @@ const ComparisonBar = () => {
         <div style={{ display: 'flex', gap: '15px' }}>
           <button 
             className="btn-hero" 
-            style={{ padding: '10px 25px', fontSize: '0.8rem', background: '#D4AF37', color: 'black' }}
+            style={{ 
+              padding: '10px 25px', 
+              fontSize: '0.8rem', 
+              background: '#D4AF37', 
+              color: 'black',
+              opacity: comparisonList.length < 1 ? 0.5 : 1,
+              cursor: comparisonList.length < 1 ? 'not-allowed' : 'pointer'
+            }}
             onClick={() => navigate('/compare')}
-            disabled={comparisonList.length < 2}
+            disabled={comparisonList.length < 1}
           >
-            Compare {comparisonList.length} Properties
+            Compare {comparisonList.length} {comparisonList.length === 1 ? 'Property' : 'Properties'}
           </button>
           <button 
             style={{ background: 'none', border: 'none', color: '#888', cursor: 'pointer', fontSize: '0.8rem' }}

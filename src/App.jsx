@@ -18,6 +18,7 @@ import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 import ConstructionServices from './pages/ConstructionServices'
 import Workers from './pages/Workers'
 import ComparePage from './pages/ComparePage'
+import MortgageCalculatorPage from './pages/MortgageCalculatorPage'
 
 import { FavoritesProvider } from './context/FavoritesContext'
 import { ComparisonProvider } from './context/ComparisonContext'
@@ -61,6 +62,7 @@ function App() {
                 <Route path="/construction-setup" element={<ConstructionServices />} />
                 <Route path="/workers" element={<Workers />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/finance" element={<MortgageCalculatorPage />} />
               </Routes>
             </motion.div>
           </AnimatePresence>

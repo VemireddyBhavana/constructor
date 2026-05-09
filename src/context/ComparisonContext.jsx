@@ -11,10 +11,6 @@ export const ComparisonProvider = ({ children }) => {
       if (exists) {
         return prev.filter(p => p.id !== property.id);
       }
-      if (prev.length >= 3) {
-        alert("You can compare up to 3 properties at a time.");
-        return prev;
-      }
       return [...prev, property];
     });
   };

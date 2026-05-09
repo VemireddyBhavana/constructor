@@ -21,6 +21,25 @@ const PropertyCard = ({ property }) => {
       transition={{ duration: 0.5 }}
       style={{ position: 'relative' }}
     >
+      {property.status && (
+        <div style={{
+          position: 'absolute',
+          top: '20px',
+          left: '20px',
+          background: 'rgba(212, 175, 55, 0.9)',
+          color: 'black',
+          padding: '5px 12px',
+          borderRadius: '5px',
+          fontSize: '0.7rem',
+          fontWeight: '700',
+          textTransform: 'uppercase',
+          zIndex: 10,
+          letterSpacing: '1px',
+          boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
+        }}>
+          {property.status}
+        </div>
+      )}
       <div className="card-actions" style={{ position: 'absolute', top: '20px', right: '20px', zIndex: 10, display: 'flex', gap: '10px' }}>
         <button 
           className={`compare-btn ${inComparison ? 'active' : ''}`}
@@ -90,6 +109,31 @@ const PropertyCard = ({ property }) => {
               <span>📏 {property.sqft} sqft</span>
             </div>
             <div className="property-price">{property.price}</div>
+          </div>
+          
+          {property.location && (
+            <div style={{ fontSize: '0.8rem', color: '#888', marginTop: '10px', display: 'flex', alignItems: 'center', gap: '5px' }}>
+              📍 {property.location}
+            </div>
+          )}
+
+          <div style={{ marginTop: '15px', borderTop: '1px solid #eee', paddingTop: '15px', display: 'flex', gap: '10px' }}>
+            <button 
+              className="btn-primary" 
+              style={{ flex: 2, padding: '8px', fontSize: '0.7rem' }}
+              onClick={(e) => {
+                e.preventDefault();
+                window.open(`https://wa.me/915551234678?text=I'm interested in ${property.title} (${property.id})`, '_blank');
+              }}
+            >
+              WhatsApp Inquiry
+            </button>
+            <Link 
+              to={`/property/${property.id}`} 
+              style={{ flex: 1, padding: '8px', fontSize: '0.7rem', textAlign: 'center', border: '1px solid #ddd', borderRadius: '30px', textDecoration: 'none', color: '#666' }}
+            >
+              Details
+            </Link>
           </div>
         </div>
       </Link>

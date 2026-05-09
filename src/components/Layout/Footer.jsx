@@ -50,7 +50,7 @@ const Footer = () => {
       </div>
       
       <div className="footer-bottom">
-        <p>Copyright © 2026 Skyview Estates Company</p>
+        <p>Copyright © {new Date().getFullYear()} Skyview Estates Company</p>
         <div className="footer-bottom-right">
           <div className="footer-socials">
             <a href="#"><i className="fa-brands fa-x-twitter"></i></a>

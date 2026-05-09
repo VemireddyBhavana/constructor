@@ -53,15 +53,36 @@ const ComparePage = () => {
                 <th style={{ width: '200px', textAlign: 'left', padding: '20px', borderBottom: '1px solid var(--border)' }}>Features</th>
                 {comparisonList.map(p => (
                   <th key={p.id} style={{ padding: '20px', borderBottom: '1px solid var(--border)', textAlign: 'center' }}>
-                    <div style={{ position: 'relative' }}>
+                    <div style={{ position: 'relative', padding: '10px' }}>
                       <button 
                         onClick={() => removeFromComparison(p.id)}
-                        style={{ position: 'absolute', top: '-10px', right: '0', background: 'none', border: 'none', color: 'red', cursor: 'pointer' }}
+                        style={{ 
+                          position: 'absolute', 
+                          top: '0', 
+                          right: '0', 
+                          background: 'rgba(255, 0, 0, 0.1)', 
+                          color: '#ff4d4d', 
+                          border: '1px solid rgba(255, 0, 0, 0.2)', 
+                          borderRadius: '50%',
+                          width: '30px',
+                          height: '30px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          cursor: 'pointer',
+                          transition: 'all 0.3s ease',
+                          zIndex: 10
+                        }}
+                        onMouseOver={(e) => { e.currentTarget.style.background = 'red'; e.currentTarget.style.color = 'white'; }}
+                        onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(255, 0, 0, 0.1)'; e.currentTarget.style.color = '#ff4d4d'; }}
+                        title="Remove from comparison"
                       >
-                        ✕ Remove
+                        ✕
                       </button>
-                      <img src={p.image} alt={p.title} style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '15px', marginBottom: '15px' }} />
-                      <h3 style={{ fontSize: '1.2rem', marginBottom: '5px' }}>{p.title}</h3>
+                      <div className="property-image-wrapper" style={{ overflow: 'hidden', borderRadius: '15px', marginBottom: '15px' }}>
+                        <img src={p.image} alt={p.title} style={{ width: '100%', height: '220px', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
+                      </div>
+                      <h3 style={{ fontSize: '1.2rem', color: '#fff', marginBottom: '5px' }}>{p.title}</h3>
                     </div>
                   </th>
                 ))}
@@ -96,14 +117,34 @@ const ComparePage = () => {
           </table>
         </div>
 
-        <div style={{ marginTop: '40px', textAlign: 'center' }}>
-          <button className="btn-secondary" onClick={clearComparison}>Clear Comparison List</button>
+        <div style={{ marginTop: '60px', textAlign: 'center' }}>
+          <button 
+            className="btn-hero" 
+            style={{ 
+              background: 'transparent', 
+              border: '1px solid #444', 
+              color: '#888',
+              padding: '12px 40px' 
+            }} 
+            onClick={clearComparison}
+          >
+            Reset Comparison List
+          </button>
         </div>
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
         .compare-table tr:hover {
           background: rgba(212, 175, 55, 0.03);
+        }
+        .property-image-wrapper:hover img {
+          transform: scale(1.05);
+        }
+        .compare-table td {
+          color: #ccc;
+        }
+        .compare-table th {
+          color: #fff;
         }
       `}} />
     </div>
