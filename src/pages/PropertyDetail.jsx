@@ -153,9 +153,9 @@ const PropertyDetail = () => {
                                   textAlign: 'center',
                                   cursor: 'pointer',
                                   borderRadius: '5px',
-                                  background: selectedDate === day ? '#D4AF37' : 'transparent',
-                                  color: selectedDate === day ? 'white' : 'inherit',
-                                  border: '1px solid #eee'
+                                  background: selectedDate === day ? 'var(--primary)' : 'transparent',
+                                  color: selectedDate === day ? '#000' : 'inherit',
+                                  border: '1px solid var(--border)'
                                 }}
                               >
                                 {day}
@@ -176,9 +176,9 @@ const PropertyDetail = () => {
                                 flex: 1,
                                 padding: '10px',
                                 borderRadius: '5px',
-                                border: '1px solid #D4AF37',
-                                background: selectedTime === time ? '#D4AF37' : 'white',
-                                color: selectedTime === time ? 'white' : '#D4AF37',
+                                border: '1px solid var(--primary)',
+                                background: selectedTime === time ? 'var(--primary)' : 'transparent',
+                                color: selectedTime === time ? '#000' : 'var(--primary)',
                                 cursor: 'pointer'
                               }}
                             >
@@ -209,7 +209,18 @@ const PropertyDetail = () => {
                       <p>Scan the QR code to pay the ₹5,000 reservation fee.</p>
                       
                       <div className="qr-wrapper" style={{ textAlign: 'center', margin: '20px 0' }}>
-                        <div style={{ width: '200px', height: '200px', background: '#eee', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div style={{ 
+                          width: '200px', 
+                          height: '200px', 
+                          background: 'var(--bg-secondary)', 
+                          margin: '0 auto', 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          justifyContent: 'center',
+                          border: '1px solid var(--border)',
+                          borderRadius: '15px',
+                          color: 'var(--primary)'
+                        }}>
                           QR CODE PLACEHOLDER
                         </div>
                       </div>
@@ -241,11 +252,11 @@ const PropertyDetail = () => {
                   )}
                 </AnimatePresence>
 
-                <div className="agent-info" style={{ marginTop: '30px', display: 'flex', alignItems: 'center', gap: '15px', borderTop: '1px solid #eee', paddingTop: '20px' }}>
-                  <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: '#D4AF37', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>SE</div>
+                <div className="agent-info" style={{ marginTop: '30px', display: 'flex', alignItems: 'center', gap: '15px', borderTop: '1px solid var(--border)', paddingTop: '20px' }}>
+                  <div className="agent-avatar">SE</div>
                   <div>
-                    <div style={{ fontWeight: '600' }}>Skyview Estates Advisory</div>
-                    <div style={{ fontSize: '0.8rem', color: '#888' }}>Luxury Property Consultant</div>
+                    <div style={{ fontWeight: '600', color: 'var(--text-main)' }}>Skyview Estates Advisory</div>
+                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Luxury Property Consultant</div>
                   </div>
                 </div>
               </div>
