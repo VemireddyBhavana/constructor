@@ -8,7 +8,6 @@ import TestimonialsSection from '../components/Sections/TestimonialsSection';
 import PassionSection from '../components/Sections/PassionSection';
 import ScrollReveal from '../components/Common/ScrollReveal';
 import { IMAGES } from '../constants/data';
-import Preloader from '../components/Common/Preloader';
 import AntiGravitySection from '../components/Sections/AntiGravitySection';
 
 import DreamHomeQuiz from '../components/Common/DreamHomeQuiz';
@@ -43,7 +42,6 @@ const Home = () => {
 
   return (
     <>
-      <Preloader />
       <AnimatePresence>
         {showQuiz && <DreamHomeQuiz onClose={() => setShowQuiz(false)} />}
       </AnimatePresence>

@@ -12,6 +12,7 @@ import Chatbot from './components/Common/Chatbot'
 import ComparisonBar from './components/Common/ComparisonBar'
 import { IMAGES } from './constants/data'
 import './App.css'
+import Preloader from './components/Common/Preloader'
 
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 
@@ -36,6 +37,7 @@ function App() {
     <FavoritesProvider>
       <ComparisonProvider>
         <div className="app-wrapper">
+          <Preloader />
           <SplashCursor />
           <Chatbot />
           <ComparisonBar />
@@ -44,10 +46,13 @@ function App() {
           <AnimatePresence mode="wait">
             <motion.div
               key={location.pathname}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ 
+                duration: 1.2, 
+                ease: [0.22, 1, 0.36, 1] 
+              }}
             >
               <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<Home />} />

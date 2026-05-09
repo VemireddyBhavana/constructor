@@ -5,16 +5,31 @@ import { IMAGES } from '../../constants/data';
 const Preloader = () => {
   const [loading, setLoading] = useState(true);
   const [currentImg, setCurrentImg] = useState(0);
+  
   const splashImages = [IMAGES.heroHome, IMAGES.heroHome2, IMAGES.heroHome3];
+  const brandName = "SKYVIEW ESTATES";
 
   useEffect(() => {
+    // Hide scrollbar while loading
+    document.body.style.overflow = 'hidden';
+
+    // Preload all critical images to prevent blank screen
+    const allImages = [...splashImages, IMAGES.heroHome, IMAGES.heroHome2, IMAGES.heroHome3];
+    allImages.forEach((image) => {
+      const img = new Image();
+      img.src = image;
+    });
+
+    // Timing: 6 seconds total as requested
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4500); // Slightly longer for the images to cycle
+      document.body.style.overflow = 'auto'; // Restore scroll
+    }, 6000);
 
+    // Faster image cycle for cinematic feel
     const imgTimer = setInterval(() => {
       setCurrentImg(prev => (prev + 1) % splashImages.length);
-    }, 2000); // Slower cycle
+    }, 1200);
 
     return () => {
       clearTimeout(timer);
@@ -22,123 +37,230 @@ const Preloader = () => {
     };
   }, []);
 
+  // Split text for staggering
+  const letters = brandName.split("");
+
   return (
     <AnimatePresence>
       {loading && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
+          exit={{ 
+            opacity: 0,
+            filter: "blur(20px)"
+          }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
           style={{
             position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            background: '#050810',
+            inset: 0,
+            background: '#000',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            zIndex: 10000,
+            zIndex: 100000,
             overflow: 'hidden'
           }}
         >
-          {/* Subtle Background Overlay */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            opacity: 0.1,
-            background: `radial-gradient(circle at center, #C8A96E 0%, transparent 70%)`,
-            filter: 'blur(100px)'
-          }} />
+          {/* Animated Background Orbs */}
+          <motion.div
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.1, 0.2, 0.1]
+            }}
+            transition={{ duration: 5, repeat: Infinity }}
+            style={{
+              position: 'absolute',
+              width: '800px',
+              height: '800px',
+              background: 'radial-gradient(circle, rgba(200, 169, 110, 0.15) 0%, transparent 70%)',
+              filter: 'blur(100px)',
+              zIndex: 1
+            }}
+          />
 
-          <div className="loader-container" style={{ position: 'relative', textAlign: 'center' }}>
-            {/* The Large Rounded Circle - Fixed to be perfectly filled */}
+          <div style={{ 
+            position: 'relative', 
+            zIndex: 10, 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            height: '100%'
+          }}>
+            
+            {/* Main Cinematic Circle - Perfect Centering & Masking */}
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
+              transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                width: '350px',
-                height: '350px',
+                width: 'min(500px, 85vw)',
+                height: 'min(500px, 85vw)',
                 borderRadius: '50%',
-                border: '2px solid rgba(200, 169, 110, 0.4)',
+                position: 'relative',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                overflow: 'hidden',
-                position: 'relative',
-                boxShadow: '0 0 50px rgba(200, 169, 110, 0.2)',
-                marginBottom: '50px',
-                padding: '10px' // Space for the ring
+                boxShadow: '0 0 100px rgba(200, 169, 110, 0.15)',
+                marginBottom: '60px'
               }}
             >
-              {/* Outer Spinning Ring */}
+              {/* Animated Outer Rings */}
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                 style={{
                   position: 'absolute',
-                  inset: '-5px',
-                  border: '2px dashed rgba(200, 169, 110, 0.2)',
-                  borderRadius: '50%',
+                  inset: '-10px',
+                  border: '1px solid rgba(200, 169, 110, 0.1)',
+                  borderRadius: '50%'
+                }}
+              />
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                style={{
+                  position: 'absolute',
+                  inset: '5px',
+                  border: '1px dashed rgba(200, 169, 110, 0.2)',
+                  borderRadius: '50%'
                 }}
               />
 
+              {/* Image Container with SVG Mask for Perfect Circle */}
               <div style={{
                 width: '100%',
                 height: '100%',
                 borderRadius: '50%',
                 overflow: 'hidden',
                 position: 'relative',
-                zIndex: 2
+                zIndex: 2,
+                backgroundColor: '#111',
+                border: '2px solid rgba(200, 169, 110, 0.4)'
               }}>
                 <AnimatePresence mode="wait">
-                  <motion.img
+                  <motion.div
                     key={currentImg}
-                    src={splashImages[currentImg]}
                     initial={{ opacity: 0, scale: 1.1 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.05 }}
-                    transition={{ duration: 1.2, ease: "easeInOut" }}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                    }}
-                  />
+                    transition={{ duration: 1.5, ease: [0.65, 0, 0.35, 1] }}
+                    style={{ width: '100%', height: '100%' }}
+                  >
+                    <img 
+                      src={splashImages[currentImg]} 
+                      alt="Luxury Home" 
+                      style={{ 
+                        width: '100%', 
+                        height: '100%', 
+                        objectFit: 'cover'
+                      }}
+                    />
+                    {/* Atmospheric Overlays */}
+                    <div style={{ 
+                      position: 'absolute', 
+                      inset: 0, 
+                      background: 'radial-gradient(circle, transparent 20%, rgba(0,0,0,0.4) 100%)' 
+                    }} />
+                    <div style={{ 
+                      position: 'absolute', 
+                      inset: 0, 
+                      background: 'rgba(200, 169, 110, 0.1)', 
+                      mixBlendMode: 'overlay' 
+                    }} />
+                  </motion.div>
                 </AnimatePresence>
               </div>
+
+              {/* Dynamic Glow Halo */}
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.05, 1],
+                  opacity: [0.3, 0.6, 0.3]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+                style={{
+                  position: 'absolute',
+                  inset: '-20px',
+                  borderRadius: '50%',
+                  background: 'radial-gradient(circle, rgba(200, 169, 110, 0.2) 0%, transparent 70%)',
+                  zIndex: 1
+                }}
+              />
             </motion.div>
 
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.8 }}
-            >
-              <h1 style={{ 
-                color: '#C8A96E', 
-                fontSize: '3.5rem', 
-                fontFamily: "'Playfair Display', serif",
-                fontWeight: '400',
-                margin: 0,
-                letterSpacing: '2px'
-              }}>
-                Skyview Estates
-              </h1>
-              <div style={{
-                width: '100px',
-                height: '2px',
-                background: '#C8A96E',
-                margin: '15px auto',
-                opacity: 0.5
-              }} />
-              <p style={{ color: 'rgba(255,255,255,0.5)', letterSpacing: '8px', textTransform: 'uppercase', fontSize: '0.8rem' }}>
-                Luxury Living Redefined
-              </p>
-            </motion.div>
+            {/* Brand Reveal */}
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                {letters.map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ y: 30, opacity: 0, filter: 'blur(10px)' }}
+                    animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                    transition={{ 
+                      delay: 0.8 + (i * 0.08),
+                      duration: 1,
+                      ease: [0.33, 1, 0.68, 1]
+                    }}
+                    style={{
+                      color: letter === " " ? "transparent" : "#C8A96E",
+                      fontSize: 'clamp(1.8rem, 5vw, 3.2rem)',
+                      fontWeight: '300',
+                      fontFamily: "'Playfair Display', serif",
+                      letterSpacing: '0.15em',
+                      display: 'inline-block'
+                    }}
+                  >
+                    {letter === " " ? "\u00A0" : letter}
+                  </motion.span>
+                ))}
+              </div>
+
+              <motion.div
+                initial={{ scaleX: 0, opacity: 0 }}
+                animate={{ scaleX: 1, opacity: 1 }}
+                transition={{ delay: 2, duration: 1.5, ease: "circOut" }}
+                style={{
+                  height: '1px',
+                  width: '200px',
+                  background: 'linear-gradient(to right, transparent, #C8A96E, transparent)',
+                  margin: '25px auto'
+                }}
+              />
+
+              <motion.p
+                initial={{ opacity: 0, letterSpacing: '0.2em' }}
+                animate={{ opacity: 0.6, letterSpacing: '0.8em' }}
+                transition={{ delay: 2.5, duration: 1.5 }}
+                style={{
+                  color: '#fff',
+                  fontSize: '0.75rem',
+                  textTransform: 'uppercase',
+                  margin: 0
+                }}
+              >
+                ESTATES
+              </motion.p>
+            </div>
           </div>
+
+          {/* Loading Progress Line at Bottom */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 4, ease: "linear" }}
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: '2px',
+              background: 'linear-gradient(to right, transparent, #C8A96E, transparent)',
+              transformOrigin: 'left'
+            }}
+          />
         </motion.div>
       )}
     </AnimatePresence>
