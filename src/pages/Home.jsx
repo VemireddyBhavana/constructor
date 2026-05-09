@@ -121,15 +121,35 @@ const Home = () => {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="ai-cta-section" style={{ padding: '80px 20px', background: '#0a0a0a', textAlign: 'center' }}>
-          <div className="section-container">
+        <div className="ai-cta-section" style={{ 
+          padding: '120px 20px', 
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/ai-bg.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          textAlign: 'center',
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
+          <div className="section-container" style={{ position: 'relative', zIndex: 2 }}>
             <span style={{ color: '#D4AF37', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '0.9rem', fontWeight: '600' }}>AI Powered Discovery</span>
-            <h2 style={{ fontSize: '3rem', margin: '20px 0', color: 'white' }}>Find Your Dream Home in Seconds</h2>
-            <p style={{ maxWidth: '700px', margin: '0 auto 40px', color: '#888', fontSize: '1.1rem' }}>
+            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', margin: '20px 0', color: 'white', fontFamily: "'Playfair Display', serif" }}>Find Your Dream Home in Seconds</h2>
+            <p style={{ maxWidth: '700px', margin: '0 auto 40px', color: 'rgba(255, 255, 255, 0.7)', fontSize: '1.1rem', lineHeight: '1.8' }}>
               Our AI property matching engine analyzes your lifestyle preferences, budget, and architectural tastes to curate a selection of homes that feel like they were built just for you.
             </p>
-            <button className="btn-hero" onClick={() => setShowQuiz(true)}>Start AI Matching Quiz</button>
+            <button className="btn-hero" onClick={() => setShowQuiz(true)} style={{ background: '#D4AF37', color: 'black', border: 'none', fontWeight: '700' }}>Start AI Matching Quiz</button>
           </div>
+          {/* Animated Glow Effect */}
+          <div style={{
+            position: 'absolute',
+            top: '-50%',
+            left: '-50%',
+            width: '200%',
+            height: '200%',
+            background: 'radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 50%)',
+            zIndex: 1,
+            pointerEvents: 'none'
+          }} />
         </div>
       </ScrollReveal>
 

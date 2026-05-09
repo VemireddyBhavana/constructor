@@ -17,7 +17,10 @@ const AntiGravitySection = () => {
     <section className="antigravity-section" style={{
       position: 'relative',
       height: '800px',
-      background: '#050810',
+      backgroundImage: `linear-gradient(rgba(5, 8, 16, 0.8), rgba(5, 8, 16, 0.8)), url('/assets/ag-bg.png')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
       overflow: 'hidden',
       display: 'flex',
       alignItems: 'center',
