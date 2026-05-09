@@ -14,7 +14,7 @@ const Preloader = () => {
 
     const imgTimer = setInterval(() => {
       setCurrentImg(prev => (prev + 1) % splashImages.length);
-    }, 1200);
+    }, 2000); // Slower cycle
 
     return () => {
       clearTimeout(timer);
@@ -28,7 +28,7 @@ const Preloader = () => {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
           style={{
             position: 'fixed',
             top: 0,
@@ -44,66 +44,72 @@ const Preloader = () => {
             overflow: 'hidden'
           }}
         >
-          {/* Main Background Texture/Pattern */}
+          {/* Subtle Background Overlay */}
           <div style={{
             position: 'absolute',
             inset: 0,
-            opacity: 0.05,
-            backgroundImage: `url(${IMAGES.heroHome})`,
-            backgroundSize: 'cover',
-            filter: 'grayscale(100%)'
+            opacity: 0.1,
+            background: `radial-gradient(circle at center, #C8A96E 0%, transparent 70%)`,
+            filter: 'blur(100px)'
           }} />
 
           <div className="loader-container" style={{ position: 'relative', textAlign: 'center' }}>
-            {/* The Large Rounded Circle */}
+            {/* The Large Rounded Circle - Fixed to be perfectly filled */}
             <motion.div
-              initial={{ scale: 0.5, opacity: 0 }}
+              initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
               style={{
-                width: '400px',
-                height: '400px',
+                width: '350px',
+                height: '350px',
                 borderRadius: '50%',
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(200, 169, 110, 0.2)',
+                border: '2px solid rgba(200, 169, 110, 0.4)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 overflow: 'hidden',
                 position: 'relative',
-                boxShadow: '0 40px 100px rgba(0,0,0,0.5)',
-                marginBottom: '40px'
+                boxShadow: '0 0 50px rgba(200, 169, 110, 0.2)',
+                marginBottom: '50px',
+                padding: '10px' // Space for the ring
               }}
             >
-              {/* Spinning Ring */}
+              {/* Outer Spinning Ring */}
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                 style={{
                   position: 'absolute',
-                  inset: '10px',
-                  border: '1px dashed rgba(200, 169, 110, 0.3)',
+                  inset: '-5px',
+                  border: '2px dashed rgba(200, 169, 110, 0.2)',
                   borderRadius: '50%',
                 }}
               />
 
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentImg}
-                  src={splashImages[currentImg]}
-                  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                  exit={{ opacity: 0, scale: 1.2, rotate: 10 }}
-                  transition={{ duration: 0.8 }}
-                  style={{
-                    width: '70%',
-                    height: '70%',
-                    objectFit: 'cover',
-                    borderRadius: '20px',
-                    boxShadow: '0 20px 40px rgba(0,0,0,0.3)'
-                  }}
-                />
-              </AnimatePresence>
+              <div style={{
+                width: '100%',
+                height: '100%',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                position: 'relative',
+                zIndex: 2
+              }}>
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentImg}
+                    src={splashImages[currentImg]}
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.05 }}
+                    transition={{ duration: 1.2, ease: "easeInOut" }}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
+                  />
+                </AnimatePresence>
+              </div>
             </motion.div>
 
             <motion.div
