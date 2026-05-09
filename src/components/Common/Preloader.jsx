@@ -20,20 +20,24 @@ const Preloader = () => {
       img.src = image;
     });
 
-    // Timing: Increased to 8 seconds for a more relaxed cinematic experience
+    // Timing: Increased to 10 seconds to allow for the full reveal sequence
     const timer = setTimeout(() => {
       setLoading(false);
       document.body.style.overflow = 'auto'; 
-    }, 8000);
+    }, 10000);
 
-    // Slower image cycle (every 3 seconds) to let user see the photo
-    const imgTimer = setInterval(() => {
-      setCurrentImg(prev => (prev + 1) % splashImages.length);
-    }, 3000);
+    // First image stays until name is printed (around 4.5s), then cycle 2nd and 3rd
+    let imgInterval;
+    const cycleTimeout = setTimeout(() => {
+      imgInterval = setInterval(() => {
+        setCurrentImg(prev => (prev + 1) % splashImages.length);
+      }, 2000); // Faster cycle for the remaining images
+    }, 4500);
 
     return () => {
       clearTimeout(timer);
-      clearInterval(imgTimer);
+      clearTimeout(cycleTimeout);
+      if (imgInterval) clearInterval(imgInterval);
     };
   }, []);
 
