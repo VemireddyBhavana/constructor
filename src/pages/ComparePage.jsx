@@ -14,7 +14,7 @@ const ComparePage = () => {
       <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
         <Navbar />
         <h2>No properties selected for comparison</h2>
-        <button className="btn-primary" onClick={() => navigate('/properties')} style={{ marginTop: '20px' }}>Go to Listings</button>
+        <button className="btn-primary" onClick={() => navigate('/designs')} style={{ marginTop: '20px' }}>Go to Designs</button>
       </div>
     );
   }

@@ -25,8 +25,8 @@ const PropertyDetail = () => {
       <div className="no-results" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
         <Navbar />
         <h2>Property not found</h2>
-        <button className="btn-primary" onClick={() => navigate('/properties')} style={{ marginTop: '20px' }}>
-          Back to Listings
+        <button className="btn-primary" onClick={() => navigate('/designs')} style={{ marginTop: '20px' }}>
+          Back to Designs
         </button>
       </div>
     );

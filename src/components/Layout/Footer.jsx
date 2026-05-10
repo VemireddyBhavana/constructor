@@ -11,7 +11,7 @@ const Footer = () => {
   const handleFooterSearch = (e) => {
     e.preventDefault();
     if (footerSearch.trim()) {
-      navigate(`/properties/all?q=${encodeURIComponent(footerSearch.trim())}`);
+      navigate(`/designs?q=${encodeURIComponent(footerSearch.trim())}`);
       setFooterSearch('');
     }
   };

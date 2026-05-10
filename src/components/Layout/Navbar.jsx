@@ -35,9 +35,9 @@ const Navbar = () => {
       <ul className={`nav-links ${isMenuOpen ? 'mobile-active' : ''}`}>
         <li><Link to="/home" className={isActive('/home') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Home</Link></li>
         <li><Link to="/about" className={isActive('/about') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>About</Link></li>
-        <li><Link to="/properties" className={isActive('/properties') || location.pathname.startsWith('/property') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Designs</Link></li>
+        <li><Link to="/designs" className={isActive('/designs') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Designs</Link></li>
         <li>
-          <Link to="/properties/favorites" className={isActive('/properties/favorites') ? 'active' : ''} onClick={() => setIsMenuOpen(false)} style={{ position: 'relative' }}>
+          <Link to="/designs/favorites" className={isActive('/designs/favorites') ? 'active' : ''} onClick={() => setIsMenuOpen(false)} style={{ position: 'relative' }}>
             Favorites
             {favorites.length > 0 && (
               <span style={{

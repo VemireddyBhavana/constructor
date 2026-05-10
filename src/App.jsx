@@ -24,6 +24,8 @@ import MortgageCalculatorPage from './pages/MortgageCalculatorPage'
 import { FavoritesProvider } from './context/FavoritesContext'
 import { ComparisonProvider } from './context/ComparisonContext'
 
+import ScrollToTop from './components/Common/ScrollToTop'
+
 function App() {
   const location = useLocation();
   const { scrollYProgress } = useScroll();
@@ -37,6 +39,7 @@ function App() {
     <FavoritesProvider>
       <ComparisonProvider>
         <div className="app-wrapper">
+          <ScrollToTop />
           <Preloader />
           <SplashCursor />
           <Chatbot />
@@ -46,12 +49,12 @@ function App() {
           <AnimatePresence mode="wait">
             <motion.div
               key={location.pathname}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ 
-                duration: 1.2, 
-                ease: [0.22, 1, 0.36, 1] 
+                duration: 0.2, 
+                ease: "easeOut" 
               }}
             >
               <Routes location={location} key={location.pathname}>
@@ -59,9 +62,10 @@ function App() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
-                <Route path="/properties" element={<Navigate to="/properties/all" replace />} />
-                <Route path="/properties/:category" element={<Properties />} />
-                <Route path="/properties/villa/:subCategory" element={<Properties />} />
+                <Route path="/designs" element={<Properties />} />
+                <Route path="/designs/:category" element={<Properties />} />
+                <Route path="/designs/villa/:subCategory" element={<Properties />} />
+                <Route path="/properties" element={<Navigate to="/designs" replace />} />
                 <Route path="/property/:id" element={<PropertyDetail />} />
                 <Route path="/compare" element={<ComparePage />} />
                 <Route path="/construction-setup" element={<ConstructionServices />} />

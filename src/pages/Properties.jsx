@@ -76,17 +76,17 @@ const Properties = () => {
   const handleFilterChange = (newFilter) => {
     setSearch(''); // Clear search when changing category
     if (newFilter === 'ALL') {
-      navigate('/properties/all');
+      navigate('/designs');
     } else {
-      navigate(`/properties/${newFilter.toLowerCase()}`);
+      navigate(`/designs/${newFilter.toLowerCase()}`);
     }
   };
 
   const handleSubFilterChange = (newSub) => {
     if (newSub === 'ALL') {
-      navigate('/properties/villa');
+      navigate('/designs/villa');
     } else {
-      navigate(`/properties/villa/${newSub.toLowerCase()}`);
+      navigate(`/designs/villa/${newSub.toLowerCase()}`);
     }
   };
 
@@ -94,7 +94,7 @@ const Properties = () => {
     const val = e.target.value;
     setSearch(val);
     if (val.trim() !== '' && filter !== 'ALL') {
-      navigate('/properties/all');
+      navigate('/designs');
     }
   };
 
@@ -105,9 +105,9 @@ const Properties = () => {
           <Navbar />
           <div className="hero-content">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
             >
               <span className="hero-subtitle">{filter === 'FAVORITES' ? 'Your Wishlist' : 'Listings'}</span>
               <h1 className="hero-title">

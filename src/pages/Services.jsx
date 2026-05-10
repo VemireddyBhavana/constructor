@@ -14,9 +14,9 @@ const Services = () => {
           <Navbar />
           <div className="hero-content">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
             >
               <span className="hero-subtitle">Services</span>
               <h1 className="hero-title">We offer a wide Range of Services</h1>

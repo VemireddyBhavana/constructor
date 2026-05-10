@@ -103,7 +103,7 @@ const AntiGravitySection = () => {
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 40px', lineHeight: '1.8' }}>
             Our Signature Series represents the pinnacle of human ingenuity—homes that aren't just built, but envisioned beyond the ordinary.
           </p>
-          <Link to="/properties/all">
+          <Link to="/designs">
             <button className="btn-hero" style={{ border: '1px solid #C8A96E', background: 'transparent', color: '#C8A96E' }}>
               Explore the Collection
             </button>

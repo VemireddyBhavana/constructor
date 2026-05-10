@@ -66,20 +66,20 @@ const Home = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={`content-${currentSlide}`}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -40 }}
+                exit={{ opacity: 0, y: -20 }}
                 transition={{ 
-                  duration: 0.8, 
-                  delay: 0.5, 
+                  duration: 0.4, 
+                  delay: 0.1, 
                   ease: "easeOut" 
                 }}
               >
                 <motion.span 
                   className="hero-subtitle"
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.7 }}
+                  transition={{ delay: 0.2 }}
                 >
                   {heroSlides[currentSlide].subtitle}
                 </motion.span>
@@ -87,10 +87,10 @@ const Home = () => {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 1.0 }}
+                  transition={{ delay: 0.3 }}
                   style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}
                 >
-                  <Link to="/properties/all">
+                  <Link to="/designs">
                     <button className="btn-hero">Explore Estates</button>
                   </Link>
                   <button className="btn-hero" style={{ background: '#D4AF37', color: 'black' }} onClick={() => setShowQuiz(true)}>
