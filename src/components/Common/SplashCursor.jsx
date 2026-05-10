@@ -1008,6 +1008,7 @@ function SplashCursor({
         let posX = scaleByPixelRatio(touches[i].clientX);
         let posY = scaleByPixelRatio(touches[i].clientY);
         updatePointerDownData(pointer, touches[i].identifier, posX, posY);
+        clickSplat(pointer);
       }
     }
 
@@ -1022,11 +1023,8 @@ function SplashCursor({
     }
 
     function handleTouchEnd(e) {
-      const touches = e.changedTouches;
       let pointer = pointers[0];
-      for (let i = 0; i < touches.length; i++) {
-        updatePointerUpData(pointer);
-      }
+      updatePointerUpData(pointer);
     }
 
     // Add event listeners

@@ -51,7 +51,7 @@ const Preloader = () => {
           exit={{ 
             opacity: 0,
             filter: "blur(20px)",
-            transition: { duration: 1.5, ease: "easeInOut" }
+            transition: { duration: 0.8, ease: "easeInOut" }
           }}
           style={{
             position: 'fixed',

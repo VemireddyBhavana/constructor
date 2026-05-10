@@ -20,7 +20,7 @@ const ScrollReveal = ({ children, direction = "up", delay = 0, distance = 50 }) 
         x: 0, 
         y: 0 
       }}
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-50px" }}
       transition={{ 
         duration: 0.8, 
         delay: delay,
