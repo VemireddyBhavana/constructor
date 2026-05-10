@@ -5,22 +5,22 @@ html {
 }
 
 :root {
-  /* Permanent Luxury Dark Theme tokens */
+  /* Premium Luxury Dark Theme tokens */
   --primary: #C8A96E;
   --primary-gradient: linear-gradient(135deg, #C8A96E 0%, #E2C999 100%);
-  --bg-primary: #FDFBF7;
-  --bg-secondary: #FFFFFF;
-  --bg-dark: #F5F2ED;
-  --glass: rgba(255, 255, 255, 0.9);
-  --glass-border: rgba(200, 169, 110, 0.3);
-  --text-main: #1A1A1A;
-  --text-muted: #666666;
-  --shadow-gold: 0 10px 40px rgba(200, 169, 110, 0.15);
-  --border: rgba(200, 169, 110, 0.2);
-  --navbar-bg: rgba(253, 251, 247, 0.95);
+  --bg-primary: #0D1117; /* Deep Charcoal */
+  --bg-secondary: #161B22; /* Lighter Slate */
+  --bg-dark: #010409; /* Pure Dark */
+  --glass: rgba(22, 27, 34, 0.8);
+  --glass-border: rgba(200, 169, 110, 0.2);
+  --text-main: #F0F6FC; /* Off-white for high contrast */
+  --text-muted: #8B949E; /* Muted grey */
+  --shadow-gold: 0 10px 40px rgba(200, 169, 110, 0.1);
+  --border: rgba(48, 54, 61, 0.8);
+  --navbar-bg: rgba(13, 17, 23, 0.85);
   
   --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
+  --font-body: 'Poppins', sans-serif;
 
   font-family: var(--font-body);
   line-height: 1.6;
@@ -34,8 +34,8 @@ body {
   margin: 0;
   background-color: var(--bg-dark);
   background-image: 
-    radial-gradient(circle at 0% 0%, rgba(200, 169, 110, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(11, 17, 27, 1) 0%, transparent 40%);
+    radial-gradient(circle at 0% 0%, rgba(200, 169, 110, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
   color: var(--text-main);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;

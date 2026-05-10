@@ -653,11 +653,23 @@
 }
 
 .testimonial-card {
-  background: var(--bg-primary);
+  background: var(--glass);
   padding: 30px;
-  border-radius: 15px;
-  box-shadow: var(--shadow);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   text-align: left;
+  border: 1px solid var(--glass-border);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-card p {
+  color: var(--text-main);
+  font-style: italic;
+  font-size: 0.95rem;
 }
 
 .stars {
@@ -693,13 +705,17 @@
 }
 
 .passion-content h2 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   line-height: 1.2;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .passion-content p {
-  margin-bottom: 30px;
-  font-size: 1.1rem;
+  margin-bottom: 35px;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.8;
 }
 
 /* Contact Section */
@@ -1150,13 +1166,16 @@
 
 
 .footer-col h3 {
-  font-size: 1.5rem;
-  margin-bottom: 25px;
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  color: #fff;
+  letter-spacing: 1px;
 }
 
 .footer-col p {
   font-size: 0.95rem;
-  line-height: 1.8;
+  line-height: 1.9;
+  color: var(--text-muted);
 }
 
 .contact-links {
