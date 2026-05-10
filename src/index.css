@@ -5,19 +5,19 @@ html {
 }
 
 :root {
-  /* Premium Deep Midnight Theme tokens */
+  /* Premium Minimalist Light Theme tokens */
   --primary: #D4AF37;
   --primary-gradient: linear-gradient(135deg, #D4AF37 0%, #F1D27B 100%);
-  --bg-primary: #0A0F1E; /* Deep Navy */
-  --bg-secondary: #12192C; /* Slightly lighter Navy */
-  --bg-dark: #050810; /* Near Black Navy */
-  --glass: rgba(18, 25, 44, 0.7);
-  --glass-border: rgba(212, 175, 55, 0.15);
-  --text-main: #FFFFFF;
-  --text-muted: #A0AEC0;
-  --shadow-gold: 0 10px 40px rgba(212, 175, 55, 0.08);
-  --border: rgba(212, 175, 55, 0.1);
-  --navbar-bg: rgba(5, 8, 16, 0.9);
+  --bg-primary: #FDFBF7; /* Soft Cream */
+  --bg-secondary: #FFFFFF; /* Pure White */
+  --bg-dark: #F7F5F0; /* Off-white */
+  --glass: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(212, 175, 55, 0.2);
+  --text-main: #1A1A1A; /* Deep Charcoal for readability */
+  --text-muted: #666666; /* Soft Grey */
+  --shadow-gold: 0 10px 40px rgba(212, 175, 55, 0.1);
+  --border: rgba(212, 175, 55, 0.2);
+  --navbar-bg: rgba(255, 255, 255, 0.95);
   
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Poppins', sans-serif;
@@ -34,8 +34,7 @@ body {
   margin: 0;
   background-color: var(--bg-dark);
   background-image: 
-    radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 100% 100%, rgba(10, 15, 30, 1) 0%, transparent 50%);
+    radial-gradient(circle at 100% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
   color: var(--text-main);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;

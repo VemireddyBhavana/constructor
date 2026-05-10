@@ -263,7 +263,7 @@
   font-weight: 700;
   font-size: 1.4rem;
   letter-spacing: 4px;
-  color: #fff;
+  color: inherit;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -411,8 +411,11 @@
   .hamburger span {
     width: 30px;
     height: 2px;
-    background: white;
+    background: currentColor;
     transition: all 0.3s ease;
+  }
+  .navbar.scrolled .hamburger span {
+    background: var(--text-main);
   }
   .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .hamburger.active span:nth-child(2) { opacity: 0; }
@@ -707,7 +710,7 @@
 .passion-content h2 {
   font-size: 3.5rem;
   line-height: 1.2;
-  color: #fff;
+  color: var(--text-main);
   margin-bottom: 20px;
 }
 
@@ -1168,7 +1171,7 @@
 .footer-col h3 {
   font-size: 1.4rem;
   margin-bottom: 30px;
-  color: #fff;
+  color: var(--text-main);
   letter-spacing: 1px;
 }
 
