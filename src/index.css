@@ -5,19 +5,19 @@ html {
 }
 
 :root {
-  /* Premium Luxury Dark Theme tokens */
-  --primary: #C8A96E;
-  --primary-gradient: linear-gradient(135deg, #C8A96E 0%, #E2C999 100%);
-  --bg-primary: #0D1117; /* Deep Charcoal */
-  --bg-secondary: #161B22; /* Lighter Slate */
-  --bg-dark: #010409; /* Pure Dark */
-  --glass: rgba(22, 27, 34, 0.8);
-  --glass-border: rgba(200, 169, 110, 0.2);
-  --text-main: #F0F6FC; /* Off-white for high contrast */
-  --text-muted: #8B949E; /* Muted grey */
-  --shadow-gold: 0 10px 40px rgba(200, 169, 110, 0.1);
-  --border: rgba(48, 54, 61, 0.8);
-  --navbar-bg: rgba(13, 17, 23, 0.85);
+  /* Premium Deep Midnight Theme tokens */
+  --primary: #D4AF37;
+  --primary-gradient: linear-gradient(135deg, #D4AF37 0%, #F1D27B 100%);
+  --bg-primary: #0A0F1E; /* Deep Navy */
+  --bg-secondary: #12192C; /* Slightly lighter Navy */
+  --bg-dark: #050810; /* Near Black Navy */
+  --glass: rgba(18, 25, 44, 0.7);
+  --glass-border: rgba(212, 175, 55, 0.15);
+  --text-main: #FFFFFF;
+  --text-muted: #A0AEC0;
+  --shadow-gold: 0 10px 40px rgba(212, 175, 55, 0.08);
+  --border: rgba(212, 175, 55, 0.1);
+  --navbar-bg: rgba(5, 8, 16, 0.9);
   
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Poppins', sans-serif;
@@ -34,8 +34,8 @@ body {
   margin: 0;
   background-color: var(--bg-dark);
   background-image: 
-    radial-gradient(circle at 0% 0%, rgba(200, 169, 110, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 100% 100%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+    radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(10, 15, 30, 1) 0%, transparent 50%);
   color: var(--text-main);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
