@@ -93,13 +93,17 @@ const PropertyCard = ({ property }) => {
           {favorited ? '❤️' : '🤍'}
         </button>
       </div>
-      <Link to={`/property/${property.id}`} className="property-card" style={{ textDecoration: 'none', color: 'inherit' }}>
-        <div className="property-img-container">
-          <img src={property.image} alt={property.title} />
-        </div>
-        <div className="property-info">
+      <div className="property-card" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column', height: '100%' }}>
+        <Link to={`/property/${property.id}`} style={{ display: 'block', overflow: 'hidden' }}>
+          <div className="property-img-container">
+            <img src={property.image} alt={property.title} />
+          </div>
+        </Link>
+        <div className="property-info" style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
           <span className="property-category">{property.category}</span>
-          <h3>{property.title}</h3>
+          <Link to={`/property/${property.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <h3>{property.title}</h3>
+          </Link>
           <p>{property.description}</p>
           
           <div className="property-footer">
@@ -117,7 +121,7 @@ const PropertyCard = ({ property }) => {
             </div>
           )}
 
-          <div style={{ marginTop: '15px', borderTop: '1px solid #eee', paddingTop: '15px', display: 'flex', gap: '10px' }}>
+          <div style={{ marginTop: 'auto', paddingTop: '15px', display: 'flex', gap: '10px' }}>
             <button 
               className="btn-primary" 
               style={{ flex: 2, padding: '8px', fontSize: '0.7rem' }}
@@ -130,13 +134,13 @@ const PropertyCard = ({ property }) => {
             </button>
             <Link 
               to={`/property/${property.id}`} 
-              style={{ flex: 1, padding: '8px', fontSize: '0.7rem', textAlign: 'center', border: '1px solid #ddd', borderRadius: '30px', textDecoration: 'none', color: '#666' }}
+              style={{ flex: 1, padding: '8px', fontSize: '0.7rem', textAlign: 'center', border: '1px solid #ddd', borderRadius: '30px', textDecoration: 'none', color: '#666', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
               Details
             </Link>
           </div>
         </div>
-      </Link>
+      </div>
     </motion.div>
   );
 };
