@@ -65,6 +65,7 @@ function App() {
                 <Route path="/designs" element={<Properties />} />
                 <Route path="/designs/:category" element={<Properties />} />
                 <Route path="/designs/villa/:subCategory" element={<Properties />} />
+                <Route path="/favourites" element={<Properties />} />
                 <Route path="/properties/*" element={<Navigate to="/designs" replace />} />
                 <Route path="/properties" element={<Navigate to="/designs" replace />} />
                 <Route path="/property/:id" element={<PropertyDetail />} />

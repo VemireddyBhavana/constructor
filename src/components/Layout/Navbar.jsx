@@ -37,7 +37,7 @@ const Navbar = () => {
         <li><Link to="/about" className={isActive('/about') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>About</Link></li>
         <li><Link to="/designs" className={isActive('/designs') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Designs</Link></li>
         <li>
-          <Link to="/designs/favorites" className={isActive('/designs/favorites') ? 'active' : ''} onClick={() => setIsMenuOpen(false)} style={{ position: 'relative' }}>
+          <Link to="/favourites" className={isActive('/favourites') ? 'active' : ''} onClick={() => setIsMenuOpen(false)} style={{ position: 'relative' }}>
             Favorites
             {favorites.length > 0 && (
               <span style={{

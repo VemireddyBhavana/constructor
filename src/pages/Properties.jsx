@@ -23,6 +23,11 @@ const Properties = () => {
 
   // Sync state with URL parameters and query strings
   useEffect(() => {
+    if (location.pathname === '/favourites') {
+      setFilter('FAVORITES');
+      return;
+    }
+
     const params = new URLSearchParams(location.search);
     const query = params.get('q');
     if (query) {
@@ -45,7 +50,7 @@ const Properties = () => {
     } else {
       setSubFilter('ALL');
     }
-  }, [category, subCategory]);
+  }, [category, subCategory, location.pathname]);
 
   const filteredProperties = PROPERTIES.filter(property => {
     const isFavorited = favorites.includes(property.id);
