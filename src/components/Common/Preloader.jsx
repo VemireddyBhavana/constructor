@@ -3,13 +3,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { IMAGES } from '../../constants/data';
 
 const Preloader = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => {
+    // Check if preloader has been shown in this session
+    if (typeof window !== 'undefined') {
+      return !sessionStorage.getItem('preloaderShown');
+    }
+    return true;
+  });
   const [currentImg, setCurrentImg] = useState(0);
   
   const splashImages = [IMAGES.heroHome, IMAGES.heroHome2, IMAGES.heroHome3];
   const brandName = "SKYVIEW ESTATES";
 
   useEffect(() => {
+    if (!loading) return;
+
     // Hide scrollbar while loading
     document.body.style.overflow = 'hidden';
 
@@ -24,6 +32,7 @@ const Preloader = () => {
     const timer = setTimeout(() => {
       setLoading(false);
       document.body.style.overflow = 'auto'; 
+      sessionStorage.setItem('preloaderShown', 'true');
     }, 3500);
 
     // Speed up sequence: Start name reveal at 0.5s, cycle images faster
@@ -39,7 +48,7 @@ const Preloader = () => {
       clearTimeout(cycleTimeout);
       if (imgInterval) clearInterval(imgInterval);
     };
-  }, []);
+  }, [loading]);
 
   const letters = brandName.split("");
 
