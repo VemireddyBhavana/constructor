@@ -35,13 +35,13 @@ const Preloader = () => {
       sessionStorage.setItem('preloaderShown', 'true');
     }, 3500);
 
-    // Speed up sequence: Start name reveal at 0.5s, cycle images faster
+    // Speed up sequence: Start cycling images earlier to ensure all are seen
     let imgInterval;
     const cycleTimeout = setTimeout(() => {
       imgInterval = setInterval(() => {
         setCurrentImg(prev => (prev + 1) % splashImages.length);
-      }, 800); // Fast cycle
-    }, 2000);
+      }, 700); // Perfect interval for 3 images in 3.5s
+    }, 1000); // Start cycling at 1s
 
     return () => {
       clearTimeout(timer);
@@ -108,16 +108,16 @@ const Preloader = () => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                width: 'min(550px, 80vw)',
-                height: 'min(550px, 80vw)',
+                width: 'min(400px, 80vw)',
+                height: 'min(400px, 80vw)',
                 borderRadius: '50%',
                 position: 'relative',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 0 120px rgba(200, 169, 110, 0.2)',
-                marginBottom: '50px',
-                border: '1px solid rgba(200, 169, 110, 0.3)'
+                boxShadow: '0 0 100px rgba(212, 175, 55, 0.15)',
+                marginBottom: '60px',
+                border: '1px solid rgba(212, 175, 55, 0.2)'
               }}
             >
               <div style={{
@@ -129,14 +129,19 @@ const Preloader = () => {
                 zIndex: 2,
                 backgroundColor: '#111',
               }}>
-                <AnimatePresence mode="wait">
+                <AnimatePresence>
                   <motion.div
                     key={currentImg}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 2 }}
-                    style={{ width: '100%', height: '100%' }}
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    style={{ 
+                      position: 'absolute',
+                      inset: 0,
+                      width: '100%', 
+                      height: '100%' 
+                    }}
                   >
                     <img 
                       src={splashImages[currentImg]} 
