@@ -1029,12 +1029,12 @@ function SplashCursor({
       }
     }
 
-    // Add event listeners
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('touchstart', handleTouchStart);
-    window.addEventListener('touchmove', handleTouchMove, false);
-    window.addEventListener('touchend', handleTouchEnd);
+    // Add event listeners with capture phase to ensure they trigger everywhere
+    window.addEventListener('mousedown', handleMouseDown, true);
+    window.addEventListener('mousemove', handleMouseMove, true);
+    window.addEventListener('touchstart', handleTouchStart, true);
+    window.addEventListener('touchmove', handleTouchMove, { passive: false, capture: true });
+    window.addEventListener('touchend', handleTouchEnd, true);
 
     updateFrame();
 
@@ -1048,12 +1048,12 @@ function SplashCursor({
         animationFrameId.current = null;
       }
 
-      // Remove event listeners
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleTouchEnd);
+      // Remove event listeners (matching the capture phase flag)
+      window.removeEventListener('mousedown', handleMouseDown, true);
+      window.removeEventListener('mousemove', handleMouseMove, true);
+      window.removeEventListener('touchstart', handleTouchStart, true);
+      window.removeEventListener('touchmove', handleTouchMove, { passive: false, capture: true });
+      window.removeEventListener('touchend', handleTouchEnd, true);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -1064,7 +1064,7 @@ function SplashCursor({
         position: 'fixed',
         top: 0,
         left: 0,
-        zIndex: 50,
+        zIndex: 999999,
         pointerEvents: 'none',
         width: '100%',
         height: '100%'
