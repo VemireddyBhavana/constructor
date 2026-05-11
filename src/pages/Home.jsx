@@ -131,14 +131,63 @@ const Home = () => {
           position: 'relative',
           overflow: 'hidden'
         }}>
-          <div className="section-container" style={{ position: 'relative', zIndex: 2 }}>
-            <span style={{ color: '#D4AF37', letterSpacing: '3px', textTransform: 'uppercase', fontSize: '0.9rem', fontWeight: '600' }}>AI Powered Discovery</span>
-            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', margin: '20px 0', color: 'white', fontFamily: "'Playfair Display', serif" }}>Find Your Dream Home in Seconds</h2>
-            <p style={{ maxWidth: '700px', margin: '0 auto 40px', color: 'rgba(255, 255, 255, 0.7)', fontSize: '1.1rem', lineHeight: '1.8' }}>
+          <div className="section-container ai-cta-container">
+            <span className="ai-cta-tag">AI Powered Discovery</span>
+            <h2 className="ai-cta-title">Find Your Dream Home in Seconds</h2>
+            <p className="ai-cta-desc">
               Our AI property matching engine analyzes your lifestyle preferences, budget, and architectural tastes to curate a selection of homes that feel like they were built just for you.
             </p>
-            <button className="btn-hero" onClick={() => setShowQuiz(true)} style={{ background: '#D4AF37', color: 'black', border: 'none', fontWeight: '700' }}>Start AI Matching Quiz</button>
+            <button className="btn-hero ai-cta-btn" onClick={() => setShowQuiz(true)}>Start AI Matching Quiz</button>
           </div>
+          <style dangerouslySetInnerHTML={{ __html: `
+            .ai-cta-section {
+              padding: 140px 20px;
+              text-align: center;
+              position: relative;
+              overflow: hidden;
+            }
+            .ai-cta-container {
+              position: relative;
+              zIndex: 2;
+            }
+            .ai-cta-tag {
+              color: #D4AF37;
+              letter-spacing: 3px;
+              text-transform: uppercase;
+              font-size: 0.9rem;
+              font-weight: 600;
+            }
+            .ai-cta-title {
+              font-size: clamp(2rem, 5vw, 3.5rem);
+              margin: 20px 0;
+              color: white;
+              font-family: 'Playfair Display', serif;
+            }
+            .ai-cta-desc {
+              max-width: 700px;
+              margin: 0 auto 40px;
+              color: rgba(255, 255, 255, 0.7);
+              font-size: 1.1rem;
+              line-height: 1.8;
+            }
+            .ai-cta-btn {
+              background: #D4AF37 !important;
+              color: black !important;
+              border: none !important;
+              font-weight: 700 !important;
+            }
+            @media (max-width: 768px) {
+              .ai-cta-section {
+                padding: 80px 20px !important;
+              }
+              .ai-cta-title {
+                font-size: 2.2rem !important;
+              }
+              .ai-cta-desc {
+                font-size: 1rem !important;
+              }
+            }
+          `}} />
           {/* Animated Glow Effect */}
           <div style={{
             position: 'absolute',

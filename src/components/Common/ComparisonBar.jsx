@@ -12,7 +12,7 @@ const ComparisonBar = () => {
   return (
     <AnimatePresence>
       <motion.div 
-        className="comparison-bar"
+        className="comparison-bar comparison-bar-responsive"
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         exit={{ y: 100 }}
@@ -30,7 +30,9 @@ const ComparisonBar = () => {
           alignItems: 'center', 
           gap: '20px',
           border: '1px solid #D4AF37',
-          boxShadow: '0 10px 40px rgba(0,0,0,0.5)'
+          boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
+          width: 'max-content',
+          maxWidth: '95vw'
         }}
       >
         <div style={{ display: 'flex', gap: '10px', maxWidth: '400px', overflowX: 'auto', padding: '5px' }} className="hide-scrollbar">
@@ -89,6 +91,23 @@ const ComparisonBar = () => {
           </button>
         </div>
       </motion.div>
+      <style dangerouslySetInnerHTML={{ __html: `
+        @media (max-width: 600px) {
+          .comparison-bar-responsive {
+            padding: 10px 20px !important;
+            gap: 10px !important;
+            bottom: 20px !important;
+            border-radius: 20px !important;
+          }
+          .comparison-bar-responsive .btn-hero {
+            padding: 8px 15px !important;
+            font-size: 0.7rem !important;
+          }
+          .comparison-bar-responsive div[style*="width: 1px"] {
+            display: none;
+          }
+        }
+      `}} />
     </AnimatePresence>
   );
 };

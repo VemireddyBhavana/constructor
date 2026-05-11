@@ -123,6 +123,7 @@ const DreamHomeQuiz = ({ onClose }) => {
           display: 'flex',
           flexDirection: 'column'
         }}
+        className="quiz-modal-responsive"
       >
         <button 
           onClick={onClose} 
@@ -224,6 +225,32 @@ const DreamHomeQuiz = ({ onClose }) => {
           background: #D4AF37 !important;
           color: black !important;
           transform: translateY(-5px);
+        }
+        @media (max-width: 768px) {
+          .quiz-modal-responsive {
+            min-height: auto !important;
+            max-height: 95vh;
+            overflow-y: auto !important;
+          }
+          .quiz-modal-responsive > div {
+            padding: 30px !important;
+          }
+          .quiz-modal-responsive h2 {
+            font-size: 1.6rem !important;
+          }
+          .quiz-modal-responsive .quiz-opt-btn {
+            padding: 15px !important;
+            font-size: 0.9rem !important;
+          }
+          .quiz-modal-responsive div[style*="gridTemplateColumns: 1fr 1fr"] {
+            grid-template-columns: 1fr !important;
+          }
+          .quiz-results-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .quiz-result-card {
+            scale: 1 !important;
+          }
         }
       `}} />
     </div>
