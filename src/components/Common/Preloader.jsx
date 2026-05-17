@@ -175,8 +175,8 @@ const Preloader = () => {
             </motion.div>
 
             {/* Step 2: Brand Reveal (Starts after image is settled) */}
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+            <div style={{ textAlign: 'center', width: '100%', padding: '0 20px' }}>
+              <div style={{ display: 'flex', gap: 'clamp(2px, 1vw, 8px)', justifyContent: 'center', flexWrap: 'wrap' }}>
                 {letters.map((letter, i) => (
                     <motion.span
                       key={i}
@@ -189,14 +189,14 @@ const Preloader = () => {
                       }}
                       style={{
                         color: letter === " " ? "transparent" : "#C8A96E",
-                        fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+                        fontSize: 'clamp(1rem, 3.5vw, 2.5rem)',
                         fontWeight: '300',
                         fontFamily: "'Playfair Display', serif",
-                        letterSpacing: '0.1em',
+                        letterSpacing: '0.05em',
                         display: 'inline-block'
                       }}
                     >
-                      {letter === " " ? "\u00A0" : letter}
+                      {letter === " " ? "\u00A0\u00A0" : letter}
                     </motion.span>
                   ))}
                 </div>
@@ -207,7 +207,7 @@ const Preloader = () => {
                   transition={{ delay: 1.8, duration: 1 }} 
                   style={{
                     height: '1px',
-                    width: '200px',
+                    width: 'min(200px, 80vw)',
                     background: 'linear-gradient(to right, transparent, #C8A96E, transparent)',
                     margin: '20px auto'
                   }}
@@ -219,14 +219,14 @@ const Preloader = () => {
                   transition={{ delay: 2.2, duration: 1 }}
                   style={{
                     color: '#fff',
-                    fontSize: '0.7rem',
+                    fontSize: 'clamp(0.5rem, 2vw, 0.7rem)',
                     textTransform: 'uppercase',
-                    letterSpacing: '0.8em',
+                    letterSpacing: 'clamp(0.2em, 1vw, 0.5em)',
                     margin: 0,
-                    paddingLeft: '0.8em'
+                    paddingLeft: 'clamp(0.2em, 1vw, 0.5em)'
                   }}
                 >
-                  ESTATES
+                  THE CHAMPIONS CHOICE
                 </motion.p>
               </div>
             </div>
