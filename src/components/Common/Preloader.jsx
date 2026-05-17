@@ -215,10 +215,10 @@ const Preloader = () => {
   
                 <motion.p
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: 0.6 }}
+                  animate={{ opacity: 0.8 }}
                   transition={{ delay: 2.2, duration: 1 }}
                   style={{
-                    color: '#fff',
+                    color: '#C8A96E',
                     fontSize: 'clamp(0.5rem, 2vw, 0.7rem)',
                     textTransform: 'uppercase',
                     letterSpacing: 'clamp(0.2em, 1vw, 0.5em)',
