@@ -48,7 +48,7 @@ const MortgageCalculatorPage = () => {
     const a = document.createElement('a');
     a.setAttribute('hidden', '');
     a.setAttribute('href', url);
-    a.setAttribute('download', `repayment_schedule_skyview.csv`);
+    a.setAttribute('download', `repayment_schedule_sunbright.csv`);
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -157,7 +157,7 @@ const MortgageCalculatorPage = () => {
             <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
               <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>Partner Banks & Schemes</h2>
               <p style={{ color: '#666', fontSize: '1.1rem' }}>
-                Skyview Estates partners with India's leading financial institutions to provide our clients with exclusive interest rates and simplified documentation processes.
+                Sun Bright Properties partners with India's leading financial institutions to provide our clients with exclusive interest rates and simplified documentation processes.
               </p>
               <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', marginTop: '40px', opacity: 0.5, flexWrap: 'wrap' }}>
                 {['HDFC BANK', 'ICICI BANK', 'SBI', 'AXIS BANK', 'KOTAK'].map(bank => (

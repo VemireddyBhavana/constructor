@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { id: 1, text: "Welcome to Skyview Estates. I am your personal luxury property assistant. How may I guide you today?", sender: "bot" }
+    { id: 1, text: "Welcome to Sun Bright Properties. I am your personal luxury property assistant. How may I guide you today?", sender: "bot" }
   ]);
 
   const quickActions = [
@@ -22,7 +22,7 @@ const Chatbot = () => {
     
     // 1. Greetings & Small Talk
     if (text.includes("hello") || text.includes("hi") || text.includes("hey")) {
-      return "Greetings from Skyview Estates. I am your AI assistant, dedicated to finding your perfect luxury sanctuary. How may I assist your search today?";
+      return "Greetings from Sun Bright Properties. I am your AI assistant, dedicated to finding your perfect luxury sanctuary. How may I assist your search today?";
     }
     if (text.includes("how are you")) {
       return "I am functioning perfectly and ready to help you find your dream home! How are you doing today?";
@@ -57,7 +57,7 @@ const Chatbot = () => {
 
     // 5. Investment & ROI
     if (text.includes("investment") || text.includes("roi") || text.includes("returns") || text.includes("profit") || text.includes("appreciation")) {
-      return "Skyview properties have shown an average capital appreciation of 12-15% annually in recent years. Our locations are hand-picked for their high ROI potential. Would you like our investment whitepaper?";
+      return "Sun Bright properties have shown an average capital appreciation of 12-15% annually in recent years. Our locations are hand-picked for their high ROI potential. Would you like our investment whitepaper?";
     }
 
     // 6. EMI, Loans & Financing
@@ -133,7 +133,7 @@ const Chatbot = () => {
             <div className="chat-header">
               <div className="bot-info">
                 <div className="bot-dot"></div>
-                <span>Skyview AI Assistant</span>
+                <span>Sun Bright AI Assistant</span>
               </div>
               <button onClick={() => setIsOpen(false)}>×</button>
             </div>

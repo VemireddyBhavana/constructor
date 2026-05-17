@@ -256,7 +256,7 @@ const PropertyDetail = () => {
                 <div className="agent-info" style={{ marginTop: '30px', display: 'flex', alignItems: 'center', gap: '15px', borderTop: '1px solid var(--border)', paddingTop: '20px' }}>
                   <div className="agent-avatar">SE</div>
                   <div>
-                    <div style={{ fontWeight: '600', color: 'var(--text-main)' }}>Skyview Estates Advisory</div>
+                    <div style={{ fontWeight: '600', color: 'var(--text-main)' }}>Sun Bright Properties Advisory</div>
                     <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Luxury Property Consultant</div>
                   </div>
                 </div>

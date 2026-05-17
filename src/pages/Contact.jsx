@@ -84,7 +84,7 @@ const Contact = () => {
                   >
                     <div className="success-icon" style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>✓</div>
                     <h3>Message Sent</h3>
-                    <p>Thank you for reaching out to Skyview Estates. One of our luxury advisors will contact you shortly.</p>
+                    <p>Thank you for reaching out to Sun Bright Properties. One of our luxury advisors will contact you shortly.</p>
                     <button className="btn-primary" onClick={() => setSubmitted(false)}>Send Another Message</button>
                   </motion.div>
                 )}

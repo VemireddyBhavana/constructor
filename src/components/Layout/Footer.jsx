@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
         <div className="footer-col">
           <h3 onClick={() => navigate('/about')} style={{ cursor: 'pointer' }}>About Us</h3>
-          <p>At Skyview Estates, we pride ourselves on being a trusted and reputable name in the luxury real estate industry with years of experience. <span onClick={() => navigate('/about')} style={{ color: '#D4AF37', cursor: 'pointer', fontWeight: '600' }}>Read More →</span></p>
+          <p>At Sun Bright Properties, we pride ourselves on being a trusted and reputable name in the luxury real estate industry with years of experience. <span onClick={() => navigate('/about')} style={{ color: '#D4AF37', cursor: 'pointer', fontWeight: '600' }}>Read More →</span></p>
         </div>
         <div className="footer-col">
           <h3>Contact Info</h3>
@@ -50,7 +50,7 @@ const Footer = () => {
       </div>
       
       <div className="footer-bottom">
-        <p>Copyright © {new Date().getFullYear()} Skyview Estates Company</p>
+        <p>Copyright © {new Date().getFullYear()} Sun Bright Properties Company</p>
         <div className="footer-bottom-right">
           <div className="footer-socials">
             <a href="#"><i className="fa-brands fa-x-twitter"></i></a>

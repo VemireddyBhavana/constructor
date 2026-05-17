@@ -8,7 +8,7 @@ const TestimonialsSection = () => (
       <div className="quote-icon" style={{ color: '#D4AF37' }}>“</div>
       <h2>The Voices of Luxury & Satisfaction.</h2>
       <div className="teal-line left"></div>
-      <p>Our reputation is built on the trust of individuals who seek nothing but the best. Hear from those who have successfully found their sanctuary through the expertise of Skyview Estates.</p>
+      <p>Our reputation is built on the trust of individuals who seek nothing but the best. Hear from those who have successfully found their sanctuary through the expertise of Sun Bright Properties.</p>
       <Link to="/designs">
         <button className="btn-primary">Explore Estates</button>
       </Link>

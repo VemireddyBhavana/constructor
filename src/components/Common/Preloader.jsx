@@ -13,7 +13,7 @@ const Preloader = () => {
   const [currentImg, setCurrentImg] = useState(0);
   
   const splashImages = [IMAGES.heroHome, IMAGES.heroHome2, IMAGES.heroHome3];
-  const brandName = "SKYVIEW ESTATES";
+  const brandName = "SUN BRIGHT PROPERTIES";
 
   useEffect(() => {
     if (!loading) return;

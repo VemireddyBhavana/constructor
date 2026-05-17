@@ -261,8 +261,8 @@
 .brand-skyview {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.4rem;
-  letter-spacing: 4px;
+  font-size: 1.15rem;
+  letter-spacing: 2.5px;
   color: inherit;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
@@ -270,11 +270,29 @@
 .brand-estates {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 0.7rem;
-  letter-spacing: 6px;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
   color: var(--primary);
   margin-top: 4px;
 }
+
+@media (max-width: 768px) {
+  .logo-icon-svg, .logo-container img {
+    height: 35px !important;
+  }
+  .brand-skyview {
+    font-size: 0.9rem !important;
+    letter-spacing: 1px !important;
+  }
+  .brand-estates {
+    font-size: 0.55rem !important;
+    letter-spacing: 1px !important;
+  }
+  .logo-container {
+    gap: 8px;
+  }
+}
+
 
 .nav-links {
   display: flex;
