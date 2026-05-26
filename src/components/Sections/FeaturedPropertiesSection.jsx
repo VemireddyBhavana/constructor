@@ -1,4 +1,3 @@
-import React from 'react';
 import PropertyCard from '../Common/PropertyCard';
 import { PROPERTIES } from '../../constants/data';
 

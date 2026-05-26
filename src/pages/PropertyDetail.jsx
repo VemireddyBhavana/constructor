@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Layout/Navbar';
 import { PROPERTIES } from '../constants/data';
 import ScrollReveal from '../components/Common/ScrollReveal';
 import EMICalculator from '../components/Common/EMICalculator';
-import Footer from '../components/Layout/Footer';
 
 const PropertyDetail = () => {
   const { id } = useParams();

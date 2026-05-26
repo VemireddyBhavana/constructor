@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const EMICalculator = ({ propertyPrice }) => {
@@ -14,21 +14,14 @@ const EMICalculator = ({ propertyPrice }) => {
   const totalPrice = parsePrice(propertyPrice);
   
   const [downPayment, setDownPayment] = useState(totalPrice * 0.2);
-  const [loanAmount, setLoanAmount] = useState(totalPrice - downPayment);
   const [interestRate, setInterestRate] = useState(8.5);
   const [tenure, setTenure] = useState(20);
-  const [monthlyEMI, setMonthlyEMI] = useState(0);
 
-  useEffect(() => {
-    const loan = totalPrice - downPayment;
-    setLoanAmount(loan);
-    
-    const r = interestRate / (12 * 100);
-    const n = tenure * 12;
-    const emi = (loan * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-    
-    setMonthlyEMI(Math.round(emi));
-  }, [downPayment, interestRate, tenure, totalPrice]);
+  // Compute values dynamically during render for high performance and pure data flow
+  const loanAmount = totalPrice - downPayment;
+  const r = interestRate / (12 * 100);
+  const n = tenure * 12;
+  const monthlyEMI = Math.round((loanAmount * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
 
   const formatCurrency = (num) => {
     return new Intl.NumberFormat('en-IN', {

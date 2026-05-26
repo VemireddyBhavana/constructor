@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../Common/Logo';
@@ -92,7 +92,7 @@ const Footer = () => {
                 <label className="btn-primary" style={{ display: 'inline-block', cursor: 'pointer', padding: '12px 30px' }}>
                   <i className="fa-solid fa-plus" style={{ marginRight: '10px' }}></i>
                   Select Files to Upload
-                  <input type="file" multiple style={{ display: 'none' }} onChange={(e) => alert("Files selected and queued for upload!")} />
+                  <input type="file" multiple style={{ display: 'none' }} onChange={() => alert("Files selected and queued for upload!")} />
                 </label>
               </div>
             </div>

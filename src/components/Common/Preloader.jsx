@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IMAGES } from '../../constants/data';
+
+const splashImages = [IMAGES.heroHome, IMAGES.heroHome2, IMAGES.heroHome3];
 
 const Preloader = () => {
   const [loading, setLoading] = useState(() => {
@@ -11,8 +13,6 @@ const Preloader = () => {
     return true;
   });
   const [currentImg, setCurrentImg] = useState(0);
-
-  const splashImages = [IMAGES.heroHome, IMAGES.heroHome2, IMAGES.heroHome3];
   const brandName = "SUN BRIGHT PROPERTIES";
 
   useEffect(() => {

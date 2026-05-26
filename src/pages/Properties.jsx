@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import Navbar from '../components/Layout/Navbar';
@@ -14,43 +14,47 @@ const Properties = () => {
   const location = useLocation();
   const { favorites } = useFavorites();
   
-  const [filter, setFilter] = useState('ALL');
-  const [subFilter, setSubFilter] = useState('ALL');
   const [search, setSearch] = useState('');
 
   const categories = ['ALL', 'APARTMENT', 'VILLA', 'PENTHOUSE', 'HOUSE'];
   const villaSubCategories = ['ALL', '1BHK', '2BHK', '3BHK', '4BHK', 'FLATS'];
 
-  // Sync state with URL parameters and query strings
-  useEffect(() => {
+  // Derive filter deterministically from path or parameters
+  const filter = (() => {
     if (location.pathname === '/favourites') {
-      setFilter('FAVORITES');
-      return;
+      return 'FAVORITES';
     }
-
-    const params = new URLSearchParams(location.search);
-    const query = params.get('q');
-    if (query) {
-      setSearch(query);
-      setFilter('ALL');
-    }
-
     if (category) {
       const upperCat = category.toUpperCase();
       if (categories.includes(upperCat) || upperCat === 'FAVORITES') {
-        setFilter(upperCat);
+        return upperCat;
       }
     }
-    
+    return 'ALL';
+  })();
+
+  // Derive sub-filter deterministically from subCategory param
+  const subFilter = (() => {
     if (subCategory) {
       const upperSub = subCategory.toUpperCase();
       if (villaSubCategories.includes(upperSub)) {
-        setSubFilter(upperSub);
+        return upperSub;
       }
-    } else {
-      setSubFilter('ALL');
     }
-  }, [category, subCategory, location.pathname]);
+    return 'ALL';
+  })();
+
+  // Sync search state with query string parameter 'q' on navigation changes
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const query = params.get('q') || '';
+    if (search !== query) {
+      const timer = setTimeout(() => {
+        setSearch(query);
+      }, 0);
+      return () => clearTimeout(timer);
+    }
+  }, [location.search, search]);
 
   const filteredProperties = PROPERTIES.filter(property => {
     const isFavorited = favorites.includes(property.id);
@@ -82,6 +86,8 @@ const Properties = () => {
     setSearch(''); // Clear search when changing category
     if (newFilter === 'ALL') {
       navigate('/designs');
+    } else if (newFilter === 'FAVORITES') {
+      navigate('/favourites');
     } else {
       navigate(`/designs/${newFilter.toLowerCase()}`);
     }

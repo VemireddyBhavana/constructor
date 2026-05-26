@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Layout/Navbar';
@@ -103,7 +103,7 @@ const Workers = () => {
                       </span>
                       <span>
                         <small>REVIEWS</small>
-                        <strong>{(Math.random() * 50 + 20).toFixed(0)}+</strong>
+                        <strong>{worker.reviews}+</strong>
                       </span>
                     </div>
 

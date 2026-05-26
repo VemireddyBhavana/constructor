@@ -1,4 +1,3 @@
-import React from 'react';
 
 const ClientCentricSection = () => (
   <section className="section-container text-center client-centric-section bg-cream">

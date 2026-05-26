@@ -108,6 +108,7 @@ export const WORKERS = [
     role: "Lead Architect",
     category: "Design",
     rating: 5.0,
+    reviews: 84,
     experience: "15 Years",
     verified: true,
     image: "/assets/workers/design-1.png",
@@ -119,6 +120,7 @@ export const WORKERS = [
     role: "Interior Designer",
     category: "Design",
     rating: 4.9,
+    reviews: 57,
     experience: "7 Years",
     verified: true,
     image: "/assets/workers/design-2.png",
@@ -130,12 +132,13 @@ export const WORKERS = [
     role: "3D Visualizer",
     category: "Design",
     rating: 4.8,
+    reviews: 43,
     experience: "5 Years",
     verified: true,
     image: "/assets/workers/design-3.png",
     specialty: "Photorealistic 3D rendering and virtual walkthroughs."
   },
-
+  
   // MASONRY (3)
   {
     id: 4,
@@ -143,6 +146,7 @@ export const WORKERS = [
     role: "Master Mason",
     category: "Masonry",
     rating: 4.9,
+    reviews: 96,
     experience: "12 Years",
     verified: true,
     image: "/assets/workers/mason-1.png",
@@ -154,6 +158,7 @@ export const WORKERS = [
     role: "Stone Specialist",
     category: "Masonry",
     rating: 4.7,
+    reviews: 68,
     experience: "14 Years",
     verified: true,
     image: "/assets/workers/mason-2.png",
@@ -165,12 +170,13 @@ export const WORKERS = [
     role: "Concrete Expert",
     category: "Masonry",
     rating: 4.6,
+    reviews: 52,
     experience: "10 Years",
     verified: true,
     image: "/assets/workers/mason-3.png",
     specialty: "High-strength RCC works and complex column casting."
   },
-
+  
   // ELECTRICAL (3)
   {
     id: 7,
@@ -178,6 +184,7 @@ export const WORKERS = [
     role: "Senior Electrician",
     category: "Electrical",
     rating: 4.8,
+    reviews: 73,
     experience: "8 Years",
     verified: true,
     image: "/assets/workers/electric-1.png",
@@ -189,6 +196,7 @@ export const WORKERS = [
     role: "Lighting Designer",
     category: "Electrical",
     rating: 4.9,
+    reviews: 49,
     experience: "6 Years",
     verified: true,
     image: "/assets/workers/electric-2.png",
@@ -200,12 +208,13 @@ export const WORKERS = [
     role: "Solar Engineer",
     category: "Electrical",
     rating: 4.7,
+    reviews: 38,
     experience: "9 Years",
     verified: true,
     image: "/assets/workers/electric-3.png",
     specialty: "Rooftop solar grid setup and backup power systems."
   },
-
+  
   // PLUMBING (3)
   {
     id: 10,
@@ -213,6 +222,7 @@ export const WORKERS = [
     role: "Plumbing Specialist",
     category: "Plumbing",
     rating: 4.7,
+    reviews: 65,
     experience: "10 Years",
     verified: true,
     image: "/assets/workers/plumbing-1.png",
@@ -224,6 +234,7 @@ export const WORKERS = [
     role: "Sanitary Engineer",
     category: "Plumbing",
     rating: 4.8,
+    reviews: 58,
     experience: "11 Years",
     verified: true,
     image: "/assets/workers/plumbing-2.png",
@@ -235,12 +246,13 @@ export const WORKERS = [
     role: "Pipe Consultant",
     category: "Plumbing",
     rating: 4.6,
+    reviews: 41,
     experience: "13 Years",
     verified: true,
     image: "/assets/workers/plumbing-1.png",
     specialty: "Underground network planning and fire hydrant systems."
   },
-
+  
   // ENGINEERING (3)
   {
     id: 13,
@@ -248,6 +260,7 @@ export const WORKERS = [
     role: "Structural Engineer",
     category: "Engineering",
     rating: 4.8,
+    reviews: 120,
     experience: "20 Years",
     verified: true,
     image: "/assets/workers/engineer-1.png",
@@ -259,6 +272,7 @@ export const WORKERS = [
     role: "Project Manager",
     category: "Engineering",
     rating: 4.9,
+    reviews: 76,
     experience: "12 Years",
     verified: true,
     image: "/assets/workers/engineer-2.png",
@@ -270,6 +284,7 @@ export const WORKERS = [
     role: "Site Surveyor",
     category: "Engineering",
     rating: 4.7,
+    reviews: 50,
     experience: "8 Years",
     verified: true,
     image: "/assets/workers/engineer-1.png",

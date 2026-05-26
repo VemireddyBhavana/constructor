@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Layout/Navbar';
 import ServiceDetailSection from '../components/Sections/ServiceDetailSection';

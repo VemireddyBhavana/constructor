@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Layout/Navbar';
 import { IMAGES } from '../constants/data';

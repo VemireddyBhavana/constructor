@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const ScrollReveal = ({ children, direction = "up", delay = 0, distance = 50 }) => {

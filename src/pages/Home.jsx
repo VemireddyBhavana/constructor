@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Layout/Navbar';
@@ -12,26 +12,27 @@ import AntiGravitySection from '../components/Sections/AntiGravitySection';
 
 import DreamHomeQuiz from '../components/Common/DreamHomeQuiz';
 
+const heroSlides = [
+  {
+    image: IMAGES.heroHome,
+    subtitle: "Curated collection of ultra-luxury estates for the most discerning homeowners.",
+    title: "Exceptional Homes for the Discerning Few"
+  },
+  {
+    image: IMAGES.heroHome2,
+    subtitle: "Experience architectural excellence and unmatched elegance in the heart of the city.",
+    title: "Discover Your Sanctuary of Elegance"
+  },
+  {
+    image: IMAGES.heroHome3,
+    subtitle: "A legacy of premium living, meticulously crafted for your comfort and prestige.",
+    title: "The Pinnacle of Sophisticated Living"
+  }
+];
+
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showQuiz, setShowQuiz] = useState(false);
-  const heroSlides = [
-    {
-      image: IMAGES.heroHome,
-      subtitle: "Curated collection of ultra-luxury estates for the most discerning homeowners.",
-      title: "Exceptional Homes for the Discerning Few"
-    },
-    {
-      image: IMAGES.heroHome2,
-      subtitle: "Experience architectural excellence and unmatched elegance in the heart of the city.",
-      title: "Discover Your Sanctuary of Elegance"
-    },
-    {
-      image: IMAGES.heroHome3,
-      subtitle: "A legacy of premium living, meticulously crafted for your comfort and prestige.",
-      title: "The Pinnacle of Sophisticated Living"
-    }
-  ];
 
   useEffect(() => {
     const timer = setInterval(() => {

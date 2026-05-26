@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const messageIdRef = useRef(100);
   const [messages, setMessages] = useState([
     { id: 1, text: "Welcome to Sun Bright Properties. I am your personal luxury property assistant. How may I guide you today?", sender: "bot" }
   ]);
@@ -93,26 +94,26 @@ const Chatbot = () => {
     e.preventDefault();
     if (!inputValue.trim()) return;
 
-    const userMessage = { id: Date.now(), text: inputValue, sender: "user" };
+    const userMessage = { id: ++messageIdRef.current, text: inputValue, sender: "user" };
     setMessages(prev => [...prev, userMessage]);
     setInputValue("");
     setIsTyping(true);
 
     setTimeout(() => {
-      const botResponse = { id: Date.now() + 1, text: getBotResponse(inputValue), sender: "bot" };
+      const botResponse = { id: ++messageIdRef.current, text: getBotResponse(inputValue), sender: "bot" };
       setMessages(prev => [...prev, botResponse]);
       setIsTyping(false);
     }, 1200);
   };
 
   const handleAction = (action) => {
-    const userMsg = { id: Date.now(), text: action, sender: "user" };
+    const userMsg = { id: ++messageIdRef.current, text: action, sender: "user" };
     setMessages(prev => [...prev, userMsg]);
     setIsTyping(true);
 
     setTimeout(() => {
       setMessages(prev => [...prev, { 
-        id: Date.now() + 1, 
+        id: ++messageIdRef.current, 
         text: getBotResponse(action), 
         sender: "bot" 
       }]);

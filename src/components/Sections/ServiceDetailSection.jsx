@@ -1,4 +1,3 @@
-import React from 'react';
 
 const ServiceDetailSection = ({ id, title, description, image, isReversed }) => (
   <section className={`section-container service-detail-section ${isReversed ? 'reversed' : ''}`}>
