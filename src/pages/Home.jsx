@@ -129,7 +129,7 @@ const Home = () => {
                   <Link to="/designs">
                     <button className="btn-hero">Explore Estates</button>
                   </Link>
-                  <button className="btn-hero" style={{ background: '#D4AF37', color: 'black' }} onClick={() => setShowQuiz(true)}>
+                  <button className="btn-hero btn-primary-match" style={{ background: '#D4AF37', color: 'black' }} onClick={() => setShowQuiz(true)}>
                     Find My Match
                   </button>
                   <button 

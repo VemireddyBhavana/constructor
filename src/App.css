@@ -1979,3 +1979,54 @@
 /* Footer Icon Fixes */
 .footer-socials a { font-size: 1.2rem; transition: 0.3s; color: #999; }
 .footer-socials a:hover { color: #D4AF37; transform: translateY(-3px); }
+
+/* Golden Shimmer Shine Effect */
+.btn-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  transition: none;
+}
+
+.btn-hero:hover::after {
+  animation: shine-sweep 1.5s ease-in-out infinite;
+}
+
+/* Continuous Elegant Shimmer for Primary Call-To-Action */
+.btn-primary-match::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: shine-sweep 3.5s ease-in-out infinite;
+}
+
+@keyframes shine-sweep {
+  0% {
+    left: -150%;
+  }
+  50% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
