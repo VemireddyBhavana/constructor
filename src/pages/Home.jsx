@@ -34,23 +34,7 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showQuiz, setShowQuiz] = useState(false);
   const [showVideoModal, setShowVideoModal] = useState(false);
-  const [videoUrl, setVideoUrl] = useState("https://assets.mixkit.co/videos/preview/mixkit-luxury-resort-with-swimming-pool-41655-large.mp4");
-  const [inputUrl, setInputUrl] = useState("");
-
-  const handleSetUrl = () => {
-    if (inputUrl.trim() !== "") {
-      setVideoUrl(inputUrl.trim());
-      setInputUrl("");
-    }
-  };
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const objectUrl = URL.createObjectURL(file);
-      setVideoUrl(objectUrl);
-    }
-  };
+  const [videoUrl] = useState("https://res.cloudinary.com/djzgjy947/video/upload/v1780229925/WhatsApp_Video_2026-05-26_at_3.25.13_PM_gebcjl.mp4");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -95,33 +79,7 @@ const Home = () => {
                   className="modal-video-element"
                 />
               </div>
-              
-              {/* Premium Video Customizer Controls */}
-              <div className="video-customizer-panel">
-                <span className="customizer-label">🎥 Customize Video Source:</span>
-                <div className="customizer-inputs">
-                  <input 
-                    type="text" 
-                    placeholder="Paste your MP4 link / YouTube direct video URL..." 
-                    value={inputUrl} 
-                    onChange={(e) => setInputUrl(e.target.value)}
-                    className="customizer-url-input"
-                  />
-                  <button className="btn-set-url" onClick={handleSetUrl}>
-                    Set Link
-                  </button>
-                  <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem' }}>or</span>
-                  <label className="btn-upload-file">
-                    Upload Local MP4
-                    <input 
-                      type="file" 
-                      accept="video/*" 
-                      style={{ display: 'none' }} 
-                      onChange={handleFileChange} 
-                    />
-                  </label>
-                </div>
-              </div>
+
             </motion.div>
           </motion.div>
         )}
@@ -349,77 +307,7 @@ const Home = () => {
               width: 100%;
               aspect-ratio: 16/9;
               position: relative;
-            }
-            .video-customizer-panel {
-              background: rgba(20, 20, 20, 0.95);
-              border-top: 1px solid rgba(212, 175, 55, 0.2);
-              padding: 15px 20px;
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              gap: 15px;
-              flex-wrap: wrap;
-            }
-            .customizer-label {
-              color: #D4AF37;
-              font-family: var(--font-heading);
-              font-weight: 600;
-              font-size: 0.9rem;
-            }
-            .customizer-inputs {
-              display: flex;
-              gap: 10px;
-              flex-grow: 1;
-              max-width: 650px;
-              align-items: center;
-            }
-            .customizer-url-input {
-              flex-grow: 1;
-              background: rgba(0, 0, 0, 0.5);
-              border: 1px solid rgba(255, 255, 255, 0.2);
-              color: white;
-              padding: 8px 12px;
-              border-radius: 8px;
-              font-size: 0.85rem;
-              outline: none;
-              transition: all 0.3s ease;
-            }
-            .customizer-url-input:focus {
-              border-color: #D4AF37;
-              box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-            }
-            .btn-set-url {
-              background: #D4AF37;
-              color: black;
-              border: none;
-              padding: 8px 16px;
-              border-radius: 8px;
-              font-weight: 600;
-              font-size: 0.85rem;
-              cursor: pointer;
-              transition: all 0.3s ease;
-            }
-            .btn-set-url:hover {
-              background: white;
-              transform: translateY(-1px);
-            }
-            .btn-upload-file {
-              background: rgba(255, 255, 255, 0.1);
-              color: white;
-              border: 1px solid rgba(255, 255, 255, 0.2);
-              padding: 7px 16px;
-              border-radius: 8px;
-              font-weight: 600;
-              font-size: 0.85rem;
-              cursor: pointer;
-              transition: all 0.3s ease;
-              white-space: nowrap;
-            }
-            .btn-upload-file:hover {
-              background: rgba(255, 255, 255, 0.2);
-              border-color: #D4AF37;
-              color: #D4AF37;
-            }
+             }
             .modal-video-element {
               width: 100%;
               height: 100%;
