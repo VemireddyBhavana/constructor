@@ -60,8 +60,6 @@ const Navbar = () => {
             )}
           </Link>
         </li>
-        <li><Link to="/workers" className={isActive('/workers') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Workers</Link></li>
-        <li><Link to="/services" className={isActive('/services') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Services</Link></li>
         <li><Link to="/finance" className={isActive('/finance') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Finance</Link></li>
         <li><Link to="/contact" className={isActive('/contact') ? 'active' : ''} onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
       </ul>

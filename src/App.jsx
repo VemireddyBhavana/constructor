@@ -1,7 +1,6 @@
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
-import Services from './pages/Services'
 import Properties from './pages/Properties'
 import PropertyDetail from './pages/PropertyDetail'
 import Contact from './pages/Contact'
@@ -14,8 +13,6 @@ import Preloader from './components/Common/Preloader'
 
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 
-import ConstructionServices from './pages/ConstructionServices'
-import Workers from './pages/Workers'
 import ComparePage from './pages/ComparePage'
 import MortgageCalculatorPage from './pages/MortgageCalculatorPage'
 
@@ -59,7 +56,6 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
                 <Route path="/designs" element={<Properties />} />
                 <Route path="/designs/:category" element={<Properties />} />
                 <Route path="/designs/villa/:subCategory" element={<Properties />} />
@@ -68,8 +64,6 @@ function App() {
                 <Route path="/properties" element={<Navigate to="/designs" replace />} />
                 <Route path="/property/:id" element={<PropertyDetail />} />
                 <Route path="/compare" element={<ComparePage />} />
-                <Route path="/construction-setup" element={<ConstructionServices />} />
-                <Route path="/workers" element={<Workers />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/finance" element={<MortgageCalculatorPage />} />
               </Routes>
