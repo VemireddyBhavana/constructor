@@ -34,7 +34,6 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showQuiz, setShowQuiz] = useState(false);
   const [showVideoModal, setShowVideoModal] = useState(false);
-  const [videoUrl] = useState("https://res.cloudinary.com/djzgjy947/video/upload/v1780229925/WhatsApp_Video_2026-05-26_at_3.25.13_PM_gebcjl.mp4");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -72,14 +71,12 @@ const Home = () => {
               </button>
               <div className="video-wrapper">
                 <video
-                  key={videoUrl}
-                  src={videoUrl}
+                  src="https://res.cloudinary.com/djzgjy947/video/upload/v1780229925/WhatsApp_Video_2026-05-26_at_3.25.13_PM_gebcjl.mp4"
                   autoPlay
                   controls
                   className="modal-video-element"
                 />
               </div>
-
             </motion.div>
           </motion.div>
         )}
@@ -307,7 +304,8 @@ const Home = () => {
               width: 100%;
               aspect-ratio: 16/9;
               position: relative;
-             }
+            }
+
             .modal-video-element {
               width: 100%;
               height: 100%;
