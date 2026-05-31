@@ -53,8 +53,8 @@ export const PROPERTIES = [
 
 export const CONTACT_INFO = {
   address: "Plot No. 42, Sun Bright Tower, Silicon Valley, Madhapur, Hyderabad, Telangana 500081",
-  email: "contact@sunbrightproperties.in",
-  phone: "+91 40 6789 2200",
+  email: "sunbrightproperities99@gmail.com",
+  phone: "+91 77992 50555",
   hours: "Mon - Sat: 9:00 AM - 6:00 PM",
 };
 
