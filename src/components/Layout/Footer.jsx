@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../Common/Logo';
+import { CONTACT_INFO } from '../../constants/data';
 
 const Footer = () => {
   const [showLiveFeed, setShowLiveFeed] = useState(false);
@@ -29,9 +30,9 @@ const Footer = () => {
         <div className="footer-col">
           <h3>Contact Info</h3>
           <div className="contact-links">
-            <a href="#">13, Fifthe Avenue, New York, NY 101660</a>
-            <a href="mailto:contact@info.com">contact@info.com</a>
-            <a href="tel:5553454599">555-345-4599</a>
+            <a href="#" style={{ pointerEvents: 'none' }}>{CONTACT_INFO.address}</a>
+            <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
+            <a href={`tel:${CONTACT_INFO.phone.replace(/[\s-]/g, '')}`}>{CONTACT_INFO.phone}</a>
           </div>
         </div>
         <div className="footer-col">

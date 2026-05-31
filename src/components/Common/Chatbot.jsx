@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { CONTACT_INFO } from '../../constants/data';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,12 +79,12 @@ const Chatbot = () => {
 
     // 9. Location & Reach
     if (text.includes("location") || text.includes("where") || text.includes("address") || text.includes("city")) {
-      return "Our main office is at 13 Fifth Avenue, but our properties are spread across the most elite pins in the country. Our digital map on the Contact page shows all exact locations.";
+      return `Our main office is located at ${CONTACT_INFO.address}. Our digital map on the Contact page shows all exact locations.`;
     }
 
     // 10. Contacting Human
     if (text.includes("human") || text.includes("person") || text.includes("call") || text.includes("phone") || text.includes("agent") || text.includes("talk to")) {
-      return "You can reach our lead advisor directly at +91 555-1234-678. Alternatively, tell me your number and I will have them call you immediately.";
+      return `You can reach our lead advisor directly at ${CONTACT_INFO.phone}. Alternatively, tell me your number and I will have them call you immediately.`;
     }
 
     // Fallback for everything else

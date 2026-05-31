@@ -5,12 +5,12 @@ const FavoritesContext = createContext();
 
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState(() => {
-    const saved = localStorage.getItem('skyview_favorites');
+    const saved = localStorage.getItem('sunbright_favorites');
     return saved ? JSON.parse(saved) : [];
   });
 
   useEffect(() => {
-    localStorage.setItem('skyview_favorites', JSON.stringify(favorites));
+    localStorage.setItem('sunbright_favorites', JSON.stringify(favorites));
   }, [favorites]);
 
   const toggleFavorite = (propertyId) => {

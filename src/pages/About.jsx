@@ -3,6 +3,7 @@ import Navbar from '../components/Layout/Navbar';
 import AboutIntroSection from '../components/Sections/AboutIntroSection';
 import ClientCentricSection from '../components/Sections/ClientCentricSection';
 import OurStorySection from '../components/Sections/OurStorySection';
+import MeetFoundersSection from '../components/Sections/MeetFoundersSection';
 import ScrollReveal from '../components/Common/ScrollReveal';
 import { IMAGES } from '../constants/data';
 
@@ -37,6 +38,8 @@ const About = () => {
       <ScrollReveal>
         <OurStorySection />
       </ScrollReveal>
+
+      <MeetFoundersSection />
     </>
   );
 };

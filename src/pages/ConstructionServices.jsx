@@ -34,11 +34,11 @@ const ConstructionServices = () => {
   return (
     <div className="construction-services-page">
       <Navbar />
-      
+
       <section className="page-hero small">
         <div className="hero-overlay">
           <div className="hero-content">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="section-title"
@@ -63,9 +63,9 @@ const ConstructionServices = () => {
                 <div className="calc-inputs">
                   <div className="input-group">
                     <label>Total Area (Sq.Ft)</label>
-                    <input 
-                      type="number" 
-                      value={sqft} 
+                    <input
+                      type="number"
+                      value={sqft}
                       onChange={(e) => setSqft(e.target.value)}
                       placeholder="Enter area..."
                     />
@@ -74,7 +74,7 @@ const ConstructionServices = () => {
                     <label>Select Standard</label>
                     <div className="calc-pkg-selector">
                       {CONSTRUCTION_PACKAGES.map(pkg => (
-                        <button 
+                        <button
                           key={pkg.id}
                           className={selectedPkgForCalc.id === pkg.id ? 'active' : ''}
                           onClick={() => setSelectedPkgForCalc(pkg)}
@@ -110,7 +110,7 @@ const ConstructionServices = () => {
           </ScrollReveal>
         </div>
 
-        <div className="section-title-wrapper text-center" style={{marginTop: '80px'}}>
+        <div className="section-title-wrapper text-center" style={{ marginTop: '80px' }}>
           <h2>Available Building Packages</h2>
           <div className="teal-line"></div>
         </div>
@@ -133,8 +133,8 @@ const ConstructionServices = () => {
                         {feature}
                       </li>
                     ))}
-                  </ul>
-                  <button 
+                  </ul>4
+                  <button
                     className={`btn-${pkg.id === 'standard' ? 'primary' : 'secondary'} full-width`}
                     onClick={() => handleSelectPackage(pkg)}
                   >
@@ -154,7 +154,7 @@ const ConstructionServices = () => {
           <ScrollReveal direction="up">
             <h2 className="text-center">Advanced Construction Tools</h2>
             <div className="tools-grid">
-              <div className="tool-card" onClick={() => alert("Initializing 3D Virtual Environment...")} style={{cursor: 'pointer'}}>
+              <div className="tool-card" onClick={() => alert("Initializing 3D Virtual Environment...")} style={{ cursor: 'pointer' }}>
                 <span className="tool-icon"><i className="fa-solid fa-vr-cardboard"></i></span>
                 <h4>3D Virtual Walkthrough</h4>
                 <p>Visualize your home before a single brick is laid with our immersive VR designs.</p>
@@ -164,7 +164,7 @@ const ConstructionServices = () => {
                 <h4>Material Cost Calculator</h4>
                 <p>Real-time market price integration for precise budgeting and resource planning.</p>
               </div>
-              <div className="tool-card" onClick={() => setShowLiveFeed(true)} style={{cursor: 'pointer'}}>
+              <div className="tool-card" onClick={() => setShowLiveFeed(true)} style={{ cursor: 'pointer' }}>
                 <span className="tool-icon"><i className="fa-solid fa-camera"></i></span>
                 <h4>Live Site Monitoring</h4>
                 <p>Track your project in real-time with 24/7 site camera access from your dashboard.</p>
@@ -176,7 +176,7 @@ const ConstructionServices = () => {
         {/* Live Feed Simulation Modal */}
         <AnimatePresence>
           {showLiveFeed && (
-            <motion.div 
+            <motion.div
               className="live-feed-modal"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

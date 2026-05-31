@@ -52,11 +52,27 @@ export const PROPERTIES = [
 
 
 export const CONTACT_INFO = {
-  address: "13 Fifth Avenue, New York, NY 101660",
-  email: "contact@info.com",
-  phone: "555-1234-678",
-  hours: "Mon - Fri: 9:00 AM - 6:00 PM",
+  address: "Plot No. 42, Sun Bright Tower, Silicon Valley, Madhapur, Hyderabad, Telangana 500081",
+  email: "contact@sunbrightproperties.in",
+  phone: "+91 40 6789 2200",
+  hours: "Mon - Sat: 9:00 AM - 6:00 PM",
 };
+
+export const FOUNDERS = [
+  {
+    id: 1,
+    name: "Umakanth",
+    role: "Founder & CEO",
+    image: "https://res.cloudinary.com/djzgjy947/image/upload/v1780038032/WhatsApp_Image_2026-05-29_at_12.29.27_PM_qwwnqo.jpg",
+    bio: "Passionate entrepreneur and real estate visionary focused on creating premium property experiences and modern luxury home solutions across Hyderabad.",
+    location: "Hyderabad, Telangana",
+    socials: {
+      linkedin: "https://linkedin.com",
+      twitter: "https://x.com"
+    }
+  }
+];
+
 
 export const TESTIMONIALS = [
   {

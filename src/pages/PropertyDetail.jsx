@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Layout/Navbar';
@@ -14,6 +14,18 @@ const PropertyDetail = () => {
   const [bookingStep, setBookingStep] = useState('select'); // 'select', 'payment', 'success'
   const [selectedDate, setSelectedDate] = useState(15);
   const [selectedTime, setSelectedTime] = useState('10:00 AM');
+
+  // Media Gallery states
+  const [galleryIndex, setGalleryIndex] = useState(0);
+
+  const galleryImages = property ? [
+    property.image,
+    "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1000",
+    "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=1000",
+    "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=1000",
+    "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1000"
+  ] : [];
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -96,6 +108,168 @@ const PropertyDetail = () => {
                 </p>
               </div>
             </ScrollReveal>
+
+            {/* Premium Media Showcase Dashboard */}
+            <ScrollReveal direction="up" delay={0.25}>
+              <div className="property-media-dashboard">
+                <h2>Property Media Showcase</h2>
+                <div className="teal-line left" style={{ margin: '20px 0' }}></div>
+
+                <div className="media-content-area">
+                  <div className="photos-carousel-view">
+                    <div className="main-carousel-slide" style={{ backgroundImage: `url(${galleryImages[galleryIndex]})` }}>
+                      <button 
+                        className="carousel-nav-btn prev"
+                        onClick={() => setGalleryIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1))}
+                      >
+                        ‹
+                      </button>
+                      <button 
+                        className="carousel-nav-btn next"
+                        onClick={() => setGalleryIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1))}
+                      >
+                        ›
+                      </button>
+                      <div className="slide-counter-badge">
+                        {galleryIndex + 1} / {galleryImages.length}
+                      </div>
+                    </div>
+                    <div className="carousel-thumbnails-row hide-scrollbar">
+                      {galleryImages.map((img, idx) => (
+                        <div 
+                          key={idx}
+                          className={`carousel-thumb-wrapper ${galleryIndex === idx ? 'active' : ''}`}
+                          onClick={() => setGalleryIndex(idx)}
+                        >
+                          <img src={img} alt={`Thumbnail ${idx + 1}`} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Embedded styles for Media Showcase */}
+            <style dangerouslySetInnerHTML={{ __html: `
+              .property-media-dashboard {
+                background: var(--bg-secondary);
+                border: 1px solid var(--border);
+                border-radius: 24px;
+                padding: 40px;
+                box-shadow: var(--shadow-gold);
+                margin: 40px 0;
+              }
+
+              .media-content-area {
+                border-radius: 18px;
+                overflow: hidden;
+                background: #000;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                border: 1px solid rgba(212, 175, 55, 0.15);
+              }
+
+              .photos-carousel-view {
+                display: flex;
+                flex-direction: column;
+              }
+
+              .main-carousel-slide {
+                height: 450px;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 20px;
+                transition: background-image 0.5s ease-in-out;
+              }
+
+              .carousel-nav-btn {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                color: #fff;
+                font-size: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(5px);
+                user-select: none;
+              }
+
+              .carousel-nav-btn:hover {
+                background: var(--primary);
+                color: #000;
+                border-color: var(--primary);
+                transform: scale(1.1);
+              }
+
+              .slide-counter-badge {
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                background: rgba(0, 0, 0, 0.6);
+                padding: 6px 14px;
+                border-radius: 20px;
+                color: #fff;
+                font-size: 0.85rem;
+                font-weight: 500;
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+              }
+
+              .carousel-thumbnails-row {
+                display: flex;
+                gap: 12px;
+                padding: 20px;
+                background: var(--bg-secondary);
+                overflow-x: auto;
+              }
+
+              .carousel-thumb-wrapper {
+                width: 90px;
+                height: 60px;
+                border-radius: 8px;
+                overflow: hidden;
+                cursor: pointer;
+                border: 2px solid transparent;
+                transition: all 0.3s ease;
+                flex-shrink: 0;
+                opacity: 0.6;
+              }
+
+              .carousel-thumb-wrapper:hover {
+                opacity: 0.9;
+              }
+
+              .carousel-thumb-wrapper.active {
+                border-color: var(--primary);
+                opacity: 1;
+                transform: scale(1.05);
+                box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+              }
+
+              .carousel-thumb-wrapper img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+
+              @media (max-width: 768px) {
+                .property-media-dashboard {
+                  padding: 20px;
+                }
+                .main-carousel-slide {
+                  height: 300px;
+                }
+              }
+            `}} />
 
             <ScrollReveal direction="up" delay={0.3}>
               <div className="detail-features">
