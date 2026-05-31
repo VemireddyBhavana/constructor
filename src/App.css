@@ -394,6 +394,38 @@
   transform: translateY(-3px);
 }
 
+.hero-buttons-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+  .btn-hero {
+    padding: 12px 28px;
+    font-size: 0.82rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-buttons-container {
+    gap: 12px;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin: 30px auto 0;
+  }
+  .btn-hero {
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+  }
+}
+
+
 @media (max-width: 900px) {
   .navbar {
     padding: 20px;

@@ -169,7 +169,7 @@ const Home = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
-                  style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}
+                  className="hero-buttons-container"
                 >
                   <Link to="/designs">
                     <button className="btn-hero">Explore Estates</button>
