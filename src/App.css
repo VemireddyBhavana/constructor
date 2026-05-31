@@ -863,6 +863,8 @@
 .bg-cream p {
   color: var(--text-main);
 }
+
+.bg-cream-full {
   width: 100vw;
   position: relative;
   left: 50%;
