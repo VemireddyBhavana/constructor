@@ -40,11 +40,19 @@ const Contact = () => {
               <div className="contact-details-minimal">
                 <div className="detail-item">
                   <span className="detail-tag">PHONE</span>
-                  <p>P: {CONTACT_INFO.phone}</p>
+                  <p>
+                    <a href={`tel:${CONTACT_INFO.phone.replace(/[\s-]/g, '')}`} className="contact-detail-link">
+                      P: {CONTACT_INFO.phone}
+                    </a>
+                  </p>
                 </div>
                 <div className="detail-item">
                   <span className="detail-tag">EMAIL</span>
-                  <p>{CONTACT_INFO.email}</p>
+                  <p>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sunbrightproperties99@gmail.com" target="_blank" rel="noopener noreferrer" className="contact-detail-link">
+                      {CONTACT_INFO.email}
+                    </a>
+                  </p>
                 </div>
                 <div className="detail-item">
                   <span className="detail-tag">ADDRESS</span>

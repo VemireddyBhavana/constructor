@@ -31,7 +31,7 @@ const Footer = () => {
           <h3>Contact Info</h3>
           <div className="contact-links">
             <a href="#" style={{ pointerEvents: 'none' }}>{CONTACT_INFO.address}</a>
-            <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sunbrightproperties99@gmail.com" target="_blank" rel="noopener noreferrer">{CONTACT_INFO.email}</a>
             <a href={`tel:${CONTACT_INFO.phone.replace(/[\s-]/g, '')}`}>{CONTACT_INFO.phone}</a>
           </div>
         </div>
